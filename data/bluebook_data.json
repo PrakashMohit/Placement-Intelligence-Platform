@@ -1,0 +1,3778 @@
+{
+  "source": "BlueBook_IIC_2025.pdf",
+  "source_note": "Parsed from the local IIC BlueBook PDF. Review and refine entries where PDF text extraction joined line breaks unusually.",
+  "companies": [
+    {
+      "id": "abacus-insights",
+      "name": "Abacus Insights",
+      "domain": "Software Development",
+      "tags": [
+        "Employment",
+        "Entry Level Software Engineer",
+        "Software Development"
+      ],
+      "summary": "BlueBook 2025 interview entries for Abacus Insights.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "10/11/2025",
+            "job_role": "Entry Level Software Engineer",
+            "job_type": "Employment"
+          },
+          "topics": [
+            {
+              "id": "python-and-data-tools",
+              "name": "Python and Data Tools",
+              "subtopics": [
+                {
+                  "id": "python-pandas-and-numpy",
+                  "name": "Python, Pandas, and NumPy",
+                  "questions": [
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-1",
+                      "text": "Why did you choose the Python programming language for Data Science?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-2",
+                      "text": "Questions on NumPy and Pandas: What's the use of NumPy and Pandas libraries?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-3",
+                      "text": "Do you know the difference between iloc and loc in Pandas?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-4",
+                      "text": "We usually don't use Pandas when we have to host the web server as it isn't well suited for web servers. What alternatives do we use then?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-5",
+                      "text": "Why can't we use lists instead of NumPy arrays?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-6",
+                      "text": "Does NumPy internally create Python lists itself?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-7",
+                      "text": "Why are NumPy arrays faster than Python lists?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-8",
+                      "text": "Are NumPy arrays mutable?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-python-and-data-tools-9",
+                      "text": "Question about pickle library : Do you know about pickle in Python?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "software-development",
+              "name": "Software Development",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "abacus-insights-technical-software-development-1",
+                      "text": "Why not R?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-software-development-2",
+                      "text": "What's the difference between the list and array?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "abacus-insights-technical-software-development-3",
+                      "text": "Do you know about the concept of mutability?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-software-development-4",
+                      "text": "Have you ever built a web server?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-software-development-5",
+                      "text": "What web server did you use?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "abacus-insights-technical-software-development-6",
+                      "text": "What is a Jupyter notebook?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "abacus-insights-technical-databases-1",
+                      "text": "Is SQLite a database?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "abacus-insights-technical-machine-learning-1",
+                      "text": "Suppose we have a pickle file of a model that is trained on 1TB of data. Now, we get 4TBs more data. Is the pickle file we already have useful in such a scenario?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "aditya-birla",
+      "name": "Aditya Birla",
+      "domain": "Full Stack Developer Intern - 2/27/2025 - Programming Data Science Intern - 9/12/2025 - Data Science Data Engineer Intern - 8/11/2025 - Data Science",
+      "tags": [
+        "Date",
+        "Full Stack Developer Intern - 2/27/2025 - Programming Data Science Intern - 9/12/2025 - Data Science Data Engineer Intern - 8/11/2025 - Data Science",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Aditya Birla.",
+      "rounds": [
+        {
+          "id": "technical-coding-managerial",
+          "name": "Technical, Coding, Managerial",
+          "meta": {
+            "date": "",
+            "job_role": "Date",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "full-stack-developer-intern-2-27-2025-programming-data-science-intern-",
+              "name": "Full Stack Developer Intern - 2/27/2025 - Programming Data Science Intern - 9/12/2025 - Data Science Data Engineer Intern - 8/11/2025 - Data Science",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "aditya-birla-technical-coding-managerial-full-stack-developer-intern-2-27-2025-programming-data-science-intern--1",
+                      "text": "Full Stack Developer Intern - 2/27/2025",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "aditya-birla-technical-coding-managerial-full-stack-developer-intern-2-27-2025-programming-data-science-intern--2",
+                      "text": "UI designing and CSS proficiency",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "aditya-birla-technical-coding-managerial-web-and-backend-1",
+                      "text": "Are you more comfortable with Frontend, Backend, or Deployment?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "aditya-birla-technical-coding-managerial-web-and-backend-2",
+                      "text": "Explain Variables in React",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "aditya-birla-technical-coding-managerial-machine-learning-1",
+                      "text": "React Tables and their usage Questions from interview - Data Science Intern - 9/12/2025: SQL Questions based on Date & Joins Statistics Based Questions - ABC Testing, XYZ Testing, Hypothesis Testing Questions on projects and previous internships - About tools used, etc. Questions from interview - Data Engineer Intern - 8/11/2025: Provide a detailed explanation about SHAP. Explain any one major project you have worked on. Explain how decision trees work. Describe the steps of EDA in a general ML project. What is a correlation matrix and how do you interpret the values of it?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ashoka-university",
+      "name": "Ashoka University",
+      "domain": "Data Executive - Data Analytics / Data Extraction Software Developer - Software Development Domain",
+      "tags": [
+        "Data Executive - Data Analytics / Data Extraction Software Developer - Software Development Domain",
+        "Full-Time Employment"
+      ],
+      "summary": "BlueBook 2025 interview entries for Ashoka University.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "07/03/2025",
+            "job_role": "",
+            "job_type": "Full-Time Employment"
+          },
+          "topics": [
+            {
+              "id": "data-executive-data-analytics-data-extraction-software-developer-softw",
+              "name": "Data Executive - Data Analytics / Data Extraction Software Developer - Software Development Domain",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "ashoka-university-technical-data-executive-data-analytics-data-extraction-software-developer-softw-1",
+                      "text": "Data Executive: How would you extract structured data from a government agricultural website?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "ashoka-university-technical-data-executive-data-analytics-data-extraction-software-developer-softw-2",
+                      "text": "How would you extract data from PDFs typed in Indian languages?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "ashoka-university-technical-data-executive-data-analytics-data-extraction-software-developer-softw-3",
+                      "text": "The candidate was given a website and was asked to explain how the search functionality of the given website can be utilized in our own app. Have you worked on cloud?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "ashoka-university-technical-data-executive-data-analytics-data-extraction-software-developer-softw-4",
+                      "text": "Explain about any deployment pipeline you have worked on. How do you do orchestration of tasks (Job Scheduling)?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "ashoka-university-technical-data-executive-data-analytics-data-extraction-software-developer-softw-5",
+                      "text": "Security practices in a web application?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "ashoka-university-technical-data-executive-data-analytics-data-extraction-software-developer-softw-6",
+                      "text": "Will you be able to do this job along with your degree coursework?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "ashoka-university-technical-data-executive-data-analytics-data-extraction-software-developer-softw-7",
+                      "text": "Asked about: Questions related to time management (Working professional doing this degree)",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "ashoka-university-technical-generative-ai-1",
+                      "text": "Coding Round: No direct coding questions were asked Project Discussion: Explained tools and techniques used in her previous projects Discussed fine-tuning OCR models to handle Indian language PDFs Assessment / Task: Given a data analysis task: Asked to review a government website and explain the method to extract structured data Described approach to fine-tuning an OCR model for Indian language PDF extraction General Impression: Interview was practical and application-focused Candidate was confident and comfortable while explaining answers Interviewers were attentive and patient throughout the conversation Questions from Interview - Software Developer: Introduce yourself How would you integrate a third party functionality/API in your own app?",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "ashoka-university-technical-databases-1",
+                      "text": "Motivation to join/why leaving my current workplace?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "blue-pineapple",
+      "name": "Blue Pineapple",
+      "domain": "Cloud, AI",
+      "tags": [
+        "Associate Cloud Analyst",
+        "Cloud, AI",
+        "Employment"
+      ],
+      "summary": "BlueBook 2025 interview entries for Blue Pineapple.",
+      "rounds": [
+        {
+          "id": "technical-coding-managerial",
+          "name": "Technical, Coding, Managerial",
+          "meta": {
+            "date": "10/17/2025",
+            "job_role": "Associate Cloud Analyst",
+            "job_type": "Employment"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "blue-pineapple-technical-coding-managerial-machine-learning-1",
+                      "text": "Asked about: Most of the questions were based on the candidates resume The candidate was asked to explain about the tools and techniques used in their project. Radar-based image classification project - Explain the CNN model you trained and the reasoning behind your approach. Questions on AI project in current company - How did you integrate the AI pipeline with the backend Questions on React concepts such as useEffect",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "cloud-ai",
+              "name": "Cloud, AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "blue-pineapple-technical-coding-managerial-cloud-ai-1",
+                      "text": "Asked about: useState",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "blue-pineapple-technical-coding-managerial-cloud-ai-2",
+                      "text": "Asked about: async\u2013await",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "blue-pineapple-technical-coding-managerial-web-and-backend-1",
+                      "text": "Asked about: Context API",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "blue-pineapple-technical-coding-managerial-databases-1",
+                      "text": "Asked about: and the difference between PUT and PATCH SQL and cloud-related queries tied to the candidate\u2019s recent work. Coding Questions: DSA Questions and SQL questions. The candidate was required to think logically and provide a step-by-step explanation of their approach. Non-Technical Questions Questions on the candidate\u2019s background and their educational journey. Situational questions about teamwork",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "hr-and-behavioral",
+              "name": "HR and Behavioral",
+              "subtopics": [
+                {
+                  "id": "behavioral-questions",
+                  "name": "Behavioral Questions",
+                  "questions": [
+                    {
+                      "id": "blue-pineapple-technical-coding-managerial-hr-and-behavioral-1",
+                      "text": "Asked about: such as how would you handle conflicts or disagreements within a team.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cloudcolon",
+      "name": "CloudColon",
+      "domain": "Data Science & AI",
+      "tags": [
+        "AI/ML Intern",
+        "Data Science & AI",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for CloudColon.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation-coding-managerial",
+          "name": "Technical, Project Presentation, Coding, Managerial",
+          "meta": {
+            "date": "9/10/2025",
+            "job_role": "AI/ML Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "data-science-and-ai",
+              "name": "Data Science & AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "cloudcolon-technical-project-presentation-coding-managerial-data-science-and-ai-1",
+                      "text": "What is the difference between bagging and boosting Explain about the different types of SVM Given a list of numbers and a target value",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "cloudcolon-technical-project-presentation-coding-managerial-data-science-and-ai-2",
+                      "text": "Asked about: return the indices of two distinct elements whose sum equals the target. How would you find the similarity score of two sentences",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "cystar",
+      "name": "CyStar",
+      "domain": "Cybersecurity AI Intern - 9/24/2025 - AI & Cybersecurity Research Intern - (11/12/2025 & 12/18/2025) - AI & Cybersecurity",
+      "tags": [
+        "Cybersecurity AI Intern - 9/24/2025 - AI & Cybersecurity Research Intern - (11/12/2025 & 12/18/2025) - AI & Cybersecurity",
+        "Date",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for CyStar.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation-managerial",
+          "name": "Technical, Project Presentation, Managerial",
+          "meta": {
+            "date": "",
+            "job_role": "Date",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "hr-and-behavioral",
+              "name": "HR and Behavioral",
+              "subtopics": [
+                {
+                  "id": "behavioral-questions",
+                  "name": "Behavioral Questions",
+                  "questions": [
+                    {
+                      "id": "cystar-technical-project-presentation-managerial-hr-and-behavioral-1",
+                      "text": "Cybersecurity AI Intern : What is the difference between a vulnerability, a threat, and a risk?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "cystar-technical-project-presentation-managerial-hr-and-behavioral-2",
+                      "text": "What can you bring to our team?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "cystar-technical-project-presentation-managerial-projects-and-resume-1",
+                      "text": "Tell me about yourself and why you chose cybersecurity. Be honest and specific. What type of contributions can I make in CyStar, in the field of Cybersecurity. Questions from interview - Research Intern : Questions on candidate\u2019s projects: Explain about your project. Discussion on the tools and techniques used. How can your project be used in practice?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "cystar-technical-project-presentation-managerial-projects-and-resume-2",
+                      "text": "What kind of problems did you face and how did you rectify them while working on your project?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "cybersecurity-ai-intern-9-24-2025-ai-and-cybersecurity-research-intern",
+              "name": "Cybersecurity AI Intern - 9/24/2025 - AI & Cybersecurity Research Intern - (11/12/2025 & 12/18/2025) - AI & Cybersecurity",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "cystar-technical-project-presentation-managerial-cybersecurity-ai-intern-9-24-2025-ai-and-cybersecurity-research-intern-1",
+                      "text": "Why do you want to work at CyStar?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "cystar-technical-project-presentation-managerial-cybersecurity-ai-intern-9-24-2025-ai-and-cybersecurity-research-intern-2",
+                      "text": "What are you hoping to learn from us?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "d-tech-global",
+      "name": "D-Tech Global",
+      "domain": "Data Science, AI",
+      "tags": [
+        "Data Science, AI"
+      ],
+      "summary": "BlueBook 2025 interview entries for D-Tech Global.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/3/2026 Role : Computer Vision Engineer",
+            "job_role": "",
+            "job_type": ""
+          },
+          "topics": [
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "d-tech-global-technical-generative-ai-1",
+                      "text": "What is the difference between RNN vs NN How did you achieve back propagation in your CNN model Have you worked on any transformer model based projects",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "datannovite",
+      "name": "DataNnovite",
+      "domain": "Machine Learning",
+      "tags": [
+        "Associate Data Scientist",
+        "Internship",
+        "Machine Learning"
+      ],
+      "summary": "BlueBook 2025 interview entries for DataNnovite.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation-managerial",
+          "name": "Technical, Project Presentation, Managerial",
+          "meta": {
+            "date": "07/17/2025",
+            "job_role": "Associate Data Scientist",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "datannovite-technical-project-presentation-managerial-machine-learning-1",
+                      "text": "Asked about: Core machine learning concepts Parameters in ML models and mathematical logic behind each parameter How to apply changes in parameters Assignment: Prepare a Question-Answer dataset and train it on the Gemma 1.5B model Project Discussion: Discussed relevant ML topics and experience Assessment / Task: Offline assignment involving dataset creation and model training",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "dom-ventas",
+      "name": "Dom Ventas",
+      "domain": "Software Development",
+      "tags": [
+        "Employment Domain : Software Development",
+        "SDE Date : 12/24/2025",
+        "Software Development"
+      ],
+      "summary": "BlueBook 2025 interview entries for Dom Ventas.",
+      "rounds": [
+        {
+          "id": "technical-coding-managerial",
+          "name": "Technical, Coding, Managerial",
+          "meta": {
+            "date": "12/24/2025",
+            "job_role": "SDE Date : 12/24/2025",
+            "job_type": "Employment Domain : Software Development"
+          },
+          "topics": [
+            {
+              "id": "software-development",
+              "name": "Software Development",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "dom-ventas-technical-coding-managerial-software-development-1",
+                      "text": "Asked about: Discussion on the candidate\u2019s experience in the field of software development.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "enphase-energy",
+      "name": "Enphase Energy",
+      "domain": "Data Science / AI",
+      "tags": [
+        "AI/ML Intern",
+        "Data Science / AI",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Enphase Energy.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/10/2025",
+            "job_role": "AI/ML Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "data-science-ai",
+              "name": "Data Science / AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "enphase-energy-technical-data-science-ai-1",
+                      "text": "Concepts of Binary Search Trees",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "enphase-energy-technical-data-science-ai-2",
+                      "text": "Difference between Recall and Precision",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "enphase-energy-technical-projects-and-resume-1",
+                      "text": "MLP project explanation",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "enphase-energy-technical-machine-learning-1",
+                      "text": "Questions on Diffusion Models",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "enphase-energy-technical-generative-ai-1",
+                      "text": "Concepts related to Transformers",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ezdata-advisory",
+      "name": "EZData Advisory",
+      "domain": "Data Analytics, Data Engineering",
+      "tags": [
+        "Analytics Engineer Date : 1/5/2026",
+        "Data Analytics, Data Engineering",
+        "Internship Domain : Data Analytics, Data Engineering"
+      ],
+      "summary": "BlueBook 2025 interview entries for EZData Advisory.",
+      "rounds": [
+        {
+          "id": "technical-coding-managerial",
+          "name": "Technical, Coding, Managerial",
+          "meta": {
+            "date": "1/5/2026",
+            "job_role": "Analytics Engineer Date : 1/5/2026",
+            "job_type": "Internship Domain : Data Analytics, Data Engineering"
+          },
+          "topics": [
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "ezdata-advisory-technical-coding-managerial-databases-1",
+                      "text": "Asked about: Questions from SQL",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "ezdata-advisory-technical-coding-managerial-databases-2",
+                      "text": "Asked about: BigQuery and Databases Coding : Write a code to fetch data from API using PySpark and clean the fetched data Questions on Tableau and PowerBI",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "fincepta",
+      "name": "Fincepta",
+      "domain": "Data Science",
+      "tags": [
+        "AI/ML Intern",
+        "Data Science",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Fincepta.",
+      "rounds": [
+        {
+          "id": "technical-coding-managerial",
+          "name": "Technical, Coding, Managerial",
+          "meta": {
+            "date": "4/30/2025",
+            "job_role": "AI/ML Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "fincepta-technical-coding-managerial-machine-learning-1",
+                      "text": "Asked about: Classical ml question. * Feature Reduction Technique * About logistic regression * Different use cases for lasso and ridge regression * bias & variance tradeoff * Auc roc curve * Deep learning: Gradient Descent limitation and about other optimization methods. * find next date whose all numbers are unique * pandas operation on a dataset. * longest unique substring in a string.",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "flame-university",
+      "name": "FLAME University",
+      "domain": "Software Development Intern - 1/23/2025 - Software Development Research Assistant - 11/28/2025 - Data Science, NLP, AI",
+      "tags": [
+        "Date",
+        "Internship",
+        "Software Development Intern - 1/23/2025 - Software Development Research Assistant - 11/28/2025 - Data Science, NLP, AI"
+      ],
+      "summary": "BlueBook 2025 interview entries for FLAME University.",
+      "rounds": [
+        {
+          "id": "technical-presentation",
+          "name": "Technical Presentation",
+          "meta": {
+            "date": "",
+            "job_role": "Date",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "flame-university-technical-presentation-projects-and-resume-1",
+                      "text": "Software Development Intern : Project Presentation Questions",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-projects-and-resume-2",
+                      "text": "Explain a significant project and your role in it",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-projects-and-resume-3",
+                      "text": "Skill alignment with university projects",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-projects-and-resume-4",
+                      "text": "Project impact and outcomes Technical/Coding Questions",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "software-development-intern-1-23-2025-software-development-research-as",
+              "name": "Software Development Intern - 1/23/2025 - Software Development Research Assistant - 11/28/2025 - Data Science, NLP, AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-1",
+                      "text": "Technologies used and justification",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-2",
+                      "text": "Challenges faced and approach to solving them",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-3",
+                      "text": "Solve DSA problem",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-4",
+                      "text": "Debug/optimize inefficient code",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-5",
+                      "text": "Explain BFS vs DFS",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-6",
+                      "text": "System design for a scenario",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-7",
+                      "text": "Code scalability and maintainability Behavioral Questions",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-8",
+                      "text": "Describe a technical challenge you overcame",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "flame-university-technical-presentation-software-development-intern-1-23-2025-software-development-research-as-9",
+                      "text": "How do you stay updated with tech?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "flame-university-technical-presentation-generative-ai-1",
+                      "text": "Experience optimizing or refactoring code Questions from interview - Research Assistant : What is the difference between array list in java and list in python? What is the importance of attention gates in Transformer based architectures? How is PCA performed(mathematical description)? Write a one line python code to print sum of array till first occurence of digit 1 How did you perform text preprocessing in your NLP project? Why did you use attention gates in your UNET architecture?",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "folium-sensing",
+      "name": "Folium Sensing",
+      "domain": "Data Science",
+      "tags": [
+        "AI/ML Intern",
+        "Data Science",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Folium Sensing.",
+      "rounds": [
+        {
+          "id": "project-and-technical",
+          "name": "Project & Technical",
+          "meta": {
+            "date": "5/7/2025",
+            "job_role": "AI/ML Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "folium-sensing-project-and-technical-databases-1",
+                      "text": "Basic statistics questions involving expected values of a random variable Discussion on previous projects (candidate was asked to explain them) Questions on Deep Learning, particularly: Convolutional Neural Network (CNN) ResNet architecture Questions on Classification algorithms used in projects Behavioral questions: Why do you want to join Folium Sensing?",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "data-science",
+              "name": "Data Science",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "folium-sensing-project-and-technical-data-science-1",
+                      "text": "What are your long-term goals with the company?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "forbes-marshall",
+      "name": "Forbes Marshall",
+      "domain": "Programming",
+      "tags": [
+        "Backend Python Developer Intern",
+        "Internship",
+        "Programming"
+      ],
+      "summary": "BlueBook 2025 interview entries for Forbes Marshall.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/4/2025",
+            "job_role": "Backend Python Developer Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "python-and-data-tools",
+              "name": "Python and Data Tools",
+              "subtopics": [
+                {
+                  "id": "python-pandas-and-numpy",
+                  "name": "Python, Pandas, and NumPy",
+                  "questions": [
+                    {
+                      "id": "forbes-marshall-technical-python-and-data-tools-1",
+                      "text": "What is a Lambda Function in Python?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "forbes-marshall-technical-projects-and-resume-1",
+                      "text": "Explain your recent project.",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "programming",
+              "name": "Programming",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "forbes-marshall-technical-programming-1",
+                      "text": "Coding questions: o String Compression o Find the 2nd Maximum in a list o Find the 3rd Largest element in a list",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "hyderabad-water-supply-board",
+      "name": "Hyderabad Water Supply Board",
+      "domain": "Date: Full Stack Intern - Software Development - 9/30/2025 Data Analyst / MIS Expert - Data Science, Data Analytics - 9/30/2025 Data Science Intern - Data Science - 9/30/2025 Research Intern - Data Science, AI - 2/10/2026, 2/12/2026",
+      "tags": [
+        "Date: Full Stack Intern - Software Development - 9/30/2025 Data Analyst / MIS Expert - Data Science, Data Analytics - 9/30/2025 Data Science Intern - Data Science - 9/30/2025 Research Intern - Data Science, AI - 2/10/2026, 2/12/2026",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Hyderabad Water Supply Board.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation-managerial",
+          "name": "Technical, Project Presentation, Managerial",
+          "meta": {
+            "date": "Full Stack Intern - Software Development - 9/30/2025 Data Analyst / MIS Expert - Data Science, Data Analytics - 9/30/2025 Data Science Intern - Data Science - 9/30/2025 Research Intern - Data Science, AI - 2/10/2026, 2/12/2026",
+            "job_role": "",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "date-full-stack-intern-software-development-9-30-2025-data-analyst-mis",
+              "name": "Date: Full Stack Intern - Software Development - 9/30/2025 Data Analyst / MIS Expert - Data Science, Data Analytics - 9/30/2025 Data Science Intern - Data Science - 9/30/2025 Research Intern - Data Science, AI - 2/10/2026, 2/12/2026",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-date-full-stack-intern-software-development-9-30-2025-data-analyst-mis-1",
+                      "text": "Full Stack Intern - 9/30/2025: Explain about yourself. What are your key skills?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-date-full-stack-intern-software-development-9-30-2025-data-analyst-mis-2",
+                      "text": "What libraries did you use?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-date-full-stack-intern-software-development-9-30-2025-data-analyst-mis-3",
+                      "text": "What were your design choices?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-date-full-stack-intern-software-development-9-30-2025-data-analyst-mis-4",
+                      "text": "How do you stop someone from attacking the website?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-projects-and-resume-1",
+                      "text": "Explain about the projects you have worked on. List the technical tools you have experience with. Are you comfortable with all the tools mentioned in your resume?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-machine-learning-1",
+                      "text": "How would you solve real world problems. Questions on previous internships and freelance experience and how was it helpful for the candidate Questions from interview - Data Analyst / MIS Expert - 9/30/2025 : Explain about your project and its implementation Questions from interview - Data Science Intern - 9/30/2025 : Questions from the project mentioned in the resume of the candidate : Explain about YOLO Model, Computer Vision and Pandas Library If we were to collect the readings of the meters in the house through a picture instead of manual entry, can you do it using the YOLO model?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-machine-learning-2",
+                      "text": "Question from interview - Research Intern - Data Science, AI - 2/10/2026 : A project assignment was given to the applicants, and the interview was based on the project Explain the assignment Explain the entire project and do a live demo Why did you use the OCR tesseract model alone?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-machine-learning-3",
+                      "text": "Why did you not try some other open source models?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "hyderabad-water-supply-board-technical-project-presentation-managerial-machine-learning-4",
+                      "text": "Explain your code and output. Explain the lean time core integration Why did you choose tesseract and poppler. How many parameters are there in QwenSLM model",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "intellimarks-ai",
+      "name": "Intellimarks.ai",
+      "domain": "Data Science",
+      "tags": [
+        "Data Science",
+        "Data Scientist",
+        "Employment"
+      ],
+      "summary": "BlueBook 2025 interview entries for Intellimarks.ai.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/18/2025, 2/19/2025, 2/20/2025",
+            "job_role": "Data Scientist",
+            "job_type": "Employment"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "intellimarks-ai-technical-machine-learning-1",
+                      "text": "Asked about: Linear regression",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "intellimarks-ai-technical-machine-learning-2",
+                      "text": "Asked about: EDA",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "intellimarks-ai-technical-machine-learning-3",
+                      "text": "Asked about: Data Preprocessing",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "intellimarks-ai-technical-machine-learning-4",
+                      "text": "Asked about: Time Series Forecasting",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "intellimarks-ai-technical-machine-learning-5",
+                      "text": "Asked about: data modelling and modeling",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "data-science",
+              "name": "Data Science",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "intellimarks-ai-technical-data-science-1",
+                      "text": "Asked about: deployment.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "khel-ai",
+      "name": "Khel.Ai",
+      "domain": "Data Science",
+      "tags": [
+        "Data Science",
+        "Data Science & Computer Vision Intern",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Khel.Ai.",
+      "rounds": [
+        {
+          "id": "project-assignment-and-technical",
+          "name": "Project, Assignment, and Technical",
+          "meta": {
+            "date": "4/28/2025, (18 & 24) December 2025, 2/6/2026",
+            "job_role": "Data Science & Computer Vision Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "data-science",
+              "name": "Data Science",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "khel-ai-project-assignment-and-technical-data-science-1",
+                      "text": "4/28/2025",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "khel-ai-project-assignment-and-technical-data-science-2",
+                      "text": "Assessment tasks included problem-solving and coding",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "khel-ai-project-assignment-and-technical-data-science-3",
+                      "text": "Questions about computer vision applications in sports",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "khel-ai-project-assignment-and-technical-data-science-4",
+                      "text": "Feedback received was positive Questions from interview - (18 & 24) December 2025: Explain CNN including concepts like stride, pooling, kernel with activation functions. Given an image of dimension 64\u00d764\u00d73 and kernel of dimension 3\u00d73 with stride of",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "khel-ai-project-assignment-and-technical-data-science-5",
+                      "text": "What will the dimension of the resulting matrix be and the total number of parameters without bias?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "khel-ai-project-assignment-and-technical-projects-and-resume-1",
+                      "text": "Project-based questions",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "khel-ai-project-assignment-and-technical-generative-ai-1",
+                      "text": "What will the dimension of the resulting matrix be? What metrics are considered for evaluation while training an object detection model like YOLO? What is the input format for the YOLOv8 model? Explain in brief about RCNN and its variants. Question on projects - Which version of yolo did you use. Explain about XGBoost. What is the formula for F1 score? At the end of the interview, a task was assigned, on the basis of which further process will take place. The task is to train YOLOv11n and YOLOv11s on the cricket video frames and share the results with the evaluator via mail. Questions from interview - 2/6/2026 Project Project explanation and complete walkthrough of the implemented pipeline. Which YOLO model was used in the project, and whether the model was fine-tuned or used as a pre-trained model. Questions about the tools, models, and techniques used in the project, including the choice of YOLO version, how YOLO works, how DeepSORT integrates with YOLO for tracking, the role of the embedder, and related deep learning concepts. Why did you choose YOLOv8s for object detection? Why did you use Bytetrack for tracking players? What is the role of an activation function in neural networks? Which activation functions are commonly used in CNNs? Explain gradient descent and backpropagation, and how weights and biases are updated during training. Compare between Cross-Entropy loss and Mean Squared Error (MSE), and under which circumstances should they be used. Numerical questions based on convolution output size calculation given input image size, kernel size, padding, and stride (including variations such as stride = 0, stride = 1, and stride = 2). Follow-up numerical questions on calculating the number of parameters in a convolutional layer. Explanation of how YOLO works and how YOLO and DeepSORT are integrated for detection and tracking. Why YOLO alone cannot be used for tracking and why an additional tracking algorithm like DeepSORT is required. Question on how object detection labels should be structured, specifically the annotation format used by YOLO What are the main challenges in detecting players in cricket videos (e.g., motion blur, small objects, occlusion, similar background), and how would you handle them? Given an image of dimension 64\u00d764\u00d73 and kernel of dimension 3\u00d73 with stride of",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kiksar-technologies",
+      "name": "KiksAR Technologies",
+      "domain": "AI",
+      "tags": [
+        "AI",
+        "CS Trainee",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for KiksAR Technologies.",
+      "rounds": [
+        {
+          "id": "technical-coding-managerial",
+          "name": "Technical, Coding, Managerial",
+          "meta": {
+            "date": "11/26/2025",
+            "job_role": "CS Trainee",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "kiksar-technologies-technical-coding-managerial-generative-ai-1",
+                      "text": "Asked about: Questions based on project (AI) : Explain the reason for using certain specific technologies. Explain the architecture of the project. Explain the workings of transformers. Questions on parameters like top_p",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "kiksar-technologies-technical-coding-managerial-generative-ai-2",
+                      "text": "Asked about: temperature and others and how they affect the working of the LLM and responses. DSA linked list - return the most frequent element in the linked list. Was asked to optimize the code. Also",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "ai",
+              "name": "AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "kiksar-technologies-technical-coding-managerial-ai-1",
+                      "text": "Asked about: return the count of the most frequent element. Managerial Question : Assume you are stuck in a problem",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "hr-and-behavioral",
+              "name": "HR and Behavioral",
+              "subtopics": [
+                {
+                  "id": "behavioral-questions",
+                  "name": "Behavioral Questions",
+                  "questions": [
+                    {
+                      "id": "kiksar-technologies-technical-coding-managerial-hr-and-behavioral-1",
+                      "text": "Asked about: and your team members are not mature enough to help you. How will you go about solving the problem Organization Name: IIM Ranchi Job Role",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "kiksar-technologies-technical-coding-managerial-projects-and-resume-1",
+                      "text": "Asked about: Date: Business Analytics + Deep Learning Internship - 9/13/2025 - Research intern - 9/23/2025 Domain: Data Science Science Job Type: Internship Interview Rounds : Technical",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "kiksar-technologies-technical-coding-managerial-web-and-backend-1",
+                      "text": "Asked about: Project Presentation Questions from interview - Business Analytics + Deep Learning Internship - 9/13/2025 :. Propose a project (either in business analytics or deep learning) Discussion on potential improvements for the project and how the candidate would handle a new dataset in real-world conditions. Questions from interview Research intern - 9/23/2025 : Brief about you previous experiences which are relevant to the role How would you create real-time dashboards using APIs",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "kpi-partners-interview",
+      "name": "KPI Partners Interview",
+      "domain": "Data Engineering",
+      "tags": [
+        "Data Engineer Intern Data Engineer (Employment) Data Engineer \u2013 Intern + PPO Project Trainee (Probation) \u2192 Data Engineer 1 (Full-Time)",
+        "Data Engineering",
+        "Internship + Employment Mode of Interview: Online Number of Rounds: 2\u20133 (Technical, Coding, Project Discussion, Managerial) 1. Technical Evaluation Core Topics Assessed Across Candidates Interviewers consistently focused on the following areas: SQL (intermediate to advanced) Window functions, grouping, joins, schema-based queries, and scenario-based SQL logic. Python (easy to medium coding) String manipulation, dictionaries, task optimization logic, and pandas operations. Database Concepts Indexing, hashing, B-trees, normalization, schema design, data modeling. Data Engineering Fundamentals ETL concepts, data warehousing basics, log-tracking systems, comparison of data engineering vs. data science. Modern Frameworks & Tools PySpark, LangChain, AI agent workflows, RAG-based systems, Redis, Celery, project pipeline explanations. Project Deep Dives Detailed questions on past internships, ETL design, pipeline failures, and end-to-end data flow. 2. Coding, SQL & Practical Assessments Common Coding & SQL Tasks Across Candidates Candidates were asked to solve real-world engineering problems such as: SQL Tasks: Find top employees per department. Design fact/dimension tables for reward systems. Querying vehicle tables with customized ordering (Truck \u2192 Car \u2192 Bike). Airport incoming/outgoing flight counts. Consecutive month product sales without using WHERE clause. Generate category IDs. Medium\u2013advanced SQL problem solving from scratch. Python Tasks: First non-repeating character. Average waiting time calculations. String occurrence counts. Aggregation and dictionary-based logic. Custom logic tasks (e.g., computing output from lists of strings, team-balancing tasks). Pandas Tasks: Filtering, transformations, and schema-based operations. Schema Design: Designing transactional logs, login attempt tracking systems, reward systems, and shop/order schemas. Task Complexity: Easy \u2192 Intermediate \u2192 Advanced, depending on role. Most candidates reported the tasks as comfortable or moderately challenging. 3. Behavioral & Managerial Discussion Behavioral questioning was light to moderate depending on the interviewer. Common questions included: Why Data Engineering? Preference for working in a team vs. independently. Handling challenges and real project blockers. Time management scenarios. Personal introduction unrelated to technical work. Candidates answered based on past experience and academic projects. 4. Project Discussion & Tool Explanation Almost all candidates underwent deep dives into their projects, covering: ETL pipeline implementation Use of PySpark, Redis, Celery Data orchestration RAG systems and LangGraph workflows How LLMs were integrated or switched in projects SQL-heavy backend logic and schema decisions Candidates who had strong resumes with detailed projects were questioned extensively, often asked to share PPTs, workflows, and architecture diagrams. 5. Feedback, Communication & Candidate Comfort Interview flow was smooth and well-structured for most candidates. Next steps were clearly communicated. Many were told they had strong technical skills. Direct feedback was given in some cases; others received general appreciation without specifics. Most candidates reported being comfortable throughout the interview, even during difficult SQL rounds. Job Role - Data Engineer Interview Date - 2/4/2026, 2/3/2026 Job Type - Employment Job Domain - Data Science, AI"
+      ],
+      "summary": "BlueBook 2025 interview entries for KPI Partners Interview.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation-coding",
+          "name": "Technical, Project Presentation, Coding",
+          "meta": {
+            "date": "30 September \u2013 8 October 2025",
+            "job_role": "Data Engineer Intern Data Engineer (Employment) Data Engineer \u2013 Intern + PPO Project Trainee (Probation) \u2192 Data Engineer 1 (Full-Time)",
+            "job_type": "Internship + Employment Mode of Interview: Online Number of Rounds: 2\u20133 (Technical, Coding, Project Discussion, Managerial) 1. Technical Evaluation Core Topics Assessed Across Candidates Interviewers consistently focused on the following areas: SQL (intermediate to advanced) Window functions, grouping, joins, schema-based queries, and scenario-based SQL logic. Python (easy to medium coding) String manipulation, dictionaries, task optimization logic, and pandas operations. Database Concepts Indexing, hashing, B-trees, normalization, schema design, data modeling. Data Engineering Fundamentals ETL concepts, data warehousing basics, log-tracking systems, comparison of data engineering vs. data science. Modern Frameworks & Tools PySpark, LangChain, AI agent workflows, RAG-based systems, Redis, Celery, project pipeline explanations. Project Deep Dives Detailed questions on past internships, ETL design, pipeline failures, and end-to-end data flow. 2. Coding, SQL & Practical Assessments Common Coding & SQL Tasks Across Candidates Candidates were asked to solve real-world engineering problems such as: SQL Tasks: Find top employees per department. Design fact/dimension tables for reward systems. Querying vehicle tables with customized ordering (Truck \u2192 Car \u2192 Bike). Airport incoming/outgoing flight counts. Consecutive month product sales without using WHERE clause. Generate category IDs. Medium\u2013advanced SQL problem solving from scratch. Python Tasks: First non-repeating character. Average waiting time calculations. String occurrence counts. Aggregation and dictionary-based logic. Custom logic tasks (e.g., computing output from lists of strings, team-balancing tasks). Pandas Tasks: Filtering, transformations, and schema-based operations. Schema Design: Designing transactional logs, login attempt tracking systems, reward systems, and shop/order schemas. Task Complexity: Easy \u2192 Intermediate \u2192 Advanced, depending on role. Most candidates reported the tasks as comfortable or moderately challenging. 3. Behavioral & Managerial Discussion Behavioral questioning was light to moderate depending on the interviewer. Common questions included: Why Data Engineering? Preference for working in a team vs. independently. Handling challenges and real project blockers. Time management scenarios. Personal introduction unrelated to technical work. Candidates answered based on past experience and academic projects. 4. Project Discussion & Tool Explanation Almost all candidates underwent deep dives into their projects, covering: ETL pipeline implementation Use of PySpark, Redis, Celery Data orchestration RAG systems and LangGraph workflows How LLMs were integrated or switched in projects SQL-heavy backend logic and schema decisions Candidates who had strong resumes with detailed projects were questioned extensively, often asked to share PPTs, workflows, and architecture diagrams. 5. Feedback, Communication & Candidate Comfort Interview flow was smooth and well-structured for most candidates. Next steps were clearly communicated. Many were told they had strong technical skills. Direct feedback was given in some cases; others received general appreciation without specifics. Most candidates reported being comfortable throughout the interview, even during difficult SQL rounds. Job Role - Data Engineer Interview Date - 2/4/2026, 2/3/2026 Job Type - Employment Job Domain - Data Science, AI"
+          },
+          "topics": [
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "kpi-partners-interview-technical-project-presentation-coding-generative-ai-1",
+                      "text": "\"Data Engineering & SQL Difference between window functions and aggregate functions Write SQL query to find the second highest student marks using DENSE_RANK / ROW_NUMBER GROUP BY vs window functions How do you build ETL pipelines How can we handle non-relational databases? How do you use python and SQL for automation and data processing Python & AI Write a Python program to print first 10/20 prime numbers Explain list comprehension What are decorators? What are lambda (inline) functions? Python packages used in projects Machine Learning / AI What is an LLM? Explain Transformers architecture Drawbacks of Transformers Training vs Fine-tuning What is Transfer Learning? What is chunking and tokenization? Types of similarity measures (cosine, euclidean, etc.) LLM hyperparameters (temperature, top-p, max tokens) How to handle hallucinations in LLMs How to reverse the string without using the inbuilt function? One dictionary related problem. Projects What problems do you face during the development of a project? How do you go about solving the problem. Questions on tools and techniques used Explain RAG architecture that i used in my project Explain some of the ML models used in your project Tech stack explanation (backend, database, cloud) The difference between relational and dimensional models, and how your project data was structured for querying and analysis. Have you worked on any llm based project? Questions on why certain technologies were used What are the core foundations of data engineering? What was your source data in your recent project, and what validations or cleaning did you perform? You receive a student file with ID, name, phone number, and email \u2014 how would you validate that the phone number is correctly formatted and not blank? Files arrive in an AWS S3 bucket every 5 minutes \u2014 how would you design a pipeline to load data into a database, reject invalid files, send notifications, and continue processing? Design a simple relational data model with 3\u20134 tables for your project, and write a SQL query to find the top 3 users who asked the most queries in January",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "kpi-partners-interview-technical-project-presentation-coding-generative-ai-2",
+                      "text": "Define the sorting and searching algorithm. Do you know about confusion matrix? What are the evaluation matrix we use in regression model? If our data is imbalanced then which evaluation metrics we use? He ask me about how do you handle the duplicate user registration in web application project. Coding Question : Write a Python validation function to check phone number formats. The candidate was asked to design a simple AWS S3 ingestion pipeline logic with validation and rejection handling. Writing SQL queries on a sample relational data model, such as finding the top users by query count, identifying missing responses using joins, and doing weekly aggregation of failed queries. Write a Python program to print first k prime numbers. Create is_prime() function use loop + square root optimization SQL : find second highest student marks with name, can solved using DENSE_RANK() window function Preprocessing files using AWS S3 SQL-based problems on a relational data model such as ranking users, handling missing records with joins, and doing week-wise aggregation of query failures. Other questions: How do you manage your part time work with studies How did you handle real projects during internships What was your approach when you were independently learning RAG embeddings? APIs, etc. What experience did you gain during your internship?",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "krsta-consultancy",
+      "name": "Krsta Consultancy",
+      "domain": "AI Engineer Intern - Artificial Intelligence AI ENGINEER INTERN - Artificial Intelligence Web Development Intern - Programming, Software Engineering NLP Quality Analyst - Data Science & AI",
+      "tags": [
+        "AI Engineer Intern - 1/16/2025 AI ENGINEER INTERN - 11/18/2025 Web Development Intern - 11/14/2025 NLP Quality Analyst - 7/31/2025",
+        "AI Engineer Intern - Artificial Intelligence AI ENGINEER INTERN - Artificial Intelligence Web Development Intern - Programming, Software Engineering NLP Quality Analyst - Data Science & AI",
+        "Internship 1 AI Engineer Intern - 1/16/2025"
+      ],
+      "summary": "BlueBook 2025 interview entries for Krsta Consultancy.",
+      "rounds": [
+        {
+          "id": "project-presentation",
+          "name": "Project Presentation",
+          "meta": {
+            "date": "\u2019s background, skills, projects, area of interests, etc. Project Related Question - Explain about the tools and techniques used, method of approach. 3 W eb Development Intern - 11/14/2025",
+            "job_role": "AI Engineer Intern - 1/16/2025 AI ENGINEER INTERN - 11/18/2025 Web Development Intern - 11/14/2025 NLP Quality Analyst - 7/31/2025",
+            "job_type": "Internship 1 AI Engineer Intern - 1/16/2025"
+          },
+          "topics": [
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "krsta-consultancy-project-presentation-web-and-backend-1",
+                      "text": "Questions focused on projects completed and internships undertaken 2 AI ENGINEER INTERN - 11/18/2025 Interview Round: Technical, Managerial Questions from interview: Basic questions regarding candidate\u2019s background, skills, projects, area of interests, etc. Project Related Question - Explain about the tools and techniques used, method of approach. 3 W eb Development Intern - 11/14/2025 Interview Round: Technical, Project Presentation Questions from interview: What is your previous experience with web development?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "ai-engineer-intern-artificial-intelligence-ai-engineer-intern-artifici",
+              "name": "AI Engineer Intern - Artificial Intelligence AI ENGINEER INTERN - Artificial Intelligence Web Development Intern - Programming, Software Engineering NLP Quality Analyst - Data Science & AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "krsta-consultancy-project-presentation-ai-engineer-intern-artificial-intelligence-ai-engineer-intern-artifici-1",
+                      "text": "What programming languages and packages are you familiar with?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "krsta-consultancy-project-presentation-projects-and-resume-1",
+                      "text": "Explain about your project\u2019s workflow. How would you go about developing a web application from scratch?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "krsta-consultancy-project-presentation-generative-ai-1",
+                      "text": "Asked about: 4 NLP Quality Analyst - 7/31/2025 Interview Round: Technical Questions from interview: A 10 min time bound task to edit a short paragraph, based on a set of 7 to 9 rules, along with editing grammatical errors, if any. Basic introduction and knowledge test of NLP, LLM and AI",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latentview-analytics",
+      "name": "LatentView Analytics",
+      "domain": "Data Analytics / Machine Learning",
+      "tags": [
+        "Data Analytics / Machine Learning",
+        "Employment",
+        "Senior Data Analyst"
+      ],
+      "summary": "BlueBook 2025 interview entries for LatentView Analytics.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/28/2025",
+            "job_role": "Senior Data Analyst",
+            "job_type": "Employment"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "latentview-analytics-technical-machine-learning-1",
+                      "text": "Asked about: Questions related to machine learning models Comfort level in answering ML and data-related questions No behavioral or situational questions mentioned General discussion on ML knowledge and comfort level",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "latentview-analytics-interview",
+      "name": "LatentView Analytics Interview",
+      "domain": "Data Analytics Artificial Intelligence & Machine Learning Data Science",
+      "tags": [
+        "Data Analytics Artificial Intelligence & Machine Learning Data Science",
+        "Employment / Internship M ode of Interview: Online Number of Rounds: 2\u20134 depending on the role (Technical, Managerial, HR) Interview Process & Detailed Questions Company: latentview Analytics Role: Senior Data Analyst (Employment)",
+        "Senior Data Analyst (Employment) AI Engineer Apprentice (Internship) Data Modeling (Internship)"
+      ],
+      "summary": "BlueBook 2025 interview entries for LatentView Analytics Interview.",
+      "rounds": [
+        {
+          "id": "technical-m-anagerial-round-1-technical-m-achine-learning-and-analytic",
+          "name": "Technical + M anagerial Round 1 (Technical \u2013 M achine Learning & Analytics Concepts) The interviewer asked questions related to core machine learning models and their applications in analytics-driven environments. Key areas discussed: Machine Learning model selection for analytics tasks Understanding of regression, classification, and evaluation metrics Scenario-based questions on model interpretation Discussion on previous projects and model implementation strategies The candidate was also asked to comment on specific algorithms, their working, and how they handled real datasets during their project work. Round 2 (M anagerial Discussion) The managerial round included: Understanding the candidate\u2019s approach to problem-solving Ability to explain reasoning behind model choices Communication ability and clarity of thought Ensuring alignment with data-driven decision-making expectations Coding / Tasks: The interviewer asked problem-based M L questions, but no live coding tasks were given. Behavioral Questions: Yes, the candidate was asked situational questions and responded confidently, highlighting clarity in decision-making and technical communication. Company : latentview Analytics Role 2 : AI Engineer Apprentice (Internship) Interview Rounds: Technical, M anagerial, HR Round 1 (Technical \u2013 M L, DL, Agentic AI Concepts) The interview began with a deep dive into theoretical and applied AI concepts. Key topics covered: Bias\u2013Variance Tradeoff ML and DL fundamentals Scenario-based problem discussions Agentic AI concepts relevant to the role Understanding of ML pipelines and decision points The candidate was asked to explain thought processes behind various models, hyperparameter choices, and specific techniques used in their projects. Coding / W hiteboard Tasks: No live coding problems were asked. However, the interviewer tested depth of understanding in ML & DL by asking advanced conceptual questions. Round 2 (Technical \u2013 Project & Implementation Deep Dive) This round focused heavily on: RAG projects implemented by the candidate Agentic system design and evaluation Hyperparameters tuning strategies Testing inference stages and ensuring reliability of GenAI systems Implementation details of a voice assistant using GenAI The interviewer explored the complete architecture and reasoning behind design choices. Round 3 (M anagerial Discussion) Managerial questions included: Handling situational/behavioral scenarios Decision-making process during model development Communication clarity and confidence The candidate handled these questions using knowledge from the Deep Learning course and prior projects. Round 4 (HR Discussion) This round included: Clarity on selection process Explanation of next steps Final alignment with company expectations Company : Latentview Analytics Role 3 : Data M odeling (Internship) Rounds : Technical, Coding, HR",
+          "meta": {
+            "date": "28 February 2025 / 23 October 2025 / 19 October 2025",
+            "job_role": "Senior Data Analyst (Employment) AI Engineer Apprentice (Internship) Data Modeling (Internship)",
+            "job_type": "Employment / Internship M ode of Interview: Online Number of Rounds: 2\u20134 depending on the role (Technical, Managerial, HR) Interview Process & Detailed Questions Company: latentview Analytics Role: Senior Data Analyst (Employment)"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "latentview-analytics-interview-technical-m-anagerial-round-1-technical-m-achine-learning-and-analytic-machine-learning-1",
+                      "text": "OOP What is OOP?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "latentview-analytics-interview-technical-m-anagerial-round-1-technical-m-achine-learning-and-analytic-machine-learning-2",
+                      "text": "Explain inheritance and abstraction. Give one real-world example where encapsulation is used. SQL: Write an SQL query to \ufb01nd the second-highest salary in a company. What is the di\ufb00erence between LEFT JOIN and RIGHT JOIN?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "latentview-analytics-interview-technical-m-anagerial-round-1-technical-m-achine-learning-and-analytic-machine-learning-3",
+                      "text": "What is the di\ufb00erence between DELETE, DROP, and TRUNCATE?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "latentview-analytics-interview-technical-m-anagerial-round-1-technical-m-achine-learning-and-analytic-machine-learning-4",
+                      "text": "Additional basic questions related to SQL. Projects: Explain your project. Python: Write a Python function to \ufb01nd all duplicate entries in a given table. Write a Python function to \ufb01nd all duplicates in a given table. Write a Python program to \ufb01nd the maximum value in a given list. Behavioral Questions: Why should we hire you?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "latentview-analytics-interview-technical-m-anagerial-round-1-technical-m-achine-learning-and-analytic-machine-learning-5",
+                      "text": "What is your weakness?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "latentview-analytics-interview-technical-m-anagerial-round-1-technical-m-achine-learning-and-analytic-machine-learning-6",
+                      "text": "What is your strength?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "lighthouse",
+      "name": "Lighthouse",
+      "domain": "Data Engineering",
+      "tags": [
+        "Data Engineer",
+        "Data Engineering",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Lighthouse.",
+      "rounds": [
+        {
+          "id": "technical-assignment",
+          "name": "Technical Assignment",
+          "meta": {
+            "date": "3/9/2025",
+            "job_role": "Data Engineer",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "hr-and-behavioral",
+              "name": "HR and Behavioral",
+              "subtopics": [
+                {
+                  "id": "behavioral-questions",
+                  "name": "Behavioral Questions",
+                  "questions": [
+                    {
+                      "id": "lighthouse-technical-assignment-hr-and-behavioral-1",
+                      "text": "Asked about: Hard-level DSA questions in the assignment Coding questions through the assignment No verbal technical round mentioned",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "liv-ai",
+      "name": "Liv.ai",
+      "domain": "Programming",
+      "tags": [
+        "Engineering Intern",
+        "Internship",
+        "Programming"
+      ],
+      "summary": "BlueBook 2025 interview entries for Liv.ai.",
+      "rounds": [
+        {
+          "id": "technical-coding",
+          "name": "Technical Coding",
+          "meta": {
+            "date": "2/26/2025",
+            "job_role": "Engineering Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "python-and-data-tools",
+              "name": "Python and Data Tools",
+              "subtopics": [
+                {
+                  "id": "python-pandas-and-numpy",
+                  "name": "Python, Pandas, and NumPy",
+                  "questions": [
+                    {
+                      "id": "liv-ai-technical-coding-python-and-data-tools-1",
+                      "text": "Sorting a large array in Python, time complexity, execution time measurement",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "liv-ai-technical-coding-python-and-data-tools-2",
+                      "text": "General discussion on problem-solving skills and comfort level with Python",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "programming",
+              "name": "Programming",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "liv-ai-technical-coding-programming-1",
+                      "text": "Questions on sorting algorithms: Quick Sort, Merge Sort",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "aptitude-and-case",
+              "name": "Aptitude and Case",
+              "subtopics": [
+                {
+                  "id": "reasoning-and-business-cases",
+                  "name": "Reasoning and Business Cases",
+                  "questions": [
+                    {
+                      "id": "liv-ai-technical-coding-aptitude-and-case-1",
+                      "text": "Code Fibonacci series with optimization and test case handling",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mediassist",
+      "name": "Mediassist",
+      "domain": "Data Science",
+      "tags": [
+        "Data Science",
+        "Internship",
+        "ML Engineer"
+      ],
+      "summary": "BlueBook 2025 interview entries for Mediassist.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation-coding",
+          "name": "Technical, Project Presentation, Coding",
+          "meta": {
+            "date": "5/8/2025",
+            "job_role": "ML Engineer",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "mediassist-technical-project-presentation-coding-machine-learning-1",
+                      "text": "Asked about: A dataset was given and have to train a ML model which can predict insurance claim amount (regression model ). Basic ML concepts",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "neopulse-energy-pvt-ltd",
+      "name": "NeoPulse Energy Pvt Ltd",
+      "domain": "Artificial Intelligence",
+      "tags": [
+        "AI Apprenticeship AI intern Date : AI Apprenticeship - 5/23/2025 AI intern - 7/24/2025",
+        "Artificial Intelligence",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for NeoPulse Energy Pvt Ltd.",
+      "rounds": [
+        {
+          "id": "technical-managerial",
+          "name": "Technical, Managerial",
+          "meta": {
+            "date": "AI Apprenticeship - 5/23/2025 AI intern - 7/24/2025",
+            "job_role": "AI Apprenticeship AI intern Date : AI Apprenticeship - 5/23/2025 AI intern - 7/24/2025",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "artificial-intelligence",
+              "name": "Artificial Intelligence",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-1",
+                      "text": "AI Apprenticeship : What is Gen AI?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-2",
+                      "text": "What is Agentic AI?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-3",
+                      "text": "Do you know about LangChain and LangGraph?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-4",
+                      "text": "Suppose you have to design an Agentic AI system\u2014how would you proceed?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-5",
+                      "text": "Behavioral Questions: How will your friends describe you?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-6",
+                      "text": "Suppose you're given a task that requires learning new things\u2014how would you approach it?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-7",
+                      "text": "(used STAR method to answer) Asked an insightful question to the interviewer about her transition from corporate to entrepreneurship, which was appreciated. Questions from interview - AI Intern How would you address token limits to maintain context in a chatbot?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-8",
+                      "text": "How do you design a multi-agent system?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-artificial-intelligence-9",
+                      "text": "How would you design a system using Generative AI and agentic AI to automate a document validation system?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-machine-learning-1",
+                      "text": "What is Model Context Protocol?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-web-and-backend-1",
+                      "text": "Have you worked with APIs?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-projects-and-resume-1",
+                      "text": "Why did you use Flask in your Application Development project?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-projects-and-resume-2",
+                      "text": "Regarding the agentic AI project: how did you handle the token limit for context and maintain session persistence in your chatbot?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "hr-and-behavioral",
+              "name": "HR and Behavioral",
+              "subtopics": [
+                {
+                  "id": "behavioral-questions",
+                  "name": "Behavioral Questions",
+                  "questions": [
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-hr-and-behavioral-1",
+                      "text": "What are your strengths and weaknesses?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-generative-ai-1",
+                      "text": "How do you monitor and control the performance of an LLM?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-generative-ai-2",
+                      "text": "What is RAG?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "neopulse-energy-pvt-ltd-technical-managerial-generative-ai-3",
+                      "text": "Behavioral Question: How would you encourage non-technical employees at the company to use your tool?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "newral",
+      "name": "Newral",
+      "domain": "Data Science, AI",
+      "tags": [
+        "Data Science, AI"
+      ],
+      "summary": "BlueBook 2025 interview entries for Newral.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/13/2026 Role : AI Developer",
+            "job_role": "",
+            "job_type": ""
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "newral-technical-machine-learning-1",
+                      "text": "About Project: Among all the projects you have worked on, choose your personal best and elaborate about the same. What techniques have you used in your machine learning project?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "newral-technical-machine-learning-2",
+                      "text": "If we give you a machine learning project, what steps will you follow?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "newral-technical-projects-and-resume-1",
+                      "text": "What tools have you used in your project?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "newral-technical-projects-and-resume-2",
+                      "text": "What projects have you worked on?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "data-science-ai",
+              "name": "Data Science, AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "newral-technical-data-science-ai-1",
+                      "text": "What was your approach?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "newral-technical-data-science-ai-2",
+                      "text": "What is backtracking?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "newral-technical-data-science-ai-3",
+                      "text": "What\u2019s your vision?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "newral-technical-data-science-ai-4",
+                      "text": "Why do you want to be an AI developer?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "newral-technical-data-science-ai-5",
+                      "text": "What\u2019s your 5 years goal",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "nuvo-ai",
+      "name": "Nuvo.Ai",
+      "domain": "Data Science & AI",
+      "tags": [
+        "Applied AI Engineer",
+        "Data Science & AI",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Nuvo.Ai.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "12/22/2025",
+            "job_role": "Applied AI Engineer",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "nuvo-ai-technical-projects-and-resume-1",
+                      "text": "Asked about: Questions about project of a candidate (Brain Tumor Segmentation) : Why was attention gates used Why was U-Net architecture used Give details about the loss function used Questions focused on projects : including the approach and logic used. More focus on problem understanding",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "data-science-and-ai",
+              "name": "Data Science & AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "nuvo-ai-technical-data-science-and-ai-1",
+                      "text": "Asked about: solution approach",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "nuvo-ai-technical-data-science-and-ai-2",
+                      "text": "Asked about: and outcomes rather than in-depth explanations of each tool or technique used. Coding Question - There is an array. Each element of the array is a list of two numbers. This element represents a time interval. The list is sorted based on the time interval. The task was to insert a new element in the right place. If the new element happens to overlap with the existing element",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "nuvo-ai-technical-data-science-and-ai-3",
+                      "text": "Asked about: the code must merge the time intervals.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ola",
+      "name": "OLA",
+      "domain": "Data Science, AI",
+      "tags": [
+        "Data Science, AI"
+      ],
+      "summary": "BlueBook 2025 interview entries for OLA.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/10/2026 Role : AI / LLM Research & Engineering Intern",
+            "job_role": "",
+            "job_type": ""
+          },
+          "topics": [
+            {
+              "id": "data-science-ai",
+              "name": "Data Science, AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "ola-technical-data-science-ai-1",
+                      "text": "Asked about: Scenario Based Logical Thinking - Assume you have medical data of a state and the date is raw data. Mention the initial steps you would perform to prepare an AI Agent.",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "parallel-dots",
+      "name": "Parallel Dots",
+      "domain": "Programming",
+      "tags": [
+        "Backend Developer Intern",
+        "Internship",
+        "Programming"
+      ],
+      "summary": "BlueBook 2025 interview entries for Parallel Dots.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/15/2025",
+            "job_role": "Backend Developer Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "parallel-dots-technical-projects-and-resume-1",
+                      "text": "Asked about: Project discussion",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "parallel-dots-technical-databases-1",
+                      "text": "Asked about: caching and query optimization",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "parallel-dots-technical-machine-learning-1",
+                      "text": "Asked about: MLP project models",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "python-and-data-tools",
+              "name": "Python and Data Tools",
+              "subtopics": [
+                {
+                  "id": "python-pandas-and-numpy",
+                  "name": "Python, Pandas, and NumPy",
+                  "questions": [
+                    {
+                      "id": "parallel-dots-technical-python-and-data-tools-1",
+                      "text": "Asked about: Pandas queries",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "parallel-dots-technical-web-and-backend-1",
+                      "text": "Asked about: REST APIs.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "reconzo",
+      "name": "Reconzo",
+      "domain": "Data Science",
+      "tags": [
+        "Data & Dashboards Intern",
+        "Data Science",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Reconzo.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation-managerial",
+          "name": "Technical, Project Presentation, Managerial",
+          "meta": {
+            "date": "12/6/2025",
+            "job_role": "Data & Dashboards Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-projects-and-resume-1",
+                      "text": "Asked about: Provide an end-to-end explanation about your PowerBI Dashboard Project Questions on data cleaning approaches for datasets with duplicate records. How to count distinct order IDs in ecommerce data How to extract the latest record per order ID using date Building a bar chart showing number of distinct orders by date Explanation of DAX measures like DISTINCTCOUNT",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "data-science",
+              "name": "Data Science",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-1",
+                      "text": "Asked about: CALCULATE",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-2",
+                      "text": "Asked about: TOPN",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-3",
+                      "text": "Asked about: removing duplicates",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-4",
+                      "text": "Asked about: extracting latest records",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-5",
+                      "text": "Asked about: and designing dashboard visuals. Questions related to handling messy data",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-6",
+                      "text": "Asked about: validating dashboard accuracy",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-7",
+                      "text": "Asked about: and responding when business stakeholders enquire about the numbers displayed. Explain about the tools and techniques you are familiar with : (Power BI",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-8",
+                      "text": "Asked about: DAX measures",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-data-science-9",
+                      "text": "Asked about: Method of approach for dashboard design and KPI selection)",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-machine-learning-1",
+                      "text": "Asked about: and SUMX General questions on data modeling and KPI creation SQL and Power BI : grouping data",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "reconzo-technical-project-presentation-managerial-databases-1",
+                      "text": "Asked about: data cleaning in Power Query",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "renault-nissan",
+      "name": "Renault Nissan",
+      "domain": "Analytics",
+      "tags": [
+        "Analytics",
+        "Business Analyst",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Renault Nissan.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/27/2025",
+            "job_role": "Business Analyst",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "renault-nissan-technical-databases-1",
+                      "text": "Asked about: SQL joins",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "renault-nissan-technical-machine-learning-1",
+                      "text": "Asked about: Numpy nearest neighbour",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "renault-nissan-technical-machine-learning-2",
+                      "text": "Asked about: overfitting",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "renault-nissan-technical-machine-learning-3",
+                      "text": "Asked about: hyperparameter tuning",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "renault-nissan-technical-machine-learning-4",
+                      "text": "Asked about: ML models",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "renault-nissan-technical-machine-learning-5",
+                      "text": "Asked about: one hot encoding",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "analytics",
+              "name": "Analytics",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "renault-nissan-technical-analytics-1",
+                      "text": "Asked about: data cleaning",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "renault-nissan-technical-projects-and-resume-1",
+                      "text": "Asked about: resume and internship-related questions.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "renault-nissan-technology-and-business-center-india",
+      "name": "Renault Nissan Technology and Business Center India",
+      "domain": "Data Science",
+      "tags": [
+        "Data Science",
+        "Data Science Intern",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Renault Nissan Technology and Business Center India.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/17/2025",
+            "job_role": "Data Science Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "renault-nissan-technology-and-business-center-india-technical-web-and-backend-1",
+                      "text": "What's the difference between Next.js and React.js?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "renault-nissan-technology-and-business-center-india-technical-generative-ai-1",
+                      "text": "What's a decoder? Draw the architecture.",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "renault-nissan-technology-and-business-center-india-technical-generative-ai-2",
+                      "text": "What is LLM fine-tuning? What are the steps involved? Implement finetuning using resources from HuggingFace.",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "renault-nissan-technology-and-business-center-india-technical-generative-ai-3",
+                      "text": "Explain the LLAMA 3.3 architecture.",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "renault-nissan-technology-and-business-center-india-technical-generative-ai-4",
+                      "text": "What's a RAG model? And how is it different from LLM fine tuning? Also included questions about SQL, DBMS, ML project explanation, hyperparameter tuning, Python program execution, and resume and CGPA discussion.",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "scaler",
+      "name": "Scaler",
+      "domain": "Data Science & AI",
+      "tags": [
+        "Data Science & AI",
+        "Data Scientist and SME",
+        "Employment"
+      ],
+      "summary": "BlueBook 2025 interview entries for Scaler.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "12/9/2025",
+            "job_role": "Data Scientist and SME",
+            "job_type": "Employment"
+          },
+          "topics": [
+            {
+              "id": "data-science-and-ai",
+              "name": "Data Science & AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "scaler-technical-data-science-and-ai-1",
+                      "text": "Conceptual Questions What is IQR?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-2",
+                      "text": "What are Outliers?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-3",
+                      "text": "How to handle outliers?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-4",
+                      "text": "Is mean or median affected by outliers?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-5",
+                      "text": "Follow up: Why is the mean affected?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-6",
+                      "text": "Next follow up: Why is median not affected?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-7",
+                      "text": "Explain about normal distribution?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-8",
+                      "text": "Tell few properties of normal What is CLT?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-9",
+                      "text": "What is p-value?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-10",
+                      "text": "What does it mean to say : \u201cI have p-value of 0.03 with significance level 95?\u201d What is hypothesis testing?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-11",
+                      "text": "What did you do for imputation in categorical features?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-12",
+                      "text": "What are the options for imputation of categorical features?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-13",
+                      "text": "How we do that?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-14",
+                      "text": "How do you handle underfitting?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-15",
+                      "text": "What is l1 and l2 regularization?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-16",
+                      "text": "What is bias and variance?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-17",
+                      "text": "Questions about evaluation metrics: What metrics did you use?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-18",
+                      "text": "Why is f1 score used over accuracy?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-19",
+                      "text": "How to handle imbalance data?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-20",
+                      "text": "What does it mean by stratify splitting?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-21",
+                      "text": "What happens in simple k-fold?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-22",
+                      "text": "What is the difference between evaluation metrics and error metrics?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-23",
+                      "text": "Questions on regularization: What is regularization?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-24",
+                      "text": "What is data augmentation?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-25",
+                      "text": "What is dropout?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-26",
+                      "text": "Explain about the method of ensembling?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-27",
+                      "text": "What are polynomial features?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-28",
+                      "text": "What is multicolinearity?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-29",
+                      "text": "and how do you handle it?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-30",
+                      "text": "Tell me at one place where it does not. What is a decision tree?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-31",
+                      "text": "What is entropy?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-32",
+                      "text": "What is WCSS?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-33",
+                      "text": "What is k-means ++?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-34",
+                      "text": "What is PCA?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-35",
+                      "text": "Questions focused on deep learning: Explain CNN What is stride, padding, convolution?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-36",
+                      "text": "What is vanishing gradient?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-37",
+                      "text": "What are the optimizing techniques you know?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-38",
+                      "text": "How does LoRA works?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-data-science-and-ai-39",
+                      "text": "What is beam search?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "scaler-technical-databases-1",
+                      "text": "What is the difference between standardization and normalization?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "scaler-technical-machine-learning-1",
+                      "text": "ML Project Related Questions What did you use for null values?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "scaler-technical-machine-learning-2",
+                      "text": "Can we do the imputation using models?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-machine-learning-3",
+                      "text": "Questions about models: What models did you use What is the difference between bagging and boosting?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "scaler-technical-machine-learning-4",
+                      "text": "What can be prevented by using a boosting model What can be prevented by using a bagging model How do you handle overfitting?",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "scaler-technical-machine-learning-5",
+                      "text": "What are other metrics for regression and classification?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "scaler-technical-machine-learning-6",
+                      "text": "Does scaling always affect model performance?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "scaler-technical-generative-ai-1",
+                      "text": "Then he asked to explain them. Questions on LLM Explain transformers. Do you know fine tuning techniques?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "scaler-technical-projects-and-resume-1",
+                      "text": "Question about the candidate\u2019s computer vision project (Object Detection) : Explain how YOLO works. Do you have knowledge about the deployment aspects of AI/ML : Hugging Face, Streamlit, Docker, AWS, etc. Do you have knowledge about GenAI and Reinforcement Learning?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sequelstring",
+      "name": "SequelString",
+      "domain": "Artificial Intelligence / Machine Learning",
+      "tags": [
+        "AI/ML Intern",
+        "Artificial Intelligence / Machine Learning",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for SequelString.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "6/23/2025",
+            "job_role": "AI/ML Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "sequelstring-technical-machine-learning-1",
+                      "text": "What kind of projects have you done in AI?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "sequelstring-technical-machine-learning-2",
+                      "text": "Explain in detail the project: \u201cDenoising and 4x Super-Resolution of Low-Light Images\u201d \u2014 architecture and approach used. What tools and libraries were used in the denoising project?",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "sequelstring-technical-machine-learning-3",
+                      "text": "What programming language have you used in your projects?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "sequelstring-technical-machine-learning-4",
+                      "text": "(Answer: Python) How proficient are you in Python?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "sequelstring-technical-machine-learning-5",
+                      "text": "Are you comfortable with conducting research?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "sequelstring-technical-machine-learning-6",
+                      "text": "Are you willing to relocate for the internship if required?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "sequelstring-technical-machine-learning-7",
+                      "text": "Asked about: Discussed technical details of the projects completed during the BS program.",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "southern-railways",
+      "name": "Southern Railways",
+      "domain": "Data Analysis / Web Development",
+      "tags": [
+        "Data Analysis & Software Developer",
+        "Data Analysis / Web Development",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Southern Railways.",
+      "rounds": [
+        {
+          "id": "project-and-technical",
+          "name": "Project & Technical",
+          "meta": {
+            "date": "5/8/2025",
+            "job_role": "Data Analysis & Software Developer",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "southern-railways-project-and-technical-projects-and-resume-1",
+                      "text": "Asked about: Questions related to dashboards Web development experience Prior projects and roles in those",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "spirelia",
+      "name": "Spirelia",
+      "domain": "Data Science & AI",
+      "tags": [
+        "AI/ML Intern",
+        "Data Science & AI",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Spirelia.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation",
+          "name": "Technical, Project Presentation",
+          "meta": {
+            "date": "9/26/2025",
+            "job_role": "AI/ML Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "spirelia-technical-project-presentation-generative-ai-1",
+                      "text": "How would you increase the accuracy of a RAG application",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "sudha-gopalakrishnan-brain-center-iit-madras",
+      "name": "Sudha Gopalakrishnan Brain Center, IIT Madras",
+      "domain": "1. Full Stack Intern - Web Development 2. Image Processing Intern - Data Science, Computer Vision",
+      "tags": [
+        "1. Full Stack Intern - Web Development 2. Image Processing Intern - Data Science, Computer Vision",
+        "1. Full Stack Intern 2. Image Processing Intern",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Sudha Gopalakrishnan Brain Center, IIT Madras.",
+      "rounds": [
+        {
+          "id": "technical-coding",
+          "name": "Technical + Coding",
+          "meta": {
+            "date": "Full Stack Intern - 11/6/2025 Image Processing Intern - 11/7/2025",
+            "job_role": "1. Full Stack Intern 2. Image Processing Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "python-and-data-tools",
+              "name": "Python and Data Tools",
+              "subtopics": [
+                {
+                  "id": "python-pandas-and-numpy",
+                  "name": "Python, Pandas, and NumPy",
+                  "questions": [
+                    {
+                      "id": "sudha-gopalakrishnan-brain-center-iit-madras-technical-coding-python-and-data-tools-1",
+                      "text": "Asked about: Full Stack Intern Theoretical questions on concurrent programming and object oriented programming Python coding questions involving lists and strings Questions from interview - Image Processing Intern Questions based on the projects Theoretical questions - deep learning and CNN",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "sudha-gopalakrishnan-brain-center-iit-madras-technical-coding-generative-ai-1",
+                      "text": "Asked about: encoders and decoders An image processing scenario is given. The task is to describe the model architecture that could be used to solve the problem. Basic python programming - Write code for dot product and matrix multiplication Solve matrix multiplication using the tensor flow module. Make a model which could change the color of an apparel that the person in a given picture was wearing without disturbing any other feature of the image.",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "synaptyx-ai",
+      "name": "SynaptyX AI",
+      "domain": "Web Development, AI",
+      "tags": [
+        "AI Associate- Frontend Engineer",
+        "Employment",
+        "Web Development, AI"
+      ],
+      "summary": "BlueBook 2025 interview entries for SynaptyX AI.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "12/18/2025",
+            "job_role": "AI Associate- Frontend Engineer",
+            "job_type": "Employment"
+          },
+          "topics": [
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "synaptyx-ai-technical-web-and-backend-1",
+                      "text": "List the tech tools and frameworks you are comfortable with Past experience (any internship?) Questions about the projects you have worked on - focused on frontend Do you have knowledge about cloud platforms?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "web-development-ai",
+              "name": "Web Development, AI",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "synaptyx-ai-technical-web-development-ai-1",
+                      "text": "Have you done any courses related to cloud?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "synaptyx-ai-technical-web-development-ai-2",
+                      "text": "Questions about firebase Where do you deploy your works?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "synaptyx-ai-technical-web-development-ai-3",
+                      "text": "How did you go about designing your UI?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "generative-ai",
+              "name": "Generative AI",
+              "subtopics": [
+                {
+                  "id": "llms-rag-and-fine-tuning",
+                  "name": "LLMs, RAG, and Fine-tuning",
+                  "questions": [
+                    {
+                      "id": "synaptyx-ai-technical-generative-ai-1",
+                      "text": "Questions related to prompt engineering While working on a project, if you happen to come across difficult issues, how would you tackle the issues?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "synaptyx-ai-technical-generative-ai-2",
+                      "text": "Asked about: For the application development project - a) which database is used, b) which charting/reporting tool was used, c) is the data shown in the application real or mock?, etc. For the AI project - Which model did you use and how did you design the prompts to meet the requirements.",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "syngenta",
+      "name": "Syngenta",
+      "domain": "Machine Learning / Data Science",
+      "tags": [
+        "Associate Data Scientist",
+        "Full-Time Employment",
+        "Machine Learning / Data Science"
+      ],
+      "summary": "BlueBook 2025 interview entries for Syngenta.",
+      "rounds": [
+        {
+          "id": "multiple-rounds-hackathon-technical-managerial",
+          "name": "Multiple Rounds (Hackathon + Technical + Managerial)",
+          "meta": {
+            "date": "06/06/2025",
+            "job_role": "Associate Data Scientist",
+            "job_type": "Full-Time Employment"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-1",
+                      "text": "What is the difference between linear and logistic regression?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-2",
+                      "text": "How does Random Forest work?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-3",
+                      "text": "What is the difference between bagging and boosting?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-4",
+                      "text": "How does a tree-based model work?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-5",
+                      "text": "What is hyperparameter tuning?",
+                      "difficulty": "Hard"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-6",
+                      "text": "Questions from machine learning concepts (additional questions were shared in a photo link) Why is your CGPA low in the IITM degree?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-7",
+                      "text": "Explain your current internship at CII. Why did you take up a master\u2019s in financial engineering?",
+                      "difficulty": "Medium"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-8",
+                      "text": "Why do you have experience in both sales and finance domains?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-9",
+                      "text": "Can you balance both degree and work?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-10",
+                      "text": "Why are you interested in working with an agricultural company?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-11",
+                      "text": "Are you okay relocating to Pune?",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "syngenta-multiple-rounds-hackathon-technical-managerial-machine-learning-12",
+                      "text": "Asked about: Discussion on hackathons and various projects (MAD2, BDM, website development projects) Hackathon Round: Asked to build an intelligent agent system Project Discussion: In-depth explanation of projects helped mitigate concerns regarding CGPA Projects discussed: MAD2 project, BDM project, multiple self-developed websites Data Cleaning: Yes, they asked about data preprocessing and cleaning. Explained a detailed process and importance of real-world data handling Feedback Timeline: Selection feedback received after 15 days",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tenacitics-india-private-limited",
+      "name": "Tenacitics India Private Limited",
+      "domain": "Artificial Intelligence / Machine Learning",
+      "tags": [
+        "AI/ML Intern",
+        "Artificial Intelligence / Machine Learning",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Tenacitics India Private Limited.",
+      "rounds": [
+        {
+          "id": "technical-project-presentation",
+          "name": "Technical, Project Presentation",
+          "meta": {
+            "date": "07/18/2025",
+            "job_role": "AI/ML Intern",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "tenacitics-india-private-limited-technical-project-presentation-machine-learning-1",
+                      "text": "How do you handle hallucinations and ensure meaningful",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "tenacitics-india-private-limited-technical-project-presentation-machine-learning-2",
+                      "text": "high-quality conversations in large language models?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "ticmpl",
+      "name": "TICMPL",
+      "domain": "Data Science",
+      "tags": [
+        "Data Engineer",
+        "Data Science",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for TICMPL.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "3/5/2025",
+            "job_role": "Data Engineer",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "ticmpl-technical-databases-1",
+                      "text": "Python coding questions - Asking for optimized solutions for the problem. Palindrome Checking Some common questions : Check if a string is a palindrome or not. Check if a number is a prime number or not. The task was to make sure that the solution is the most optimal one. SQL Coding - Write a query to find distinct count of grouped by variables. Join 3 table and select columns from there Situation Based Question : Assume you are a Data Engineer. If 3 different teams of your company are asking you to share some data as soon as possible, how will you act?",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "hr-and-behavioral",
+              "name": "HR and Behavioral",
+              "subtopics": [
+                {
+                  "id": "behavioral-questions",
+                  "name": "Behavioral Questions",
+                  "questions": [
+                    {
+                      "id": "ticmpl-technical-hr-and-behavioral-1",
+                      "text": "To which team will you respond first and why?",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "ticmpl-technical-projects-and-resume-1",
+                      "text": "Asked about: Provided a toy dataset and asked, what kind of techniques would you use to handle the dataset. Some questions based on the information in resume, like : experience in cloud services like GCP",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "tube-investments-of-india",
+      "name": "Tube Investments of India",
+      "domain": "Data Engineering / Data Science",
+      "tags": [
+        "Data Engineer",
+        "Data Engineering / Data Science",
+        "Internship"
+      ],
+      "summary": "BlueBook 2025 interview entries for Tube Investments of India.",
+      "rounds": [
+        {
+          "id": "technical",
+          "name": "Technical",
+          "meta": {
+            "date": "2/26/2025",
+            "job_role": "Data Engineer",
+            "job_type": "Internship"
+          },
+          "topics": [
+            {
+              "id": "databases",
+              "name": "Databases",
+              "subtopics": [
+                {
+                  "id": "sql-and-dbms",
+                  "name": "SQL and DBMS",
+                  "questions": [
+                    {
+                      "id": "tube-investments-of-india-technical-databases-1",
+                      "text": "SQL queries involving GROUP BY, JOIN, and WHERE clauses.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "python-and-data-tools",
+              "name": "Python and Data Tools",
+              "subtopics": [
+                {
+                  "id": "python-pandas-and-numpy",
+                  "name": "Python, Pandas, and NumPy",
+                  "questions": [
+                    {
+                      "id": "tube-investments-of-india-technical-python-and-data-tools-1",
+                      "text": "Python coding task: Count the number of prime numbers up to a given number.",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "tube-investments-of-india-technical-python-and-data-tools-2",
+                      "text": "Convert raw CSV data into a pandas DataFrame.",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "tube-investments-of-india-technical-python-and-data-tools-3",
+                      "text": "Asked to rate myself in Python.",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "tube-investments-of-india-technical-python-and-data-tools-4",
+                      "text": "Python coding problems: Sum of two largest prime numbers till N, Palindrome check.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "data-engineering-data-science",
+              "name": "Data Engineering / Data Science",
+              "subtopics": [
+                {
+                  "id": "interview-discussion",
+                  "name": "Interview Discussion",
+                  "questions": [
+                    {
+                      "id": "tube-investments-of-india-technical-data-engineering-data-science-1",
+                      "text": "Given a dataset (monthly data) and asked to derive insights and plot using graphs.",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "tube-investments-of-india-technical-data-engineering-data-science-2",
+                      "text": "Situational question regarding handling multiple stakeholders with urgent requests.",
+                      "difficulty": "Easy"
+                    },
+                    {
+                      "id": "tube-investments-of-india-technical-data-engineering-data-science-3",
+                      "text": "Discussion on how to present data insights differently for stakeholders vs developers.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "machine-learning",
+              "name": "Machine Learning",
+              "subtopics": [
+                {
+                  "id": "models-and-evaluation",
+                  "name": "Models and Evaluation",
+                  "questions": [
+                    {
+                      "id": "tube-investments-of-india-technical-machine-learning-1",
+                      "text": "Questions on hyperparameter tuning, libraries used, and project explanation (MLP project).",
+                      "difficulty": "Hard"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "projects-and-resume",
+              "name": "Projects and Resume",
+              "subtopics": [
+                {
+                  "id": "project-discussion",
+                  "name": "Project Discussion",
+                  "questions": [
+                    {
+                      "id": "tube-investments-of-india-technical-projects-and-resume-1",
+                      "text": "Some questions related to cloud services experience and resume projects.",
+                      "difficulty": "Medium"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "id": "web-and-backend",
+              "name": "Web and Backend",
+              "subtopics": [
+                {
+                  "id": "web-frameworks-apis-and-caching",
+                  "name": "Web Frameworks, APIs, and Caching",
+                  "questions": [
+                    {
+                      "id": "tube-investments-of-india-technical-web-and-backend-1",
+                      "text": "Follow-up questions on data science topics after revealing interest in both data engineering and science.",
+                      "difficulty": "Easy"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

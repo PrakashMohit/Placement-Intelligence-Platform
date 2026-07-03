@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Intelligence IITM® — Prepare Smarter. Get Placed Better.</title>
+    <link rel="stylesheet" href="/static/index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <img src="/static/images/logo.ico" alt="IITM Logo" style="height:48px;width:48px;">
+            <div class="logo-text"><strong style="font-size:1.1rem;">IIT MADRAS</strong><br>Placement Intelligence</div>
+        </div>
+        <ul class="nav-links">
+            <li><a href="/" class="active">Home</a></li>
+            <li><a href="{{ '/interview/new' if user else '/auth' }}">AI Interview</a></li>
+            <li><a href="{{ '/questions' if user else '/auth' }}">Questions</a></li>
+            <li><a href="#">About</a></li>
+        </ul>
+        <div class="nav-auth">
+            {% if user %}
+            <a href="/dashboard"><button class="btn-outline-lg">Dashboard</button></a>
+            <button class="btn-filled-lg" onclick="logout()">Logout</button>
+            {% else %}
+            <a href="/auth"><button class="btn-outline-lg">Login</button></a>
+            <a href="/auth"><button class="btn-filled-lg">Get Started</button></a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <main class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge fade-in">✦ Smarter prep. Better placements.</div>
+                <h1 class="slide-up">Prepare Smarter.<br><span class="orange-text">Get Placed Better.</span></h1>
+                <p class="hero-desc fade-in-delayed">Real interview experiences. Company insights. Personalized preparation. All in one place.</p>
+
+                <div class="social-proof fade-in-delayed">
+                    <div class="avatars">
+                        <div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#f27405,#fcd5a5);border:2px solid white;margin-left:-8px;"></div>
+                        <div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#6ee7b7,#059669);border:2px solid white;margin-left:-8px;"></div>
+                        <div style="width:30px;height:30px;border-radius:50%;background:linear-gradient(135deg,#818cf8,#4f46e5);border:2px solid white;margin-left:-8px;"></div>
+                    </div>
+                    <span>Trusted by <strong>500+</strong> IITM students</span>
+                </div>
+
+                <div class="hero-actions slide-up-delayed">
+                    <a href="{{ '/interview/new' if user else '/auth' }}"><button class="btn-filled-lg">Start AI Interview &rarr;</button></a>
+                    <a href="{{ '/questions' if user else '/auth' }}"><button class="btn-outline-lg">View Questions</button></a>
+                </div>
+            </div>
+
+            <div class="hero-image">
+                <img src="/static/images/background.png" alt="IIT Madras Campus" class="main-img">
+                <div class="image-fade"></div>
+
+                <div class="float-card float-top float-anim-1">
+                    <div class="card-icon orange-bg"><i data-lucide="bar-chart-2"></i></div>
+                    <div class="card-info">
+                        <small>Most Asked Topic</small>
+                        <strong>DSA</strong>
+                        <span class="green-text">↑ 32% this year</span>
+                    </div>
+                </div>
+
+                <div class="float-card float-mid float-anim-2">
+                    <div class="card-icon blue-bg"><i data-lucide="building"></i></div>
+                    <div class="card-info">
+                        <small>Companies Added</small>
+                        <strong>230+</strong>
+                        <p>This Placement Season</p>
+                    </div>
+                </div>
+
+                <div class="float-card float-bottom float-anim-3">
+                    <div class="card-icon orange-bg"><i data-lucide="target"></i></div>
+                    <div class="card-info">
+                        <small>Avg. Difficulty</small>
+                        <div class="difficulty-row">
+                            <strong>Medium</strong>
+                            <div class="circle-stat">62%</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <section class="features-section slide-up-delayed">
+        <h3>Everything you need to get placed</h3>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="f-icon"><i data-lucide="mic"></i></div>
+                <div>
+                    <h4>AI Mock Interviews</h4>
+                    <p>Natural conversational AI interviews for your target role</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="f-icon"><i data-lucide="clipboard"></i></div>
+                <div>
+                    <h4>Curated Questions</h4>
+                    <p>Topic & company-wise real interview questions from BlueBook</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="f-icon"><i data-lucide="bar-chart-3"></i></div>
+                <div>
+                    <h4>Placement Analytics</h4>
+                    <p>Track trends, difficulty & company insights</p>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="f-icon"><i data-lucide="star"></i></div>
+                <div>
+                    <h4>Personalized Prep</h4>
+                    <p>Focus on weak areas & get smarter recommendations</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="stats-footer">
+        <div class="stat-item"><strong>1000+</strong><span>Students Contributed</span></div>
+        <div class="stat-item"><strong>500+</strong><span>Companies Covered</span></div>
+        <div class="stat-item"><strong>10K+</strong><span>Questions Available</span></div>
+        <div class="stat-item"><strong>25+</strong><span>Domains</span></div>
+        <div class="testimonial">
+            <p>"This platform helped me crack my dream role."</p>
+            <small>— IITM '25</small>
+        </div>
+    </footer>
+
+<div class="bg-blob"></div>
+<script>
+    lucide.createIcons();
+    function logout() {
+        fetch('/api/auth/logout', { method: 'POST' })
+            .then(r => r.json())
+            .then(d => location.href = d.redirect);
+    }
+</script>
+</body>
+</html>

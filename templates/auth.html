@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login · IIT Madras Placement Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/login.css">
+  <style>
+    /* Hide scrollbar everywhere */
+    *, *:before, *:after { scrollbar-width: none; -ms-overflow-style: none; }
+    *::-webkit-scrollbar { display: none; }
+
+    body { overflow: auto; }
+
+    .container {
+      display: flex;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    /* LEFT panel scrollable but no scrollbar */
+    .left {
+      width: 42%;
+      padding: 32px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      overflow-y: auto;
+      min-height: 0;
+    }
+
+    .logo { margin-bottom: 28px; }
+
+    /* Tabs */
+    .tabs {
+      display: flex; gap: 0; margin-bottom: 22px;
+      background: #f4f4f4; border-radius: 14px; padding: 4px;
+    }
+    .tab-btn {
+      flex: 1; padding: 10px; border: none; background: transparent;
+      border-radius: 11px; font-weight: 600; font-size: .92rem; cursor: pointer;
+      color: #888; transition: all .2s; font-family: 'Inter', sans-serif;
+    }
+    .tab-btn.active { background: white; color: #1a1a1a; box-shadow: 0 2px 8px rgba(0,0,0,.07); }
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    /* Compact form rows */
+    .input-group { margin-bottom: 14px; }
+    .input-group input, .input-group select {
+      width: 100%; padding: 14px 18px; border-radius: 14px;
+      border: 1px solid #e7e7e7; font-size: 15px;
+      font-family: 'Inter', sans-serif; background: white; color: #1a1a1a;
+      outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .input-group input:focus, .input-group select:focus {
+      border-color: #f27405; box-shadow: 0 0 0 3px rgba(242,116,5,.08);
+    }
+    .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+    .input-row input, .input-row select {
+      width: 100%; padding: 14px 18px; border-radius: 14px;
+      border: 1px solid #e7e7e7; font-size: 15px;
+      font-family: 'Inter', sans-serif; background: white; color: #1a1a1a;
+      outline: none; transition: border-color .2s;
+    }
+    .input-row input:focus, .input-row select:focus {
+      border-color: #f27405; box-shadow: 0 0 0 3px rgba(242,116,5,.08);
+    }
+
+    .options { display: flex; justify-content: space-between; margin: 10px 0 18px; font-size: 14px; }
+    .options a { text-decoration: none; color: #f27405; }
+
+    .signin-btn {
+      width: 100%; padding: 16px; border: none; border-radius: 14px;
+      background: #f27405; color: white; font-size: 17px; font-weight: 700;
+      cursor: pointer; font-family: 'Inter', sans-serif; transition: opacity .2s;
+    }
+    .signin-btn:disabled { opacity: .6; cursor: not-allowed; }
+
+    .google-btn {
+      width: 100%; padding: 14px; border: 1.5px solid #e5e5e5; border-radius: 14px;
+      background: white; font-size: .95rem; font-weight: 600; cursor: pointer;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+      font-family: 'Inter', sans-serif; transition: border-color .2s, box-shadow .2s;
+    }
+    .google-btn:hover { border-color: #f27405; box-shadow: 0 0 0 3px rgba(242,116,5,.08); }
+    .google-btn svg { width: 18px; height: 18px; }
+
+    .divider { text-align: center; margin: 18px 0; color: #999; font-size: .9rem; }
+    .socials { display: none; } /* replaced by google-btn above */
+
+    .register { margin-top: 16px; text-align: center; font-size: .9rem; }
+    .register a { color: #f27405; text-decoration: none; font-weight: 600; }
+
+    .error-msg { color: #e53e3e; font-size: .82rem; margin-top: 8px; min-height: 18px; }
+    .success-msg { color: #38a169; font-size: .82rem; margin-top: 8px; min-height: 18px; }
+
+    /* Compact heading */
+    h1 { font-size: 64px; line-height: .92; font-weight: 800; letter-spacing: -3px; margin-bottom: 10px; }
+    h1 span { display: block; color: #f27405; }
+    .badge { display: inline-block; background: #fff1e5; color: #f27405; padding: 8px 18px; border-radius: 24px; font-weight: 600; font-size: .82rem; margin-bottom: 14px; }
+    .subtitle { margin-top: 0; margin-bottom: 20px; font-size: 17px; color: #666; line-height: 1.5; }
+
+    /* RIGHT */
+    .right { width: 58%; position: relative; overflow: hidden; flex-shrink: 0; }
+    .bg-image { width: 100%; height: 100%; object-fit: cover; }
+    .dot-grid { position: absolute; top: 130px; left: 110px; width: 140px; height: 140px;
+      background-image: radial-gradient(#f27405 1.8px, transparent 1.8px);
+      background-size: 28px 28px; z-index: 5; }
+    .fade { position: absolute; left: 0; top: 0; width: 40%; height: 100%;
+      background: linear-gradient(to right, #fafafa 0%, rgba(250,250,250,.95) 15%, rgba(250,250,250,.75) 35%, rgba(250,250,250,.2) 60%, transparent 100%); }
+    .card { position: absolute; background: rgba(255,255,255,.85); backdrop-filter: blur(15px);
+      padding: 22px; border-radius: 22px; box-shadow: 0 15px 40px rgba(0,0,0,.08); width: 260px; }
+    .card h4 { color: #666; font-weight: 500; margin-bottom: 8px; font-size: .85rem; }
+    .card h2 { font-size: 40px; margin-bottom: 6px; }
+    .card span { color: #666; font-size: .82rem; }
+    .card1 { top: 18%; right: 40px; }
+    .card2 { top: 40%; right: 40px; }
+    .card3 { bottom: 18%; right: 40px; }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="left">
+
+    <div class="logo">
+      <img src="/static/images/logo.ico" alt="IITM Logo" style="width:50px;height:50px;">
+      <div>
+        <h3 style="margin:0;font-size:18px;">IIT MADRAS</h3>
+        <p style="margin:0;color:#666;font-size:.85rem;">Placement Intelligence</p>
+      </div>
+    </div>
+
+    <div class="badge" id="auth-badge">✦ Welcome back!</div>
+    <h1>Welcome<span id="heading-sub">Back.</span></h1>
+    <p class="subtitle" id="auth-subtitle">Access interview experiences, placement analytics and company insights.</p>
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab-btn active" id="tab-login" onclick="switchTab('login')">Sign In</button>
+      <button class="tab-btn" id="tab-register" onclick="switchTab('register')">Create Account</button>
+    </div>
+
+    <!-- Login Panel -->
+    <div class="tab-panel active" id="panel-login">
+      <form id="login-form" onsubmit="handleLogin(event)">
+        <div class="input-group">
+          <input type="email" id="login-email" placeholder="Email address" required autocomplete="email">
+        </div>
+        <div class="input-group">
+          <input type="password" id="login-password" placeholder="Password" required autocomplete="current-password">
+        </div>
+        <div class="options">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox"> Remember me</label>
+          <a href="#">Forgot password?</a>
+        </div>
+        <button class="signin-btn" type="submit" id="login-btn">Sign In →</button>
+        <p class="error-msg" id="login-error"></p>
+      </form>
+
+      <div class="divider">or continue with</div>
+      <button class="google-btn" type="button" onclick="handleGoogleLogin()">
+        <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.611 20.083H42V20H24v8h11.303c-1.649 4.657-6.08 8-11.303 8-6.627 0-12-5.373-12-12s5.373-12 12-12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 12.955 4 4 12.955 4 24s8.955 20 20 20 20-8.955 20-20c0-1.341-.138-2.65-.389-3.917z"/><path fill="#FF3D00" d="M6.306 14.691l6.571 4.819C14.655 15.108 18.961 12 24 12c3.059 0 5.842 1.154 7.961 3.039l5.657-5.657C34.046 6.053 29.268 4 24 4 16.318 4 9.656 8.337 6.306 14.691z"/><path fill="#4CAF50" d="M24 44c5.166 0 9.86-1.977 13.409-5.192l-6.19-5.238A11.91 11.91 0 0124 36c-5.202 0-9.619-3.317-11.283-7.946l-6.522 5.025C9.505 39.556 16.227 44 24 44z"/><path fill="#1976D2" d="M43.611 20.083H42V20H24v8h11.303a12.04 12.04 0 01-4.087 5.571l.003-.002 6.19 5.238C36.971 39.205 44 34 44 24c0-1.341-.138-2.65-.389-3.917z"/></svg>
+        Sign in with Google
+      </button>
+      <div class="register">Don't have an account? <a href="#" onclick="switchTab('register')">Create one →</a></div>
+    </div>
+
+    <!-- Register Panel -->
+    <div class="tab-panel" id="panel-register">
+      <form id="register-form" onsubmit="handleRegister(event)">
+        <div class="input-group">
+          <input type="text" id="reg-name" placeholder="Full Name" required>
+        </div>
+        <div class="input-row">
+          <input type="text" id="reg-roll" placeholder="Roll Number">
+          <input type="number" id="reg-year" placeholder="Grad Year" min="2024" max="2030">
+        </div>
+        <div class="input-group">
+          <select id="reg-department">
+            <option value="">Select Department</option>
+            <option value="Data Science">Data Science</option>
+            <option value="Electronics Systems">Electronics Systems</option>
+            <option value="Aeronautics">Aeronautics</option>
+            <option value="Data Science with Management">Data Science with Management</option>
+          </select>
+        </div>
+        <div class="input-group">
+          <input type="email" id="reg-email" placeholder="Email address" required autocomplete="email">
+        </div>
+        <div class="input-group">
+          <input type="password" id="reg-password" placeholder="Password (min 6 chars)" required autocomplete="new-password">
+        </div>
+        <button class="signin-btn" type="submit" id="register-btn">Create Account →</button>
+        <p class="error-msg" id="register-error"></p>
+        <p class="success-msg" id="register-success"></p>
+      </form>
+      <div class="register">Already have an account? <a href="#" onclick="switchTab('login')">Sign in →</a></div>
+    </div>
+
+  </div>
+
+  <div class="right">
+    <img src="/static/images/background.png" class="bg-image">
+    <div class="dot-grid"></div>
+    <div class="fade"></div>
+    <div class="card card1">
+      <h4>Questions Available</h4>
+      <h2>10,000+</h2>
+      <span>↑ 28% this year</span>
+    </div>
+    <div class="card card2">
+      <h4>Companies Covered</h4>
+      <h2>230+</h2>
+      <span>Across 25+ domains</span>
+    </div>
+    <div class="card card3">
+      <h4>Students Contributed</h4>
+      <h2>1000+</h2>
+      <span>Trusted by IITM community</span>
+    </div>
+  </div>
+</div>
+
+<script src="/static/auth.js"></script>
+</body>
+</html>

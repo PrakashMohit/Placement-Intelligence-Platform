@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Practice Interview · IIT Madras Placement Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <img src="/static/images/logo.ico" alt="IITM Logo" style="height:45px;width:45px;">
+      <div class="logo-text"><strong style="font-size:1.1rem;">IIT MADRAS</strong><br>Placement Intelligence</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/interview/new">AI Interview</a></li>
+      <li><a href="/questions">Questions</a></li>
+      <li><a href="#">Analytics</a></li>
+    </ul>
+    <div class="nav-auth">
+      <a href="/dashboard"><button class="btn-outline-lg">Dashboard</button></a>
+    </div>
+  </nav>
+
+  <main class="dash-main">
+    <section class="setup-hero">
+      <div class="hero-badge">✦ BlueBook-powered</div>
+      <h1>Company <span class="orange-text">Practice</span> Interview</h1>
+      <p style="color:#666;font-size:1.05rem;max-width:560px;margin:10px auto 0;">Choose a company and our AI will generate fresh interview questions inspired by their real BlueBook questions — different every time.</p>
+    </section>
+
+    <div class="setup-grid">
+      <div class="setup-card-main">
+        <form id="practice-form" onsubmit="startPractice(event)">
+
+          <div class="form-section">
+            <h3><i data-lucide="building"></i> Select Company</h3>
+            <div class="company-search-wrap">
+              <input type="text" id="company-search" placeholder="Search companies from BlueBook…" autocomplete="off">
+              <i data-lucide="search" class="search-icon-inner"></i>
+            </div>
+            <div id="company-dropdown" class="company-dropdown" style="display:none;"></div>
+            <input type="hidden" id="selected-company" value="">
+            <div id="selected-company-preview" class="company-preview" style="display:none;"></div>
+            <p style="color:#888;font-size:.82rem;margin-top:8px;">Leave blank to use pure AI-generated questions without company context.</p>
+          </div>
+
+          <div class="form-section">
+            <h3><i data-lucide="graduation-cap"></i> Your Role & Level</h3>
+            <div class="form-row">
+              <label class="form-label">
+                Target Role *
+                <input id="p-role" type="text" required maxlength="80" placeholder="e.g. Software Engineer, Data Analyst">
+              </label>
+              <label class="form-label">
+                Experience Level
+                <select id="p-level">
+                  <option value="Junior">Junior</option>
+                  <option value="Mid-level" selected>Mid-level</option>
+                  <option value="Senior">Senior</option>
+                </select>
+              </label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3><i data-lucide="list-ordered"></i> Questions</h3>
+            <div class="qcount-options">
+              <label class="qcount-opt"><input type="radio" name="pqcount" value="3"> <span>3 <small>Quick</small></span></label>
+              <label class="qcount-opt active"><input type="radio" name="pqcount" value="5" checked> <span>5 <small>Standard</small></span></label>
+              <label class="qcount-opt"><input type="radio" name="pqcount" value="7"> <span>7 <small>Thorough</small></span></label>
+              <label class="qcount-opt"><input type="radio" name="pqcount" value="10"> <span>10 <small>Full</small></span></label>
+            </div>
+          </div>
+
+          <div class="form-section">
+            <h3><i data-lucide="mic"></i> Microphone Check</h3>
+            <div class="mic-row">
+              <button type="button" id="check-mic" class="btn-outline-lg" style="padding:12px 22px;">Check Microphone</button>
+              <span id="mic-msg" style="color:#888;font-size:.9rem;">Microphone access is required.</span>
+            </div>
+            <div class="meter-wrap" style="margin-top:12px;">
+              <div class="meter-bar-bg"><div id="meter-bar" class="meter-bar-fill"></div></div>
+            </div>
+          </div>
+
+          <p id="setup-error" style="color:#e53e3e;min-height:20px;font-size:.9rem;"></p>
+          <button type="submit" id="start-btn" class="btn-filled-lg" style="width:100%;padding:18px;" disabled>
+            Start Practice Interview →
+          </button>
+        </form>
+      </div>
+
+      <!-- How it works -->
+      <div class="setup-info">
+        <div class="info-card">
+          <div class="info-icon"><i data-lucide="sparkles"></i></div>
+          <h4>How company questions work</h4>
+          <ul>
+            <li>We pull real topics & questions from the IITM BlueBook</li>
+            <li>AI generates <em>fresh, similar</em> questions each session</li>
+            <li>Different every time — no repetition</li>
+            <li>Without a company selected, questions are fully AI-generated for your role</li>
+          </ul>
+        </div>
+        <div id="company-topics-preview" class="info-card" style="margin-top:16px;display:none;">
+          <div class="info-icon"><i data-lucide="book-marked"></i></div>
+          <h4 id="topics-company-name">Company Topics</h4>
+          <div id="topics-list" style="margin-top:8px;"></div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <div class="bg-blob"></div>
+
+  <script>
+    lucide.createIcons();
+
+    // ── Company data from server ──────────────────────────────────────────────
+    const allCompanies = {{ companies | tojson }};
+    let micStream, audioContext, analyser, meterFrame;
+
+    // ── Company Search ────────────────────────────────────────────────────────
+    const searchInput = document.getElementById('company-search');
+    const dropdown = document.getElementById('company-dropdown');
+    const hiddenInput = document.getElementById('selected-company');
+    const preview = document.getElementById('selected-company-preview');
+
+    searchInput.addEventListener('input', () => {
+      const q = searchInput.value.trim().toLowerCase();
+      if (!q) { dropdown.style.display = 'none'; return; }
+      const matches = allCompanies.filter(c =>
+        c.name.toLowerCase().includes(q) || c.domain.toLowerCase().includes(q)
+      ).slice(0, 10);
+      if (!matches.length) { dropdown.style.display = 'none'; return; }
+      dropdown.innerHTML = matches.map(c => `
+        <div class="dd-item" onclick="selectCompany('${c.id}','${c.name.replace(/'/g,"\\'")}','${c.domain.replace(/'/g,"\\'")}')">
+          <strong>${c.name}</strong><small>${c.domain}</small>
+        </div>
+      `).join('');
+      dropdown.style.display = 'block';
+    });
+
+    document.addEventListener('click', e => {
+      if (!e.target.closest('.company-search-wrap') && !e.target.closest('.company-dropdown')) {
+        dropdown.style.display = 'none';
+      }
+    });
+
+    function selectCompany(id, name, domain) {
+      hiddenInput.value = name;
+      searchInput.value = name;
+      dropdown.style.display = 'none';
+      preview.style.display = 'flex';
+      preview.innerHTML = `
+        <div class="company-pill">
+          <span class="cp-initials">${name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase()}</span>
+          <div><strong>${name}</strong><small>${domain}</small></div>
+          <button type="button" onclick="clearCompany()" class="cp-remove">✕</button>
+        </div>
+      `;
+      // Fetch and show topics
+      showCompanyTopics(name);
+    }
+
+    function clearCompany() {
+      hiddenInput.value = '';
+      searchInput.value = '';
+      preview.style.display = 'none';
+      document.getElementById('company-topics-preview').style.display = 'none';
+    }
+
+    async function showCompanyTopics(companyName) {
+      try {
+        const res = await fetch('/api/companies?q=' + encodeURIComponent(companyName));
+        const data = await res.json();
+        const company = (data.companies || []).find(c => c.name === companyName);
+        if (!company) return;
+        const topics = [...new Set(
+          (company.rounds || []).flatMap(r => (r.topics || []).map(t => t.name))
+        )].slice(0, 6);
+        const panel = document.getElementById('company-topics-preview');
+        document.getElementById('topics-company-name').textContent = company.name + ' — Topics';
+        document.getElementById('topics-list').innerHTML = topics.map(t =>
+          `<span class="topic-chip">${t}</span>`
+        ).join('');
+        panel.style.display = 'block';
+        lucide.createIcons();
+      } catch {}
+    }
+
+    // ── Mic ──────────────────────────────────────────────────────────────────
+    document.getElementById('check-mic').addEventListener('click', async () => {
+      const btn = document.getElementById('check-mic');
+      const msg = document.getElementById('mic-msg');
+      btn.disabled = true;
+      msg.textContent = 'Requesting microphone…';
+      try {
+        micStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
+        msg.textContent = '✓ Microphone ready!';
+        msg.style.color = '#38a169';
+        btn.textContent = '✓ Checked';
+        document.getElementById('start-btn').disabled = false;
+        audioContext = new AudioContext();
+        analyser = audioContext.createAnalyser();
+        analyser.fftSize = 256;
+        audioContext.createMediaStreamSource(micStream).connect(analyser);
+        const data = new Uint8Array(analyser.frequencyBinCount);
+        (function draw() {
+          analyser.getByteFrequencyData(data);
+          const avg = data.reduce((s, v) => s + v, 0) / data.length;
+          document.getElementById('meter-bar').style.width = Math.min(100, Math.max(2, avg * 1.8)) + '%';
+          meterFrame = requestAnimationFrame(draw);
+        })();
+      } catch {
+        msg.textContent = '✗ Microphone blocked.';
+        msg.style.color = '#e53e3e';
+        btn.disabled = false;
+      }
+    });
+
+    // ── Start ─────────────────────────────────────────────────────────────────
+    async function startPractice(event) {
+      event.preventDefault();
+      const btn = document.getElementById('start-btn');
+      btn.disabled = true;
+      btn.textContent = 'Setting up…';
+      document.getElementById('setup-error').textContent = '';
+      const qcount = document.querySelector('input[name="pqcount"]:checked').value;
+      try {
+        const res = await fetch('/api/interviews', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            role: document.getElementById('p-role').value,
+            level: document.getElementById('p-level').value,
+            focus: '',
+            company: hiddenInput.value,
+            question_count: Number(qcount),
+          }),
+        });
+        const data = await res.json();
+        if (!res.ok) throw new Error(data.error || 'Failed to start.');
+        sessionStorage.setItem('currentInterview', JSON.stringify(data));
+        cancelAnimationFrame(meterFrame);
+        audioContext?.close();
+        location.href = '/interview/room';
+      } catch (err) {
+        document.getElementById('setup-error').textContent = err.message;
+        btn.disabled = false;
+        btn.textContent = 'Start Practice Interview →';
+      }
+    }
+
+    document.querySelectorAll('input[name="pqcount"]').forEach(input => {
+      input.addEventListener('change', () => {
+        document.querySelectorAll('.qcount-opt').forEach(l => l.classList.remove('active'));
+        input.closest('.qcount-opt').classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

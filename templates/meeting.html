@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI Interviewer</title>
+  <link rel="stylesheet" href="/static/meeting.css">
+</head>
+<body>
+  <main>
+    <section id="prejoin" class="prejoin">
+      <div class="brand"><span class="brand-mark">AI</span><span>Interview Room</span></div>
+      <div class="prejoin-grid">
+        <div>
+          <p class="eyebrow">Before you join</p>
+          <h1>Ready for your interview?</h1>
+          <p class="lead">Check your microphone, then choose the role you want to practise.</p>
+          <div class="preview-tile">
+            <div class="avatar candidate-avatar">You</div>
+            <div class="preview-name">You</div>
+            <div id="preview-mic-state" class="mic-badge">Mic not checked</div>
+            <div class="meter" aria-label="Microphone input level"><span id="meter-bar"></span></div>
+          </div>
+          <div class="mic-check">
+            <button id="check-mic" class="secondary" type="button">Check microphone</button>
+            <span id="mic-message">Speak after allowing microphone access.</span>
+          </div>
+        </div>
+        <form id="setup-form" class="setup-card">
+          <h2>Interview details</h2>
+          <label>Target role <input id="role" required maxlength="80" placeholder="Backend Python Developer"></label>
+          <label>Level
+            <select id="level"><option>Junior</option><option selected>Mid-level</option><option>Senior</option></select>
+          </label>
+          <label>Focus <input id="focus" maxlength="200" placeholder="Flask, APIs, PostgreSQL"></label>
+          <label>Questions
+            <select id="question-count"><option>3</option><option selected>5</option><option>7</option><option>10</option></select>
+          </label>
+          <button id="join-button" type="submit" disabled>Join interview</button>
+          <p class="form-note">Microphone check is required before joining.</p>
+        </form>
+      </div>
+      <p id="prejoin-error" class="error" role="alert"></p>
+    </section>
+
+    <section id="interview" class="meeting hidden">
+      <header class="meeting-header">
+        <div class="brand compact"><span class="brand-mark">AI</span><span>Interview Room</span></div>
+        <div class="meeting-meta"><span id="progress-text"></span><span class="live-dot"></span><span id="status">Ready</span></div>
+      </header>
+      <div class="stage">
+        <div class="participant ai-tile">
+          <div class="avatar ai-avatar">AI</div>
+          <div class="participant-name">AI Interviewer</div>
+          <div id="ai-speaking" class="speaking-label hidden">Speaking</div>
+        </div>
+        <div id="candidate-tile" class="participant candidate-tile">
+          <div class="avatar candidate-avatar">You</div>
+          <div class="participant-name">You</div>
+          <div id="room-meter" class="room-meter"><span></span></div>
+          <div id="muted-label" class="muted-label hidden">Muted</div>
+        </div>
+      </div>
+      <section class="conversation-panel">
+        <div class="question-block"><span class="speaker-label">AI Interviewer</span><h2 id="question"></h2></div>
+        <div class="caption-block">
+          <span class="speaker-label">You · live transcript</span>
+          <p class="transcript-area">
+            <span id="final-transcript"></span><span id="interim-transcript" class="interim-text">Click "Answer" and start speaking. Your words will appear here.</span>
+          </p>
+        </div>
+        <div id="feedback" class="feedback hidden"></div>
+      </section>
+      <nav class="meeting-controls" aria-label="Interview controls">
+        <button id="mute" class="control" type="button"><span class="control-icon">Mic</span><span>Mute</span></button>
+        <button id="record" class="control primary-control" type="button"><span class="control-icon">●</span><span>Answer</span></button>
+        <button id="repeat" class="control" type="button"><span class="control-icon">↻</span><span>Repeat</span></button>
+        <button id="end" class="control danger" type="button"><span class="control-icon">×</span><span>End</span></button>
+      </nav>
+      <p id="error" class="error room-error" role="alert"></p>
+    </section>
+
+    <section id="results" class="results hidden">
+      <div class="brand compact"><span class="brand-mark">AI</span><span>Interview Room</span></div>
+      <div class="results-card">
+        <p class="eyebrow">Interview complete</p>
+        <h1 id="final-score"></h1>
+        <div id="answer-list"></div>
+        <button id="restart" type="button">Start another interview</button>
+      </div>
+    </section>
+  </main>
+  <script src="/static/meeting.js"></script>
+</body>
+</html>

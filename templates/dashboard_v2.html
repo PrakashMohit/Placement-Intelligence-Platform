@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard · IIT Madras Placement Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css">
+  <link rel="stylesheet" href="/static/dashboard_v2.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="overlay"></div>
+
+<aside class="sidebar">
+    <div class="sidebar-top">
+        <div class="sidebar-logo">
+            <img src="/static/images/logo.ico" width="42">
+            <div>
+                <strong>IIT MADRAS</strong>
+                <span>Placement Intelligence</span>
+            </div>
+        </div>
+    </div>
+
+    <nav class="sidebar-menu">
+
+        <a href="/dashboard" class="active">
+            <i data-lucide="layout-dashboard"></i>
+            Dashboard
+        </a>
+
+        <a href="/interview/new">
+            <i data-lucide="mic"></i>
+            AI Interview
+        </a>
+
+        <a href="/interview/practice">
+            <i data-lucide="building-2"></i>
+            Company Practice
+        </a>
+
+        <a href="/questions">
+            <i data-lucide="book-open"></i>
+            Questions
+        </a>
+
+        <a href="#">
+            <i data-lucide="bar-chart-2"></i>
+             Insights
+        </a>
+
+        <a href="#">
+            <i data-lucide="user"></i>
+             Profile
+        </a>
+
+        <a href="#"  onclick="logout()">
+            <i data-lucide="log-out"></i>
+            Logout
+        </a>
+
+    </nav>
+
+    <div class="sidebar-bottom">
+        <div class="user-card">
+            <div class="avatar">
+                {{ user.full_name[0] if user.full_name else "P" }}
+            </div>
+            <div>
+
+                <strong>
+
+                    {{ user.full_name }}
+
+                </strong>
+
+                <span>
+
+                    {{ user.email }}
+
+                </span>
+
+            </div>
+        </div>
+    </div>
+
+</aside>
+
+
+
+<div class="page-content">
+
+  
+
+  <main class="dash-main">
+    <section class="dashboard-grid">
+
+    <!-- LEFT -->
+
+    <div class="dashboard-left">
+
+        <section class="hero-panel">
+
+            <div class="hero-text">
+
+                <div class="hero-badge">
+                    ✦ IIT Madras Placement Intelligence
+                </div>
+
+                <h1>
+                    Good Evening,
+                    <span class="orange-text">
+                        {{ user.full_name.split()[0] if user.full_name else 'there' }}
+                    </span>
+                </h1>
+
+                <p>
+                    Continue building your interview confidence with personalized AI practice and company-specific preparation.
+                </p>
+
+            </div>
+
+            <div class="hero-buttons">
+
+                <a href="/interview/new">
+
+                    <button class="btn-filled-lg">
+
+                        Start Interview →
+
+                    </button>
+
+                </a>
+
+                <a href="/interview/practice">
+
+                    <button class="btn-outline-lg">
+
+                        Company Practice
+
+                    </button>
+
+                </a>
+
+            </div>
+
+        </section>
+
+        <!-- KPIs -->
+
+        <section class="stats-grid">
+
+            <div class="stat-card">
+
+                <i data-lucide="mic"></i>
+
+                <span>Total Interviews</span>
+
+                <strong>
+
+                    {{ interviews|length }}
+
+                </strong>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i data-lucide="star"></i>
+
+                <span>Average Score</span>
+
+                <strong>
+
+{% set scored = interviews|selectattr('average_score')|list %}
+{% if scored %}
+{{ "%.1f"|format(scored|map(attribute='average_score')|sum / scored|length) }}
+{% else %}
+—
+{% endif %}
+
+                </strong>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i data-lucide="building-2"></i>
+
+                <span>Companies</span>
+
+                <strong>
+
+{{ interviews|selectattr('company')|list|length }}
+
+                </strong>
+
+            </div>
+
+            <div class="stat-card">
+
+                <i data-lucide="trophy"></i>
+
+                <span>Completed</span>
+
+                <strong>
+
+{{ interviews|selectattr('status','equalto','completed')|list|length }}
+
+                </strong>
+
+            </div>
+
+        </section>
+
+        <!-- Quick Actions -->
+
+        <section class="quick-actions">
+
+            <h3>
+
+                Quick Actions
+
+            </h3>
+
+            <div class="actions-grid">
+
+                <a href="/interview/new" class="action-card">
+
+                    <i data-lucide="bot"></i>
+
+                    <strong>
+
+                        AI Interview
+
+                    </strong>
+
+                    <span>
+
+                        Adaptive interview powered by AI
+
+                    </span>
+
+                </a>
+
+                <a href="/interview/practice" class="action-card">
+
+                    <i data-lucide="building"></i>
+
+                    <strong>
+
+                        Company Practice
+
+                    </strong>
+
+                    <span>
+
+                        Real IITM BlueBook experiences
+
+                    </span>
+
+                </a>
+
+                <a href="/questions" class="action-card">
+
+                    <i data-lucide="book-open"></i>
+
+                    <strong>
+
+                        Browse Questions
+
+                    </strong>
+
+                    <span>
+
+                        Search thousands of interview questions
+
+                    </span>
+
+                </a>
+
+                <a href="#" class="action-card">
+
+                    <i data-lucide="bar-chart-3"></i>
+
+                    <strong>
+
+                        Analytics
+
+                    </strong>
+
+                    <span>
+
+                        View preparation insights
+
+                    </span>
+
+                </a>
+
+            </div>
+
+        </section>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="dashboard-right">
+
+        <div class="insight-card">
+
+            <h4>
+
+                Your Progress
+
+            </h4>
+
+            <div class="progress-circle">
+
+                {{ interviews|length }}
+
+            </div>
+
+            <span>
+
+                Interviews Practiced
+
+            </span>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h4>
+
+                Today's Goal
+
+            </h4>
+
+            <ul>
+
+                <li>
+
+                    ✓ Review previous interview
+
+                </li>
+
+                <li>
+
+                    □ Practice one new company
+
+                </li>
+
+                <li>
+
+                    □ Solve five DSA questions
+
+                </li>
+
+            </ul>
+
+        </div>
+
+        <div class="insight-card">
+
+            <h4>
+
+                AI Suggestion
+
+            </h4>
+
+            <p>
+
+                Based on your history, you should focus on SQL and resume-based technical interviews.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+   
+
+    <!-- Past Interviews -->
+    <section class="dash-history">
+      <div class="history-header">
+        <div>
+        <h2>Past Interviews</h2>
+        <p>Track every interview you've practiced.</p>
+        </div>
+        <a href="/interview/new"><button class="btn-filled-lg" style="padding:12px 22px;font-size:.9rem;">+ New Interview</button></a>
+      </div>
+
+      {% if interviews %}
+      <div class="history-table">
+            <div class="history-list">
+
+            {% for iv in interviews %}
+
+            <div class="history-item">
+
+            <div class="history-left">
+
+            <div class="history-avatar">
+
+            <i data-lucide="
+            {% if iv.status=='completed' %}
+            check-circle-2
+            {% elif iv.status=='active' %}
+            play-circle
+            {% else %}
+            circle
+            {% endif %}
+            "></i>
+
+            </div>
+
+            <div class="history-info">
+
+            <h3>
+
+            {{ iv.role }}
+
+            </h3>
+
+            <div class="history-meta">
+
+            <span>
+
+            <i data-lucide="building-2"></i>
+
+            {{ iv.company or 'AI Generated' }}
+
+            </span>
+
+            <span>
+
+            <i data-lucide="calendar-days"></i>
+
+            {{ iv.created_at[:10] if iv.created_at else '—' }}
+
+            </span>
+
+            <span class="level-tag">
+
+            {{ iv.level }}
+
+            </span>
+
+            </div>
+
+            </div>
+
+            </div>
+
+            <div class="history-right">
+
+            {% if iv.average_score %}
+
+            <div class="score-circle
+            {% if iv.average_score>=7 %}
+            good
+            {% elif iv.average_score>=5 %}
+            medium
+            {% else %}
+            low
+            {% endif %}
+            ">
+
+            {{ "%.1f"|format(iv.average_score) }}
+
+            </div>
+
+            {% else %}
+
+            <div class="score-circle pending">
+
+            —
+
+            </div>
+
+            {% endif %}
+
+            <div>
+
+            <span class="status-tag status-{{iv.status}}">
+
+            {{ iv.status|capitalize }}
+
+            </span>
+
+            </div>
+
+            <div>
+
+            {% if iv.status=='completed' %}
+
+            <a href="/interview/results/{{iv.id}}">
+
+            <button class="btn-view">
+
+            View Report →
+
+            </button>
+
+            </a>
+
+            {% elif iv.status=='active' %}
+
+            <button
+
+            class="btn-view"
+
+            onclick="resumeInterview('{{iv.id}}')"
+
+            >
+
+            Resume →
+
+            </button>
+
+            {% endif %}
+
+            </div>
+
+            </div>
+
+            </div>
+
+            {% endfor %}
+
+            </div>
+
+
+      {% else %}
+      <div class="history-empty">
+
+        <div class="empty-icon">
+
+        <i data-lucide="mic-off"></i>
+
+        </div>
+
+        <h3>
+
+        Your journey starts here.
+
+        </h3>
+
+        <p>
+
+        Complete your first AI interview and start building your placement profile.
+
+        </p>
+
+        <a href="/interview/new">
+
+        <button class="btn-filled-lg">
+
+        Start First Interview →
+
+        </button>
+
+        </a>
+
+        </div>
+
+      {% endif %}
+    </section>
+
+  </main>
+
+  <div class="bg-blob"></div>
+
+ </div> 
+
+  <script>
+    lucide.createIcons();
+    function logout() {
+      fetch('/api/auth/logout', { method: 'POST' })
+        .then(r => r.json())
+        .then(d => location.href = d.redirect);
+    }
+    function resumeInterview(id) {
+      // Store the interview ID and redirect to room
+      sessionStorage.setItem('resumeInterviewId', id);
+      location.href = '/interview/room';
+    }
+    
+  </script>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Interview Room · IIT Madras Placement Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/interview_room.css">
+</head>
+<body>
+
+  <header class="room-header">
+    <div class="room-brand">
+      <img src="/static/images/logo.ico" alt="IITM Logo" style="height:34px;width:34px;border-radius:8px;">
+      <div><strong>IIT MADRAS</strong><br><small>Placement Intelligence</small></div>
+    </div>
+    <div class="room-meta">
+      <span id="progress-text"></span>
+      <span class="live-dot"></span>
+      <span id="status">Setting up…</span>
+    </div>
+  </header>
+
+  <main class="room-main">
+
+    <!-- Stage: two participant tiles -->
+    <div class="stage">
+      <div class="participant ai-tile">
+        <div class="avatar ai-avatar">AI</div>
+        <div class="participant-name">AI Interviewer</div>
+        <div id="ai-speaking" class="speaking-badge hidden">Speaking…</div>
+      </div>
+      <div id="candidate-tile" class="participant candidate-tile">
+        <div class="avatar cand-avatar">You</div>
+        <div class="participant-name">{{ user.full_name.split()[0] if user.full_name else 'You' }}</div>
+        <div id="room-meter" class="room-meter"><span></span></div>
+        <div id="muted-label" class="muted-badge hidden">Muted</div>
+      </div>
+    </div>
+
+    <!-- Conversation Panel -->
+    <div class="convo-panel">
+      <div class="question-block">
+        <span class="speaker-tag">AI Interviewer</span>
+        <h2 id="question">Preparing your interview…</h2>
+      </div>
+      <div class="caption-block" id="caption-block">
+        <span class="speaker-tag you-tag">You · live transcript</span>
+        <p class="transcript-area">
+          <span id="final-transcript"></span><span id="interim-transcript" class="interim-text">Your words will appear here in real time as you speak.</span>
+        </p>
+      </div>
+      <div id="feedback" class="feedback-block hidden"></div>
+    </div>
+
+  </main>
+
+  <!-- Controls Bar -->
+  <nav class="room-controls">
+    <button id="mute" class="ctrl-btn" type="button">
+      <span class="ctrl-icon">🎙️</span><span>Mute</span>
+    </button>
+    <button id="record" class="ctrl-btn record-btn" type="button" disabled>
+      <span class="ctrl-icon">●</span><span>Answer</span>
+    </button>
+    <button id="repeat" class="ctrl-btn" type="button" disabled>
+      <span class="ctrl-icon">↻</span><span>Repeat</span>
+    </button>
+    <button id="end" class="ctrl-btn end-btn" type="button">
+      <span class="ctrl-icon">✕</span><span>End</span>
+    </button>
+  </nav>
+
+  <p id="room-error" class="room-error-msg"></p>
+
+  <!-- Results Overlay -->
+  <div id="results-overlay" class="results-overlay hidden">
+    <div class="results-card">
+      <div class="results-brand">
+        <img src="/static/images/logo.ico" alt="" style="height:36px;">
+        <div><strong>IIT MADRAS</strong><small>Placement Intelligence</small></div>
+      </div>
+      <div class="eyebrow-tag">Interview Complete</div>
+      <h1 id="final-score"></h1>
+      <div id="answer-list" class="answer-list"></div>
+      <div class="results-actions">
+        <a href="/dashboard"><button class="btn-results-secondary">Back to Dashboard</button></a>
+        <button class="btn-results-primary" onclick="location.reload()">New Interview</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/interview_room.js"></script>
+</body>
+</html>

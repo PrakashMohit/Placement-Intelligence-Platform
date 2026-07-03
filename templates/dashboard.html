@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard · IIT Madras Placement Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css">
+  <link rel="stylesheet" href="/static/dashboard.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="overlay"></div>
+
+<aside class="sidebar">
+
+...
+
+</aside>
+
+<div class="page-content">
+
+
+  <!-- NAV -->
+  <nav class="navbar">
+    
+    <div class="logo">
+      <button id="menuToggle" class="menu-btn">
+      <i data-lucide="menu"></i>
+      </button>
+      <img src="/static/images/logo.ico" alt="IITM Logo" style="height:45px;width:45px;">
+      <div class="logo-text"><strong style="font-size:1.1rem;">IIT MADRAS</strong><br>Placement Intelligence</div>
+    </div>
+    <ul class="nav-links">
+      <li><a href="/">Home</a></li>
+      <li><a href="/interview/new" class="active">AI Interview</a></li>
+      <li><a href="/questions">Questions</a></li>
+      <li><a href="#">Analytics</a></li>
+    </ul>
+    <div class="nav-auth">
+      <button class="btn-outline-lg" onclick="logout()">Logout</button>
+    </div>
+  </nav>
+
+  <main class="dash-main">
+
+    <!-- Welcome Hero -->
+    <section class="dash-hero">
+      <div class="dash-hero-text">
+        <div class="hero-badge">✦ Welcome back</div>
+        <h1>Hi, <span class="orange-text">{{ user.full_name.split()[0] if user.full_name else 'there' }}</span> </h1>
+        <p style="color:#666;font-size:1.1rem;margin-top:8px;">Ready to prep? Pick up where you left off or start something new.</p>
+      </div>
+      <div class="dash-quick-stats">
+        <div class="qs-card">
+          <i data-lucide="mic"></i>
+          <div>
+            <strong id="stat-total">{{ interviews|length }}</strong>
+            <span>Interviews Done</span>
+          </div>
+        </div>
+        <div class="qs-card">
+          <i data-lucide="star"></i>
+          <div>
+            <strong id="stat-avg">{% set scored = interviews|selectattr('average_score')|list %}{% if scored %}{{ "%.1f"|format(scored|map(attribute='average_score')|sum / scored|length) }}{% else %}—{% endif %}</strong>
+            <span>Avg Score</span>
+          </div>
+        </div>
+        <div class="qs-card">
+          <i data-lucide="building-2"></i>
+          <div>
+            <strong>{{ interviews|selectattr('company')|list|length }}</strong>
+            <span>Companies Practiced</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Cards -->
+    <section class="dash-cta-section">
+      <div class="cta-card primary-cta">
+        <div class="cta-icon"><i data-lucide="bot"></i></div>
+        <div class="cta-body">
+          <h3>AI Interview</h3>
+          <p>Custom role-based interview with our AI interviewer. Define your role, level, and focus areas.</p>
+        </div>
+        <a href="/interview/new"><button class="btn-filled-lg">Start Interview →</button></a>
+      </div>
+      <div class="cta-card">
+        <div class="cta-icon secondary-icon"><i data-lucide="building"></i></div>
+        <div class="cta-body">
+          <h3>Company Practice</h3>
+          <p>Practice with real BlueBook questions from top companies. Company-aware AI generates fresh similar questions.</p>
+        </div>
+        <a href="/interview/practice"><button class="btn-outline-lg" style="padding:14px 28px;">Choose Company →</button></a>
+      </div>
+      <div class="cta-card">
+        <div class="cta-icon secondary-icon"><i data-lucide="book-open"></i></div>
+        <div class="cta-body">
+          <h3>Browse Questions</h3>
+          <p>Explore 10,000+ curated interview questions from the IITM BlueBook with smart filters.</p>
+        </div>
+        <a href="/questions"><button class="btn-outline-lg" style="padding:14px 28px;">Browse Questions →</button></a>
+      </div>
+    </section>
+
+    <!-- Past Interviews -->
+    <section class="dash-history">
+      <div class="history-header">
+        <h2>Past Interviews</h2>
+        <a href="/interview/new"><button class="btn-filled-lg" style="padding:12px 22px;font-size:.9rem;">+ New Interview</button></a>
+      </div>
+
+      {% if interviews %}
+      <div class="history-table">
+        <div class="ht-head">
+          <span>Role</span>
+          <span>Company</span>
+          <span>Level</span>
+          <span>Score</span>
+          <span>Date</span>
+          <span>Status</span>
+          <span></span>
+        </div>
+        {% for iv in interviews %}
+        <div class="ht-row">
+          <span class="ht-role">{{ iv.role }}</span>
+          <span class="ht-company">{{ iv.company or 'AI Generated' }}</span>
+          <span><span class="level-tag">{{ iv.level }}</span></span>
+          <span class="ht-score {% if iv.average_score %}{% if iv.average_score >= 7 %}score-good{% elif iv.average_score >= 5 %}score-mid{% else %}score-low{% endif %}{% endif %}">
+            {{ "%.1f/10"|format(iv.average_score) if iv.average_score else '—' }}
+          </span>
+          <span class="ht-date">{{ iv.created_at[:10] if iv.created_at else '—' }}</span>
+          <span><span class="status-tag status-{{ iv.status }}">{{ iv.status|capitalize }}</span></span>
+          <span>
+            {% if iv.status == 'completed' %}
+            <a href="/interview/results/{{ iv.id }}"><button class="btn-view">View →</button></a>
+            {% elif iv.status == 'active' %}
+            <button class="btn-view" onclick="resumeInterview('{{ iv.id }}')">Resume →</button>
+            {% endif %}
+          </span>
+        </div>
+        {% endfor %}
+      </div>
+      {% else %}
+      <div class="history-empty">
+        <i data-lucide="inbox"></i>
+        <strong>No interviews yet</strong>
+        <span>Start your first AI interview to see results here.</span>
+        <a href="/interview/new"><button class="btn-filled-lg" style="margin-top:16px;">Start your first interview →</button></a>
+      </div>
+      {% endif %}
+    </section>
+
+  </main>
+
+  <div class="bg-blob"></div>
+
+ </div> 
+
+  <script>
+    lucide.createIcons();
+    function logout() {
+      fetch('/api/auth/logout', { method: 'POST' })
+        .then(r => r.json())
+        .then(d => location.href = d.redirect);
+    }
+    function resumeInterview(id) {
+      // Store the interview ID and redirect to room
+      sessionStorage.setItem('resumeInterviewId', id);
+      location.href = '/interview/room';
+    }
+
+    const menu=document.getElementById("menuToggle");
+
+const sidebar=document.querySelector(".sidebar");
+
+const overlay=document.querySelector(".overlay");
+
+menu.onclick=()=>{
+
+sidebar.classList.toggle("open");
+
+overlay.classList.toggle("show");
+
+document.body.classList.toggle("sidebar-open");
+
+}
+
+overlay.onclick=()=>{
+
+sidebar.classList.remove("open");
+
+overlay.classList.remove("show");
+
+document.body.classList.remove("sidebar-open");
+
+}
+  </script>
+</body>
+</html>

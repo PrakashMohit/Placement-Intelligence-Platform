@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questions | IIT Madras Placement Intelligence</title>
+    <link rel="stylesheet" href="/static/questions.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <header class="site-header">
+        <a class="brand" href="/">
+            <img src="/static/images/logo.ico" alt="IIT Madras logo">
+            <span>
+                <strong>IIT MADRAS</strong>
+                <small>Placement Intelligence</small>
+            </span>
+        </a>
+
+        <nav class="main-nav" aria-label="Main navigation">
+            <a href="/">Home</a>
+            <a href="{{ '/interview/new' if user else '/auth' }}">AI Interview</a>
+            <a class="active" href="/questions">Questions</a>
+            <a href="#">About</a>
+        </nav>
+
+    </header>
+
+    <main>
+        <section class="hero-band">
+            <div class="hero-copy">
+                <div class="breadcrumb">
+                    <a href="/">Home</a>
+                    <i data-lucide="chevron-right"></i>
+                    <span>Questions</span>
+                </div>
+                <h1>Company-wise <span>Questions</span></h1>
+                <p>Explore real BlueBook interview questions asked across companies. Filter by company, role, round, topic, difficulty and more.</p>
+            </div>
+        </section>
+
+        <section class="stats-row" aria-label="Question statistics">
+            <article class="stat-card">
+                <div class="stat-icon orange"><i data-lucide="file-text"></i></div>
+                <div>
+                    <small>Total Questions</small>
+                    <strong id="totalQuestions">0</strong>
+                    <span>From BlueBook entries</span>
+                </div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon indigo"><i data-lucide="building-2"></i></div>
+                <div>
+                    <small>Companies Covered</small>
+                    <strong id="companiesCovered">0</strong>
+                    <span>Across placement roles</span>
+                </div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon green"><i data-lucide="target"></i></div>
+                <div>
+                    <small>Most Common Difficulty</small>
+                    <strong id="avgDifficulty">-</strong>
+                    <span>Based on available questions</span>
+                </div>
+            </article>
+            <article class="stat-card">
+                <div class="stat-icon amber"><i data-lucide="star"></i></div>
+                <div>
+                    <small>Most Asked Topic</small>
+                    <strong id="topTopic">-</strong>
+                    <span id="topTopicMeta">From all rounds</span>
+                </div>
+            </article>
+        </section>
+
+        <section class="questions-layout">
+            <aside class="filters-panel" aria-label="Filters">
+                <div class="panel-title">
+                    <h2>Filters</h2>
+                    <button id="resetFilters" type="button"><i data-lucide="rotate-cw"></i> Reset all</button>
+                </div>
+
+                <div class="filter-block">
+                    <label for="questionSearch">Search questions</label>
+                    <div class="input-with-icon">
+                        <input id="questionSearch" type="search" placeholder="Search by keyword or question...">
+                        <i data-lucide="search"></i>
+                    </div>
+                </div>
+
+                <div class="filter-block">
+                    <label for="companySelect">Company</label>
+                    <select id="companySelect"></select>
+                </div>
+
+                <div class="filter-block">
+                    <label for="roleSelect">Role</label>
+                    <select id="roleSelect"></select>
+                </div>
+
+                <div class="filter-block">
+                    <label for="roundSelect">Round</label>
+                    <select id="roundSelect"></select>
+                </div>
+
+                <div class="filter-block">
+                    <label for="topicSelect">Topic</label>
+                    <select id="topicSelect"></select>
+                </div>
+
+                <div class="filter-block">
+                    <label>Difficulty</label>
+                    <div id="difficultyOptions"></div>
+                </div>
+
+                <div class="filter-block">
+                    <label for="sortSelect">Sort By</label>
+                    <select id="sortSelect">
+                        <option value="recent">Most Recent</option>
+                        <option value="company">Company</option>
+                        <option value="difficulty">Difficulty</option>
+                        <option value="topic">Topic</option>
+                    </select>
+                </div>
+
+                <button id="applyFilters" class="apply-btn" type="button"><i data-lucide="list-filter"></i> Apply Filters</button>
+            </aside>
+
+            <section class="content-panel">
+                <div class="company-heading">
+                    <div>
+                        <div class="breadcrumb compact">
+                            <a href="/">Home</a>
+                            <i data-lucide="chevron-right"></i>
+                            <a href="#">Companies</a>
+                            <i data-lucide="chevron-right"></i>
+                            <span id="breadcrumbCompany">All Companies</span>
+                        </div>
+                        <h2 id="pageTitle">Interview Questions</h2>
+                        <p id="pageDescription">Loading questions from your BlueBook data...</p>
+                    </div>
+                    <div class="company-actions">
+                        <button class="btn btn-light" type="button"><i data-lucide="share-2"></i> Share</button>
+                        <button class="btn btn-light" type="button"><i data-lucide="bookmark"></i> Save</button>
+                    </div>
+                </div>
+
+                <article id="profileCard" class="company-card"></article>
+                <div id="tabs" class="tabs" role="tablist" aria-label="Question categories"></div>
+
+                <div class="question-table" role="table" aria-label="Interview questions">
+                    <div class="table-row table-head" role="row">
+                        <span>Question</span>
+                        <span>Company</span>
+                        <span>Round</span>
+                        <span>Topic</span>
+                        <span>Difficulty</span>
+                        <span>Date</span>
+                        <span></span>
+                    </div>
+                    <div id="questionRows"></div>
+                </div>
+
+                <footer class="pagination-bar">
+                    <span id="paginationSummary">Showing 0 questions</span>
+                    <div id="pagination" class="pagination"></div>
+                </footer>
+            </section>
+        </section>
+    </main>
+
+    <script src="/static/app.js"></script>
+</body>
+</html>
