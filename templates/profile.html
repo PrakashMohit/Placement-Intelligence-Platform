@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile · IIT Madras Placement Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/static/index.css">
+  <link rel="stylesheet" href="/static/dashboard_v2.css">
+  <link rel="stylesheet" href="/static/profile.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div class="overlay"></div>
+
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <div class="sidebar-logo">
+      <img src="/static/images/logo.ico" width="42" alt="IITM logo">
+      <div>
+        <strong>IIT MADRAS</strong>
+        <span>Placement Intelligence</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="sidebar-menu">
+    <a href="/dashboard"><i data-lucide="layout-dashboard"></i>Dashboard</a>
+    <a href="/interview/new"><i data-lucide="mic"></i>AI Interview</a>
+    <a href="/interview/practice"><i data-lucide="building-2"></i>Company Practice</a>
+    <a href="/questions"><i data-lucide="book-open"></i>Questions</a>
+    <a href="#"><i data-lucide="bar-chart-2"></i>Insights</a>
+    <a href="/profile" class="active"><i data-lucide="user"></i>Profile</a>
+    <a href="#" onclick="logout()"><i data-lucide="log-out"></i>Logout</a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="user-card">
+      {% if user.profile_photo_url %}
+      <img class="avatar avatar-img" src="{{ user.profile_photo_url }}" alt="Profile photo">
+      {% else %}
+      <div class="avatar">{{ user.full_name[0] if user.full_name else "P" }}</div>
+      {% endif %}
+      <div>
+        <strong>{{ user.full_name }}</strong>
+        <span>{{ user.email }}</span>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<div class="page-content">
+  <main class="dash-main profile-main">
+    <section class="profile-hero">
+      <div>
+        <div class="hero-badge">Placement profile</div>
+        <h1>Build the profile your interviews will use.</h1>
+        <p>Keep account details locked, then add your resume, photo, skills and target roles for better preparation context.</p>
+      </div>
+      <div class="profile-summary">
+        {% if user.profile_photo_url %}
+        <img id="summaryPhoto" src="{{ user.profile_photo_url }}" alt="Profile photo">
+        {% else %}
+        <div id="summaryInitial">{{ user.full_name[0] if user.full_name else "P" }}</div>
+        {% endif %}
+        <strong>{{ user.full_name or "Your profile" }}</strong>
+        <span>{{ user.department or "Department not set" }}</span>
+      </div>
+    </section>
+
+    <form id="profileForm" class="profile-grid">
+      <section class="profile-panel identity-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Account Details</h2>
+            <p>These come from signup and are not editable here.</p>
+          </div>
+          <i data-lucide="lock"></i>
+        </div>
+
+        <div class="readonly-grid">
+          <label>
+            <span>Name</span>
+            <input value="{{ user.full_name or '' }}" readonly>
+          </label>
+          <label>
+            <span>Email</span>
+            <input value="{{ user.email or '' }}" readonly>
+          </label>
+          <label>
+            <span>Roll Number</span>
+            <input value="{{ user.roll_number or '' }}" readonly>
+          </label>
+          <label>
+            <span>Department</span>
+            <input value="{{ user.department or '' }}" readonly>
+          </label>
+          <label>
+            <span>Grad Year</span>
+            <input value="{{ user.graduation_year or '' }}" readonly>
+          </label>
+          <label>
+            <span>Password</span>
+            <input value="Managed securely by authentication" readonly>
+          </label>
+        </div>
+      </section>
+
+      <aside class="profile-panel upload-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Profile Assets</h2>
+            <p>Add these after your account profile is created.</p>
+          </div>
+          <i data-lucide="upload-cloud"></i>
+        </div>
+
+        <label class="upload-box">
+          <input type="file" id="profilePhotoInput" name="profile_photo" accept="image/png,image/jpeg,image/webp">
+          <span class="upload-icon"><i data-lucide="camera"></i></span>
+          <strong>Profile Photo</strong>
+          <small>JPG, PNG or WebP</small>
+        </label>
+
+        <label class="upload-box">
+          <input type="file" id="resumeInput" name="resume" accept=".pdf,.doc,.docx,application/pdf">
+          <span class="upload-icon"><i data-lucide="file-text"></i></span>
+          <strong id="resumeLabel">{{ user.resume_filename or "Resume" }}</strong>
+          <small>PDF, DOC or DOCX</small>
+        </label>
+
+        {% if user.resume_url %}
+        <a class="resume-link" href="{{ user.resume_url }}" target="_blank" rel="noreferrer">
+          <i data-lucide="external-link"></i>
+          View uploaded resume
+        </a>
+        {% endif %}
+      </aside>
+
+      <section class="profile-panel selector-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Skills</h2>
+            <p>Select cards or add your own skill.</p>
+          </div>
+          <i data-lucide="sparkles"></i>
+        </div>
+        <div class="card-options" data-field="skills">
+          {% for skill in skill_options %}
+          <button type="button" class="select-card {% if skill in user.skills %}selected{% endif %}" data-value="{{ skill }}">{{ skill }}</button>
+          {% endfor %}
+        </div>
+        <div class="other-row">
+          <input type="text" id="skillOther" placeholder="Other skill">
+          <button type="button" class="btn-view" data-add-other="skills">Add</button>
+        </div>
+      </section>
+
+      <section class="profile-panel selector-panel">
+        <div class="section-heading">
+          <div>
+            <h2>Role To Target</h2>
+            <p>Pick the roles you want the preparation to lean toward.</p>
+          </div>
+          <i data-lucide="target"></i>
+        </div>
+        <div class="card-options" data-field="target_roles">
+          {% for role in target_role_options %}
+          <button type="button" class="select-card {% if role in user.target_roles %}selected{% endif %}" data-value="{{ role }}">{{ role }}</button>
+          {% endfor %}
+        </div>
+        <div class="other-row">
+          <input type="text" id="roleOther" placeholder="Other role">
+          <button type="button" class="btn-view" data-add-other="target_roles">Add</button>
+        </div>
+      </section>
+
+      <section class="profile-actions">
+        <p id="profileMessage"></p>
+        <button type="submit" class="btn-filled-lg" id="saveProfileBtn">Save Profile</button>
+      </section>
+    </form>
+  </main>
+  <div class="bg-blob"></div>
+</div>
+
+<script>
+  window.PROFILE_STATE = {
+    skills: {{ user.skills|tojson }},
+    target_roles: {{ user.target_roles|tojson }}
+  };
+</script>
+<script src="/static/profile.js"></script>
+<script>
+  lucide.createIcons();
+  function logout() {
+    fetch('/api/auth/logout', { method: 'POST' })
+      .then(r => r.json())
+      .then(d => location.href = d.redirect);
+  }
+</script>
+</body>
+</html>

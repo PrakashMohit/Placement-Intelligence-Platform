@@ -21,12 +21,16 @@ from openai import OpenAI
 from pydantic import BaseModel, Field
 from dotenv import load_dotenv
 from supabase import create_client, Client
+from werkzeug.utils import secure_filename
 
 
 # ── Paths & Config ─────────────────────────────────────────────────────────────
 
 BASE_DIR = Path(__file__).resolve().parent
 DATA_FILE = BASE_DIR / "data" / "bluebook_data.json"
+UPLOAD_DIR = BASE_DIR / "static" / "uploads"
+PROFILE_PHOTO_DIR = UPLOAD_DIR / "profile_photos"
+RESUME_DIR = UPLOAD_DIR / "resumes"
 
 load_dotenv(BASE_DIR / ".env", override=True)
 
@@ -73,6 +77,31 @@ DEPARTMENTS = [
     "Aeronautics",
     "Data Science with Management",
 ]
+
+SKILL_OPTIONS = [
+    "Python",
+    "SQL",
+    "Machine Learning",
+    "Data Structures",
+    "System Design",
+    "Communication",
+    "Product Thinking",
+    "Cloud",
+]
+
+TARGET_ROLE_OPTIONS = [
+    "Software Engineer",
+    "Data Scientist",
+    "ML Engineer",
+    "Data Analyst",
+    "Product Analyst",
+    "Backend Engineer",
+    "Frontend Engineer",
+    "Consultant",
+]
+
+ALLOWED_PHOTO_EXTENSIONS = {"jpg", "jpeg", "png", "webp"}
+ALLOWED_RESUME_EXTENSIONS = {"pdf", "doc", "docx"}
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -177,6 +206,66 @@ def generate_with_openai(context):
 
 def clean_text(value, limit):
     return " ".join(str(value or "").split())[:limit]
+
+
+def clean_list(values, options, limit=12, item_limit=80):
+    if not isinstance(values, list):
+        return []
+
+    cleaned, seen = [], set()
+    for value in values:
+        item = clean_text(value, item_limit)
+        if not item:
+            continue
+        if item.lower() == "other":
+            continue
+        key = item.lower()
+        if key in seen:
+            continue
+        if item in options or item:
+            cleaned.append(item)
+            seen.add(key)
+        if len(cleaned) >= limit:
+            break
+    return cleaned
+
+
+def profile_payload(profile, user):
+    profile = profile or {}
+    return {
+        "id": user["id"],
+        "email": profile.get("email") or user.get("email", ""),
+        "full_name": profile.get("full_name") or user.get("full_name", ""),
+        "roll_number": profile.get("roll_number") or user.get("roll_number", ""),
+        "department": profile.get("department") or user.get("department", ""),
+        "graduation_year": profile.get("graduation_year") or user.get("graduation_year"),
+        "profile_photo_url": profile.get("profile_photo_url") or user.get("profile_photo_url", ""),
+        "resume_url": profile.get("resume_url") or "",
+        "resume_filename": profile.get("resume_filename") or "",
+        "skills": profile.get("skills") or [],
+        "target_roles": profile.get("target_roles") or [],
+    }
+
+
+def allowed_file(filename, allowed_extensions):
+    if "." not in filename:
+        return False
+    return filename.rsplit(".", 1)[1].lower() in allowed_extensions
+
+
+def save_profile_upload(upload, directory, allowed_extensions, user_id):
+    if not upload or not upload.filename:
+        return None, None
+    filename = secure_filename(upload.filename)
+    if not allowed_file(filename, allowed_extensions):
+        return None, None
+
+    directory.mkdir(parents=True, exist_ok=True)
+    ext = filename.rsplit(".", 1)[1].lower()
+    stored_name = f"{user_id}-{uuid.uuid4().hex}.{ext}"
+    upload.save(directory / stored_name)
+    static_path = f"/static/uploads/{directory.name}/{stored_name}"
+    return static_path, filename
 
 
 def require_openai():
@@ -439,6 +528,11 @@ def db_get_profile(user_id):
     return r.data[0] if r.data else None
 
 
+def db_upsert_profile(data):
+    r = supabase.table("profiles").upsert(data, on_conflict="id").execute()
+    return r.data[0] if r.data else data
+
+
 # ══════════════════════════════════════════════════════════════════════════════
 # PAGE ROUTES — all protected except / , /auth, /auth/callback, /health
 # ══════════════════════════════════════════════════════════════════════════════
@@ -472,6 +566,20 @@ def dashboard():
         except Exception:
             pass
     return render_template("dashboard_v2.html", user=user, interviews=interviews)
+
+
+@app.route("/profile")
+@login_required
+def profile_page():
+    user = get_current_user()
+    profile = db_get_profile(user["id"]) if supabase else {}
+    current_profile = profile_payload(profile, user)
+    return render_template(
+        "profile.html",
+        user=current_profile,
+        skill_options=SKILL_OPTIONS,
+        target_role_options=TARGET_ROLE_OPTIONS,
+    )
 
 
 @app.route("/questions")
@@ -532,25 +640,40 @@ def api_register():
         return jsonify({"error": "Invalid department selected."}), 400
 
     try:
-        auth_response = supabase.auth.sign_up({"email": email, "password": password})
+        profile_data = {
+            "id": "",
+            "email": email,
+            "full_name": full_name,
+            "roll_number": roll_number,
+            "department": department,
+            "graduation_year": int(graduation_year) if graduation_year else None,
+        }
+        auth_response = supabase.auth.sign_up({
+            "email": email,
+            "password": password,
+            "options": {
+                "data": {
+                    "full_name": full_name,
+                    "roll_number": roll_number,
+                    "department": department,
+                    "graduation_year": str(graduation_year or ""),
+                }
+            },
+        })
         if not auth_response.user:
             return jsonify({"error": "Registration failed. Please try again."}), 400
 
         user_id = auth_response.user.id
+        profile_data["id"] = user_id
         try:
-            supabase.table("profiles").insert({
-                "id": user_id,
-                "full_name": full_name,
-                "roll_number": roll_number,
-                "department": department,
-                "graduation_year": int(graduation_year) if graduation_year else None,
-            }).execute()
-        except Exception:
-            pass
+            db_upsert_profile(profile_data)
+        except Exception as profile_exc:
+            app.logger.warning("Profile upsert failed after signup; ensure schema.sql trigger is applied: %s", profile_exc)
 
         session["user"] = {
             "id": user_id, "email": email, "full_name": full_name,
             "roll_number": roll_number, "department": department,
+            "graduation_year": int(graduation_year) if graduation_year else None,
         }
         return jsonify({"message": "Registration successful.", "redirect": url_for("dashboard")}), 201
     except Exception as exc:
@@ -575,11 +698,28 @@ def api_login():
             return jsonify({"error": "Invalid email or password."}), 401
         user_id = auth_resp.user.id
         profile = db_get_profile(user_id)
+        if not profile:
+            metadata = getattr(auth_resp.user, "user_metadata", None) or {}
+            fallback_profile = {
+                "id": user_id,
+                "email": email,
+                "full_name": clean_text(metadata.get("full_name") or email.split("@")[0], 100),
+                "roll_number": clean_text(metadata.get("roll_number"), 20),
+                "department": clean_text(metadata.get("department"), 80),
+                "graduation_year": int(metadata["graduation_year"]) if str(metadata.get("graduation_year", "")).isdigit() else None,
+            }
+            try:
+                profile = db_upsert_profile(fallback_profile)
+            except Exception as profile_exc:
+                app.logger.warning("Could not repair missing profile row on login: %s", profile_exc)
+                profile = fallback_profile
         session["user"] = {
             "id": user_id, "email": email,
             "full_name": profile.get("full_name", email.split("@")[0]) if profile else email.split("@")[0],
             "roll_number": profile.get("roll_number", "") if profile else "",
             "department": profile.get("department", "") if profile else "",
+            "graduation_year": profile.get("graduation_year") if profile else None,
+            "profile_photo_url": profile.get("profile_photo_url", "") if profile else "",
         }
         return jsonify({"message": "Login successful.", "redirect": url_for("dashboard")})
     except Exception as exc:
@@ -607,6 +747,79 @@ def api_me():
     if not user:
         return jsonify({"error": "Not authenticated."}), 401
     return jsonify(user)
+
+
+@app.get("/api/profile")
+@login_required
+@supabase_required
+def api_get_profile():
+    user = get_current_user()
+    profile = db_get_profile(user["id"])
+    return jsonify(profile_payload(profile, user))
+
+
+@app.post("/api/profile")
+@login_required
+@supabase_required
+def api_update_profile():
+    user = get_current_user()
+    existing = db_get_profile(user["id"]) or {}
+
+    try:
+        skills = json.loads(request.form.get("skills", "[]"))
+        target_roles = json.loads(request.form.get("target_roles", "[]"))
+    except json.JSONDecodeError:
+        return jsonify({"error": "Skills and target roles must be valid lists."}), 400
+
+    updates = {
+        "id": user["id"],
+        "email": existing.get("email") or user.get("email", ""),
+        "full_name": existing.get("full_name") or user.get("full_name", ""),
+        "roll_number": existing.get("roll_number") or user.get("roll_number", ""),
+        "department": existing.get("department") or user.get("department", ""),
+        "graduation_year": existing.get("graduation_year") or user.get("graduation_year"),
+        "skills": clean_list(skills, SKILL_OPTIONS),
+        "target_roles": clean_list(target_roles, TARGET_ROLE_OPTIONS),
+    }
+
+    photo_url, _photo_filename = save_profile_upload(
+        request.files.get("profile_photo"),
+        PROFILE_PHOTO_DIR,
+        ALLOWED_PHOTO_EXTENSIONS,
+        user["id"],
+    )
+    if request.files.get("profile_photo") and not photo_url:
+        return jsonify({"error": "Profile photo must be a JPG, PNG or WebP file."}), 400
+    if photo_url:
+        updates["profile_photo_url"] = photo_url
+
+    resume_url, resume_filename = save_profile_upload(
+        request.files.get("resume"),
+        RESUME_DIR,
+        ALLOWED_RESUME_EXTENSIONS,
+        user["id"],
+    )
+    if request.files.get("resume") and not resume_url:
+        return jsonify({"error": "Resume must be a PDF, DOC or DOCX file."}), 400
+    if resume_url:
+        updates["resume_url"] = resume_url
+        updates["resume_filename"] = resume_filename
+
+    try:
+        profile = db_upsert_profile(updates)
+        session["user"] = {
+            **user,
+            "email": profile.get("email") or user.get("email", ""),
+            "full_name": profile.get("full_name") or user.get("full_name", ""),
+            "roll_number": profile.get("roll_number") or user.get("roll_number", ""),
+            "department": profile.get("department") or user.get("department", ""),
+            "graduation_year": profile.get("graduation_year"),
+            "profile_photo_url": profile.get("profile_photo_url", ""),
+        }
+        return jsonify(profile_payload(profile, session["user"]))
+    except Exception as exc:
+        app.logger.exception("Profile update failed")
+        return jsonify({"error": "Could not save profile. Please check the profiles table policies and try again."}), 500
 
 
 @app.get("/api/auth/google-url")
