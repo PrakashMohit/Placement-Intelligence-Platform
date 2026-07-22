@@ -379,7 +379,7 @@ def get_whisper_model():
 
 
 
-import av
+# import av
 
 # def convert_audio_to_wav(input_path, output_path, target_rate=16000):
 #     resampler = av.audio.resampler.AudioResampler(
