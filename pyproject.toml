@@ -16,7 +16,6 @@ dependencies = [
     "httpx>=0.28",
     "openai>=1.93",
     "supabase>=2.31",
-    "av>=12,<15"
 ]
 
 [tool.setuptools]

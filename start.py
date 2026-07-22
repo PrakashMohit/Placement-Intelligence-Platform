@@ -370,77 +370,44 @@ def get_whisper_model():
         from faster_whisper import WhisperModel
         whisper_model = WhisperModel(
             os.getenv("WHISPER_MODEL", "small.en"),
-            device="cuda",
-            compute_type="float16",
-            # device="cpu", compute_type="int8",
-            # cpu_threads=int(os.getenv("WHISPER_CPU_THREADS", "2")),
+            # device="cuda",  
+            # compute_type="float16",
+            device="cpu", compute_type="int8",    # for deploy only on vercel
+            cpu_threads=int(os.getenv("WHISPER_CPU_THREADS", "2")),
         )
     return whisper_model
 
 
-# def get_parakeet_model():
-#     global parakeet_model
-#     if parakeet_model is None:
-#         try:
-#             import nemo.collections.asr as nemo_asr
-#         except Exception as exc:
-#             raise RuntimeError(
-#                 "Parakeet STT backend requires NVIDIA NeMo ASR toolkit. "
-#                 "Install nemo_toolkit[asr] and torch, then set STT_BACKEND=parakeet."
-#             ) from exc
-
-#         parakeet_model = nemo_asr.models.ASRModel.from_pretrained(
-#             model_name=os.getenv("PARAKEET_MODEL", "nvidia/parakeet-tdt-0.6b-v3")
-#         )
-#     return parakeet_model
-
 
 import av
 
-def convert_audio_to_wav(input_path, output_path, target_rate=16000):
-    resampler = av.audio.resampler.AudioResampler(
-        format="s16",
-        layout="mono",
-        rate=target_rate,
-    )
+# def convert_audio_to_wav(input_path, output_path, target_rate=16000):
+#     resampler = av.audio.resampler.AudioResampler(
+#         format="s16",
+#         layout="mono",
+#         rate=target_rate,
+#     )
 
-    with av.open(input_path) as input_container:
-        in_stream = input_container.streams.audio[0]
+#     with av.open(input_path) as input_container:
+#         in_stream = input_container.streams.audio[0]
 
-        with av.open(output_path, "w") as output_container:
-            out_stream = output_container.add_stream(
-                "pcm_s16le",
-                rate=target_rate,
-            )
+#         with av.open(output_path, "w") as output_container:
+#             out_stream = output_container.add_stream(
+#                 "pcm_s16le",
+#                 rate=target_rate,
+#             )
 
-            for packet in input_container.demux(in_stream):
-                for frame in packet.decode():
-                    frame.pts = None
+#             for packet in input_container.demux(in_stream):
+#                 for frame in packet.decode():
+#                     frame.pts = None
 
-                    for new_frame in resampler.resample(frame):
-                        for packet in out_stream.encode(new_frame):
-                            output_container.mux(packet)
+#                     for new_frame in resampler.resample(frame):
+#                         for packet in out_stream.encode(new_frame):
+#                             output_container.mux(packet)
 
-            for packet in out_stream.encode():
-                output_container.mux(packet)
+#             for packet in out_stream.encode():
+#                 output_container.mux(packet)
 
-
-# def transcribe_with_parakeet(audio_path):
-#     path = Path(audio_path)
-#     converted_path = None
-#     try:
-#         if path.suffix.lower() not in {".wav", ".flac"}:
-#             converted_path = str(path.with_suffix(".wav"))
-#             convert_audio_to_wav(str(path), converted_path)
-#             path = Path(converted_path)
-
-#         outputs = get_parakeet_model().transcribe([str(path)], batch_size=1)
-#         if outputs:
-#             return getattr(outputs[0], "text", "").strip()
-#         return ""
-#     finally:
-#         if converted_path:
-#             Path(converted_path).unlink(missing_ok=True)
 
 
 def transcribe(upload):
