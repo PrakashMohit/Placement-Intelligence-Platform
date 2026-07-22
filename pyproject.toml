@@ -201,3 +201,6 @@ dependencies = [
 
 [tool.setuptools]
 include-package-data = true
+
+[tool.vercel]
+entrypoint = "start:app"
