@@ -6,7 +6,6 @@ build-backend = "setuptools.build_meta"
 name = "placement-intelligence-platform"
 version = "0.1.0"
 description = "Placement Intelligence Platform"
-readme = "README.md"
 requires-python = ">=3.12,<3.13"
 
 dependencies = [
@@ -17,33 +16,10 @@ dependencies = [
     "httpx>=0.28",
     "openai>=1.93",
     "supabase>=2.31",
-    "transformers>=4.46,<5",
-    "torch==2.5.1",
-    "torchvision==0.20.1",
-    "torchaudio==2.5.1",
-    "faster-whisper==1.1.1",
-    "ctranslate2>=4.5",
-    "huggingface_hub>=0.36",
-    "sentencepiece>=0.2",
-    "safetensors>=0.5",
-    "numpy",
-    "scipy",
-    "pandas",
-    "soundfile",
-    "pydub",
-    "soxr",
-    "jiwer",
-    "rapidfuzz",
-    "pillow",
-    "tqdm",
-    "protobuf",
-    "PyYAML",
-    "librosa==0.10.2.post1",
-    "numba==0.60.0",
 ]
 
 [tool.setuptools]
-include-package-data = true
+py-modules = ["start"]
 
 [tool.vercel]
 entrypoint = "start:app"
