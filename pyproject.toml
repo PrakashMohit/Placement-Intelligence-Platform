@@ -31,7 +31,6 @@ dependencies = [
     "pandas",
     "soundfile",
     "pydub",
-    "librosa",
     "soxr",
     "jiwer",
     "rapidfuzz",
@@ -39,6 +38,8 @@ dependencies = [
     "tqdm",
     "protobuf",
     "PyYAML",
+    "librosa==0.10.2.post1",
+    "numba==0.60.0",
 ]
 
 [tool.setuptools]
