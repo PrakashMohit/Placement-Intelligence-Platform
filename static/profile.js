@@ -9,6 +9,19 @@ function setMessage(text, type = '') {
   message.className = type;
 }
 
+function validateAssetFile(file, allowedTypes, label) {
+  if (!file) return true;
+  if (file.size > 1024 * 1024) {
+    setMessage(`${label} must be 1 MB or smaller.`, 'error');
+    return false;
+  }
+  if (!allowedTypes.includes(file.type)) {
+    setMessage(`${label} must be ${label === 'Profile photo' ? 'a JPEG image' : 'a PDF file'}.`, 'error');
+    return false;
+  }
+  return true;
+}
+
 function syncCard(button, field) {
   const value = button.dataset.value;
   button.classList.toggle('selected', state[field].has(value));
@@ -75,6 +88,10 @@ document.querySelectorAll('.other-row input').forEach(input => {
 document.getElementById('profilePhotoInput')?.addEventListener('change', event => {
   const file = event.target.files[0];
   if (!file) return;
+  if (!validateAssetFile(file, ['image/jpeg'], 'Profile photo')) {
+    event.target.value = '';
+    return;
+  }
   const previewUrl = URL.createObjectURL(file);
   const summary = document.querySelector('.profile-summary');
   const existing = document.getElementById('summaryPhoto') || document.getElementById('summaryInitial');
@@ -88,6 +105,10 @@ document.getElementById('profilePhotoInput')?.addEventListener('change', event =
 
 document.getElementById('resumeInput')?.addEventListener('change', event => {
   const file = event.target.files[0];
+  if (!validateAssetFile(file, ['application/pdf'], 'Resume')) {
+    event.target.value = '';
+    return;
+  }
   if (file) {
     document.getElementById('resumeLabel').textContent = file.name;
   }
@@ -97,6 +118,11 @@ document.getElementById('profileForm')?.addEventListener('submit', async event =
   event.preventDefault();
   const button = document.getElementById('saveProfileBtn');
   const formData = new FormData(event.currentTarget);
+  const profilePhoto = document.getElementById('profilePhotoInput')?.files[0];
+  const resume = document.getElementById('resumeInput')?.files[0];
+  if (!validateAssetFile(profilePhoto, ['image/jpeg'], 'Profile photo')) return;
+  if (!validateAssetFile(resume, ['application/pdf'], 'Resume')) return;
+
   formData.set('skills', JSON.stringify([...state.skills]));
   formData.set('target_roles', JSON.stringify([...state.target_roles]));
 

@@ -3,127 +3,123 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>New AI Interview · IIT Madras Placement Intelligence</title>
+  <title>New AI Interview - IIT Madras Placement Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/index.css">
-  <link rel="stylesheet" href="/static/dashboard.css">
+  <link rel="stylesheet" href="/static/dashboard_v2.css">
+  <link rel="stylesheet" href="/static/setup_pages.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-  <nav class="navbar">
-    <div class="logo">
-      <img src="/static/images/logo.ico" alt="IITM Logo" style="height:45px;width:45px;">
-      <div class="logo-text"><strong style="font-size:1.1rem;">IIT MADRAS</strong><br>Placement Intelligence</div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/interview/new" class="active">AI Interview</a></li>
-      <li><a href="/questions">Questions</a></li>
-      <li><a href="/about">About</a></li>
-    </ul>
-    <div class="nav-auth">
-      <a href="/dashboard"><button class="btn-outline-lg">Dashboard</button></a>
-    </div>
-  </nav>
+<body class="setup-page">
+  {% set active_page = 'ai_interview' %}
+  {% include 'partials/dashboard_sidebar.html' %}
 
-  <main class="dash-main">
-    <section class="setup-hero">
-      <div class="hero-badge">✦ Powered by AI</div>
-      <h1>Start an <span class="orange-text">AI Interview</span></h1>
-      <p style="color:#666;font-size:1.05rem;max-width:540px;margin:10px auto 0;">Set up your interview details below. Our AI will conduct a natural, conversational interview tailored to your role.</p>
-    </section>
+  <div class="page-content">
+    <main class="dash-main">
+      <section class="setup-hero">
+        <div>
+          <div class="setup-kicker"><i data-lucide="sparkles"></i> AI Interview</div>
+          <h1>Start an <span class="orange-text">AI Interview</span></h1>
+          <p>Set up the role, level, focus areas, and interview length. The AI interviewer will run a natural conversational interview and generate a detailed report.</p>
+        </div>
+        <div class="setup-hero-actions">
+          <a href="/dashboard"><button class="btn-outline-lg" type="button">Dashboard</button></a>
+        </div>
+      </section>
 
-    <div class="dot-grid"></div>
+      <div class="setup-grid">
+        <div class="setup-card-main">
+          <form id="setup-form" onsubmit="startInterview(event)">
+            <div class="form-section">
+              <h3><i data-lucide="briefcase"></i> Role & Level</h3>
+              <div class="form-row">
+                <label class="form-label">
+                  Target Role *
+                  <input id="role" type="text" required maxlength="80" placeholder="e.g. Backend Python Developer, Data Scientist">
+                </label>
+                <label class="form-label">
+                  Experience Level
+                  <select id="level">
+                    <option value="Junior">Junior (0-2 years)</option>
+                    <option value="Mid-level" selected>Mid-level (2-5 years)</option>
+                    <option value="Senior">Senior (5+ years)</option>
+                  </select>
+                </label>
+              </div>
+            </div>
 
-    <div class="setup-grid">
-      <!-- Form Card -->
-      <div class="setup-card-main">
-        <form id="setup-form" onsubmit="startInterview(event)">
-
-          <div class="form-section">
-            <h3><i data-lucide="briefcase"></i> Role & Level</h3>
-            <div class="form-row">
+            <div class="form-section">
+              <h3><i data-lucide="target"></i> Focus Areas</h3>
               <label class="form-label">
-                Target Role *
-                <input id="role" type="text" required maxlength="80" placeholder="e.g. Backend Python Developer, Data Scientist">
-              </label>
-              <label class="form-label">
-                Experience Level
-                <select id="level">
-                  <option value="Junior">Junior (0–2 years)</option>
-                  <option value="Mid-level" selected>Mid-level (2–5 years)</option>
-                  <option value="Senior">Senior (5+ years)</option>
-                </select>
+                Topics to focus on (optional)
+                <input id="focus" type="text" maxlength="200" placeholder="e.g. System Design, Flask, Postgres, ML fundamentals">
               </label>
             </div>
-          </div>
 
-          <div class="form-section">
-            <h3><i data-lucide="target"></i> Focus Areas</h3>
-            <label class="form-label">
-              Topics to focus on (optional)
-              <input id="focus" type="text" maxlength="200" placeholder="e.g. System Design, Flask, Postgres, ML fundamentals">
-            </label>
-          </div>
-
-          <div class="form-section">
-            <h3><i data-lucide="list-ordered"></i> Interview Length</h3>
-            <div class="qcount-options">
-              <label class="qcount-opt"><input type="radio" name="qcount" value="3"> <span>3 <small>Quick</small></span></label>
-              <label class="qcount-opt active"><input type="radio" name="qcount" value="5" checked> <span>5 <small>Standard</small></span></label>
-              <label class="qcount-opt"><input type="radio" name="qcount" value="7"> <span>7 <small>Thorough</small></span></label>
-              <label class="qcount-opt"><input type="radio" name="qcount" value="10"> <span>10 <small>Full</small></span></label>
+            <div class="form-section">
+              <h3><i data-lucide="list-ordered"></i> Interview Length</h3>
+              <div class="qcount-options">
+                <label class="qcount-opt"><input type="radio" name="qcount" value="3"><span>3 <small>Quick</small></span></label>
+                <label class="qcount-opt active"><input type="radio" name="qcount" value="5" checked><span>5 <small>Standard</small></span></label>
+                <label class="qcount-opt"><input type="radio" name="qcount" value="7"><span>7 <small>Thorough</small></span></label>
+                <label class="qcount-opt"><input type="radio" name="qcount" value="10"><span>10 <small>Full</small></span></label>
+              </div>
             </div>
-          </div>
 
-          <div class="form-section">
-            <h3><i data-lucide="mic"></i> Microphone Check</h3>
-            <div class="mic-row">
-              <button type="button" id="check-mic" class="btn-outline-lg" style="padding:12px 22px;">Check Microphone</button>
-              <span id="mic-msg" style="color:#888;font-size:.9rem;">Microphone access is required for the interview.</span>
+            <div class="form-section">
+              <h3><i data-lucide="mic"></i> Microphone Check</h3>
+              <div class="mic-row">
+                <button type="button" id="check-mic" class="btn-outline-lg" style="padding:12px 22px;">Check Microphone</button>
+                <span id="mic-msg" style="color:#888;font-size:.9rem;">Microphone access is required for the interview.</span>
+              </div>
+              <div class="meter-wrap" style="margin-top:12px;">
+                <div class="meter-bar-bg"><div id="meter-bar" class="meter-bar-fill"></div></div>
+              </div>
             </div>
-            <div class="meter-wrap" style="margin-top:12px;">
-              <div class="meter-bar-bg"><div id="meter-bar" class="meter-bar-fill"></div></div>
-            </div>
-          </div>
 
-          <p id="setup-error" style="color:#e53e3e;min-height:20px;font-size:.9rem;"></p>
-          <button type="submit" id="start-btn" class="btn-filled-lg" style="width:100%;padding:18px;" disabled>
-            Join Interview →
-          </button>
-        </form>
-      </div>
-
-      <!-- Info Panel -->
-      <div class="setup-info">
-        <div class="info-card">
-          <div class="info-icon"><i data-lucide="zap"></i></div>
-          <h4>What to expect</h4>
-          <ul>
-            <li>Warm intro from your AI interviewer</li>
-            <li>Conversational questions — not a questionnaire</li>
-            <li>Real-time transcript of your answers</li>
-            <li>Score + feedback after each answer</li>
-            <li>Detailed results with strengths & improvements</li>
-          </ul>
+            <p id="setup-error" class="setup-error"></p>
+            <button type="submit" id="start-btn" class="btn-filled-lg" style="width:100%;padding:18px;" disabled>
+              Join Interview ->
+            </button>
+          </form>
         </div>
-        <div class="info-card" style="margin-top:16px;">
-          <div class="info-icon"><i data-lucide="shield-check"></i></div>
-          <h4>Tips</h4>
-          <ul>
-            <li>Use Chrome or Edge for best audio support</li>
-            <li>Find a quiet space</li>
-            <li>Speak clearly and take your time</li>
-          </ul>
+
+        <div class="setup-info">
+          <div class="info-card">
+            <div class="info-icon"><i data-lucide="zap"></i></div>
+            <h4>What to expect</h4>
+            <ul>
+              <li>Warm intro from your AI interviewer</li>
+              <li>Conversational questions, not a questionnaire</li>
+              <li>Real-time transcript of your answers</li>
+              <li>Score and feedback after each answer</li>
+              <li>Detailed results with strengths and improvements</li>
+            </ul>
+          </div>
+          <div class="info-card">
+            <div class="info-icon"><i data-lucide="shield-check"></i></div>
+            <h4>Tips</h4>
+            <ul>
+              <li>Use Chrome or Edge for best audio support</li>
+              <li>Find a quiet space</li>
+              <li>Speak clearly and take your time</li>
+            </ul>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
+    </main>
+    <div class="bg-blob"></div>
+  </div>
 
-  <div class="bg-blob"></div>
   <script>
     lucide.createIcons();
+
+    function logout() {
+      fetch('/api/auth/logout', { method: 'POST' })
+        .then((r) => r.json())
+        .then((d) => { location.href = d.redirect; });
+    }
 
     let micStream, audioContext, analyser, meterFrame;
 
@@ -131,17 +127,17 @@
       const btn = document.getElementById('check-mic');
       const msg = document.getElementById('mic-msg');
       btn.disabled = true;
-      msg.textContent = 'Requesting microphone…';
+      msg.textContent = 'Requesting microphone...';
       try {
         micStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
-        msg.textContent = '✓ Microphone ready — speak and watch the green bar!';
+        msg.textContent = 'Microphone ready - speak and watch the green bar.';
         msg.style.color = '#38a169';
-        btn.textContent = '✓ Checked';
+        btn.textContent = 'Checked';
         document.getElementById('start-btn').disabled = false;
         document.querySelector('.meter-wrap').style.display = 'block';
         startMeter(micStream);
       } catch {
-        msg.textContent = '✗ Microphone blocked — please allow access in your browser.';
+        msg.textContent = 'Microphone blocked - please allow access in your browser.';
         msg.style.color = '#e53e3e';
         btn.disabled = false;
       }
@@ -165,7 +161,7 @@
       event.preventDefault();
       const btn = document.getElementById('start-btn');
       btn.disabled = true;
-      btn.textContent = 'Setting up your interview…';
+      btn.textContent = 'Setting up your interview...';
       document.getElementById('setup-error').textContent = '';
 
       const qcount = document.querySelector('input[name="qcount"]:checked').value;
@@ -184,23 +180,20 @@
         });
         const data = await res.json();
         if (!res.ok) throw new Error(data.error || 'Failed to start interview.');
-        // Store interview data for the room
         sessionStorage.setItem('currentInterview', JSON.stringify(data));
-        // Stop mic meter before navigating
         cancelAnimationFrame(meterFrame);
         audioContext?.close();
         location.href = '/interview/room';
       } catch (err) {
         document.getElementById('setup-error').textContent = err.message;
         btn.disabled = false;
-        btn.textContent = 'Join Interview →';
+        btn.textContent = 'Join Interview ->';
       }
     }
 
-    // Style qcount labels
-    document.querySelectorAll('input[name="qcount"]').forEach(input => {
+    document.querySelectorAll('input[name="qcount"]').forEach((input) => {
       input.addEventListener('change', () => {
-        document.querySelectorAll('.qcount-opt').forEach(l => l.classList.remove('active'));
+        document.querySelectorAll('.qcount-opt').forEach((label) => label.classList.remove('active'));
         input.closest('.qcount-opt').classList.add('active');
       });
     });

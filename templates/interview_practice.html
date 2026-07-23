@@ -3,152 +3,159 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Company Practice Interview · IIT Madras Placement Intelligence</title>
+  <title>Company Practice Interview - IIT Madras Placement Intelligence</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/index.css">
-  <link rel="stylesheet" href="/static/dashboard.css">
+  <link rel="stylesheet" href="/static/dashboard_v2.css">
+  <link rel="stylesheet" href="/static/setup_pages.css">
   <script src="https://unpkg.com/lucide@latest"></script>
 </head>
-<body>
-  <nav class="navbar">
-    <div class="logo">
-      <img src="/static/images/logo.ico" alt="IITM Logo" style="height:45px;width:45px;">
-      <div class="logo-text"><strong style="font-size:1.1rem;">IIT MADRAS</strong><br>Placement Intelligence</div>
-    </div>
-    <ul class="nav-links">
-      <li><a href="/">Home</a></li>
-      <li><a href="/interview/new">AI Interview</a></li>
-      <li><a href="/questions">Questions</a></li>
-      <li><a href="#">Analytics</a></li>
-    </ul>
-    <div class="nav-auth">
-      <a href="/dashboard"><button class="btn-outline-lg">Dashboard</button></a>
-    </div>
-  </nav>
+<body class="setup-page">
+  {% set active_page = 'company_practice' %}
+  {% include 'partials/dashboard_sidebar.html' %}
 
-  <main class="dash-main">
-    <section class="setup-hero">
-      <div class="hero-badge">✦ BlueBook-powered</div>
-      <h1>Company <span class="orange-text">Practice</span> Interview</h1>
-      <p style="color:#666;font-size:1.05rem;max-width:560px;margin:10px auto 0;">Choose a company and our AI will generate fresh interview questions inspired by their real BlueBook questions — different every time.</p>
-    </section>
-
-    <div class="setup-grid">
-      <div class="setup-card-main">
-        <form id="practice-form" onsubmit="startPractice(event)">
-
-          <div class="form-section">
-            <h3><i data-lucide="building"></i> Select Company</h3>
-            <div class="company-search-wrap">
-              <input type="text" id="company-search" placeholder="Search companies from BlueBook…" autocomplete="off">
-              <i data-lucide="search" class="search-icon-inner"></i>
-            </div>
-            <div id="company-dropdown" class="company-dropdown" style="display:none;"></div>
-            <input type="hidden" id="selected-company" value="">
-            <div id="selected-company-preview" class="company-preview" style="display:none;"></div>
-            <p style="color:#888;font-size:.82rem;margin-top:8px;">Leave blank to use pure AI-generated questions without company context.</p>
-          </div>
-
-          <div class="form-section">
-            <h3><i data-lucide="graduation-cap"></i> Your Role & Level</h3>
-            <div class="form-row">
-              <label class="form-label">
-                Target Role *
-                <input id="p-role" type="text" required maxlength="80" placeholder="e.g. Software Engineer, Data Analyst">
-              </label>
-              <label class="form-label">
-                Experience Level
-                <select id="p-level">
-                  <option value="Junior">Junior</option>
-                  <option value="Mid-level" selected>Mid-level</option>
-                  <option value="Senior">Senior</option>
-                </select>
-              </label>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3><i data-lucide="list-ordered"></i> Questions</h3>
-            <div class="qcount-options">
-              <label class="qcount-opt"><input type="radio" name="pqcount" value="3"> <span>3 <small>Quick</small></span></label>
-              <label class="qcount-opt active"><input type="radio" name="pqcount" value="5" checked> <span>5 <small>Standard</small></span></label>
-              <label class="qcount-opt"><input type="radio" name="pqcount" value="7"> <span>7 <small>Thorough</small></span></label>
-              <label class="qcount-opt"><input type="radio" name="pqcount" value="10"> <span>10 <small>Full</small></span></label>
-            </div>
-          </div>
-
-          <div class="form-section">
-            <h3><i data-lucide="mic"></i> Microphone Check</h3>
-            <div class="mic-row">
-              <button type="button" id="check-mic" class="btn-outline-lg" style="padding:12px 22px;">Check Microphone</button>
-              <span id="mic-msg" style="color:#888;font-size:.9rem;">Microphone access is required.</span>
-            </div>
-            <div class="meter-wrap" style="margin-top:12px;">
-              <div class="meter-bar-bg"><div id="meter-bar" class="meter-bar-fill"></div></div>
-            </div>
-          </div>
-
-          <p id="setup-error" style="color:#e53e3e;min-height:20px;font-size:.9rem;"></p>
-          <button type="submit" id="start-btn" class="btn-filled-lg" style="width:100%;padding:18px;" disabled>
-            Start Practice Interview →
-          </button>
-        </form>
-      </div>
-
-      <!-- How it works -->
-      <div class="setup-info">
-        <div class="info-card">
-          <div class="info-icon"><i data-lucide="sparkles"></i></div>
-          <h4>How company questions work</h4>
-          <ul>
-            <li>We pull real topics & questions from the IITM BlueBook</li>
-            <li>AI generates <em>fresh, similar</em> questions each session</li>
-            <li>Different every time — no repetition</li>
-            <li>Without a company selected, questions are fully AI-generated for your role</li>
-          </ul>
+  <div class="page-content">
+    <main class="dash-main">
+      <section class="setup-hero">
+        <div>
+          <div class="setup-kicker"><i data-lucide="building-2"></i> Company Practice</div>
+          <h1>Company <span class="orange-text">Practice</span> Interview</h1>
+          <p>Choose a company from the IITM BlueBook and the AI interviewer will generate fresh questions inspired by real interview patterns.</p>
         </div>
-        <div id="company-topics-preview" class="info-card" style="margin-top:16px;display:none;">
-          <div class="info-icon"><i data-lucide="book-marked"></i></div>
-          <h4 id="topics-company-name">Company Topics</h4>
-          <div id="topics-list" style="margin-top:8px;"></div>
+        <div class="setup-hero-actions">
+          <a href="/dashboard"><button class="btn-outline-lg" type="button">Dashboard</button></a>
+        </div>
+      </section>
+
+      <div class="setup-grid">
+        <div class="setup-card-main">
+          <form id="practice-form" onsubmit="startPractice(event)">
+            <div class="form-section">
+              <h3><i data-lucide="building"></i> Select Company</h3>
+              <div class="company-search-wrap">
+                <input type="text" id="company-search" placeholder="Search companies from BlueBook..." autocomplete="off">
+                <i data-lucide="search" class="search-icon-inner"></i>
+              </div>
+              <div id="company-dropdown" class="company-dropdown" style="display:none;"></div>
+              <input type="hidden" id="selected-company" value="">
+              <div id="selected-company-preview" class="company-preview" style="display:none;"></div>
+              <p style="color:#888;font-size:.82rem;margin-top:10px;">Leave blank to use AI-generated questions without company context.</p>
+            </div>
+
+            <div class="form-section">
+              <h3><i data-lucide="graduation-cap"></i> Role & Level</h3>
+              <div class="form-row">
+                <label class="form-label">
+                  Target Role *
+                  <input id="p-role" type="text" required maxlength="80" placeholder="e.g. Software Engineer, Data Analyst">
+                </label>
+                <label class="form-label">
+                  Experience Level
+                  <select id="p-level">
+                    <option value="Junior">Junior</option>
+                    <option value="Mid-level" selected>Mid-level</option>
+                    <option value="Senior">Senior</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3><i data-lucide="list-ordered"></i> Questions</h3>
+              <div class="qcount-options">
+                <label class="qcount-opt"><input type="radio" name="pqcount" value="3"><span>3 <small>Quick</small></span></label>
+                <label class="qcount-opt active"><input type="radio" name="pqcount" value="5" checked><span>5 <small>Standard</small></span></label>
+                <label class="qcount-opt"><input type="radio" name="pqcount" value="7"><span>7 <small>Thorough</small></span></label>
+                <label class="qcount-opt"><input type="radio" name="pqcount" value="10"><span>10 <small>Full</small></span></label>
+              </div>
+            </div>
+
+            <div class="form-section">
+              <h3><i data-lucide="mic"></i> Microphone Check</h3>
+              <div class="mic-row">
+                <button type="button" id="check-mic" class="btn-outline-lg" style="padding:12px 22px;">Check Microphone</button>
+                <span id="mic-msg" style="color:#888;font-size:.9rem;">Microphone access is required.</span>
+              </div>
+              <div class="meter-wrap" style="margin-top:12px;">
+                <div class="meter-bar-bg"><div id="meter-bar" class="meter-bar-fill"></div></div>
+              </div>
+            </div>
+
+            <p id="setup-error" class="setup-error"></p>
+            <button type="submit" id="start-btn" class="btn-filled-lg" style="width:100%;padding:18px;" disabled>
+              Start Practice Interview ->
+            </button>
+          </form>
+        </div>
+
+        <div class="setup-info">
+          <div class="info-card">
+            <div class="info-icon"><i data-lucide="sparkles"></i></div>
+            <h4>How company questions work</h4>
+            <ul>
+              <li>Uses real topics and questions from the IITM BlueBook</li>
+              <li>Generates fresh, similar questions each session</li>
+              <li>Adapts the conversation to your selected role</li>
+              <li>Works as a general AI interview if no company is selected</li>
+            </ul>
+          </div>
+          <div id="company-topics-preview" class="info-card" style="display:none;">
+            <div class="info-icon"><i data-lucide="book-marked"></i></div>
+            <h4 id="topics-company-name">Company Topics</h4>
+            <div id="topics-list" style="margin-top:8px;"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </main>
-
-  <div class="bg-blob"></div>
+    </main>
+    <div class="bg-blob"></div>
+  </div>
 
   <script>
     lucide.createIcons();
 
-    // ── Company data from server ──────────────────────────────────────────────
+    function logout() {
+      fetch('/api/auth/logout', { method: 'POST' })
+        .then((r) => r.json())
+        .then((d) => { location.href = d.redirect; });
+    }
+
     const allCompanies = {{ companies | tojson }};
     let micStream, audioContext, analyser, meterFrame;
 
-    // ── Company Search ────────────────────────────────────────────────────────
     const searchInput = document.getElementById('company-search');
     const dropdown = document.getElementById('company-dropdown');
     const hiddenInput = document.getElementById('selected-company');
     const preview = document.getElementById('selected-company-preview');
 
+    function escapeJsArg(value) {
+      return String(value || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'");
+    }
+
     searchInput.addEventListener('input', () => {
       const q = searchInput.value.trim().toLowerCase();
-      if (!q) { dropdown.style.display = 'none'; return; }
-      const matches = allCompanies.filter(c =>
+      hiddenInput.value = q ? hiddenInput.value : '';
+      if (!q) {
+        dropdown.style.display = 'none';
+        return;
+      }
+      const matches = allCompanies.filter((c) =>
         c.name.toLowerCase().includes(q) || c.domain.toLowerCase().includes(q)
       ).slice(0, 10);
-      if (!matches.length) { dropdown.style.display = 'none'; return; }
-      dropdown.innerHTML = matches.map(c => `
-        <div class="dd-item" onclick="selectCompany('${c.id}','${c.name.replace(/'/g,"\\'")}','${c.domain.replace(/'/g,"\\'")}')">
+      if (!matches.length) {
+        dropdown.style.display = 'none';
+        return;
+      }
+      dropdown.innerHTML = matches.map((c) => `
+        <div class="dd-item" onclick="selectCompany('${escapeJsArg(c.id)}','${escapeJsArg(c.name)}','${escapeJsArg(c.domain)}')">
           <strong>${c.name}</strong><small>${c.domain}</small>
         </div>
       `).join('');
       dropdown.style.display = 'block';
     });
 
-    document.addEventListener('click', e => {
-      if (!e.target.closest('.company-search-wrap') && !e.target.closest('.company-dropdown')) {
+    document.addEventListener('click', (event) => {
+      if (!event.target.closest('.company-search-wrap') && !event.target.closest('.company-dropdown')) {
         dropdown.style.display = 'none';
       }
     });
@@ -157,15 +164,14 @@
       hiddenInput.value = name;
       searchInput.value = name;
       dropdown.style.display = 'none';
-      preview.style.display = 'flex';
+      preview.style.display = 'block';
       preview.innerHTML = `
         <div class="company-pill">
-          <span class="cp-initials">${name.split(' ').map(w=>w[0]).join('').slice(0,2).toUpperCase()}</span>
+          <span class="cp-initials">${name.split(' ').map((word) => word[0]).join('').slice(0, 2).toUpperCase()}</span>
           <div><strong>${name}</strong><small>${domain}</small></div>
-          <button type="button" onclick="clearCompany()" class="cp-remove">✕</button>
+          <button type="button" onclick="clearCompany()" class="cp-remove">x</button>
         </div>
       `;
-      // Fetch and show topics
       showCompanyTopics(name);
     }
 
@@ -180,33 +186,32 @@
       try {
         const res = await fetch('/api/companies?q=' + encodeURIComponent(companyName));
         const data = await res.json();
-        const company = (data.companies || []).find(c => c.name === companyName);
+        const company = (data.companies || []).find((c) => c.name === companyName);
         if (!company) return;
         const topics = [...new Set(
-          (company.rounds || []).flatMap(r => (r.topics || []).map(t => t.name))
+          (company.rounds || []).flatMap((round) => (round.topics || []).map((topic) => topic.name))
         )].slice(0, 6);
         const panel = document.getElementById('company-topics-preview');
-        document.getElementById('topics-company-name').textContent = company.name + ' — Topics';
-        document.getElementById('topics-list').innerHTML = topics.map(t =>
-          `<span class="topic-chip">${t}</span>`
+        document.getElementById('topics-company-name').textContent = company.name + ' Topics';
+        document.getElementById('topics-list').innerHTML = topics.map((topic) =>
+          `<span class="topic-chip">${topic}</span>`
         ).join('');
         panel.style.display = 'block';
-        lucide.createIcons();
       } catch {}
     }
 
-    // ── Mic ──────────────────────────────────────────────────────────────────
     document.getElementById('check-mic').addEventListener('click', async () => {
       const btn = document.getElementById('check-mic');
       const msg = document.getElementById('mic-msg');
       btn.disabled = true;
-      msg.textContent = 'Requesting microphone…';
+      msg.textContent = 'Requesting microphone...';
       try {
         micStream = await navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: true, noiseSuppression: true } });
-        msg.textContent = '✓ Microphone ready!';
+        msg.textContent = 'Microphone ready.';
         msg.style.color = '#38a169';
-        btn.textContent = '✓ Checked';
+        btn.textContent = 'Checked';
         document.getElementById('start-btn').disabled = false;
+        document.querySelector('.meter-wrap').style.display = 'block';
         audioContext = new AudioContext();
         analyser = audioContext.createAnalyser();
         analyser.fftSize = 256;
@@ -219,18 +224,17 @@
           meterFrame = requestAnimationFrame(draw);
         })();
       } catch {
-        msg.textContent = '✗ Microphone blocked.';
+        msg.textContent = 'Microphone blocked.';
         msg.style.color = '#e53e3e';
         btn.disabled = false;
       }
     });
 
-    // ── Start ─────────────────────────────────────────────────────────────────
     async function startPractice(event) {
       event.preventDefault();
       const btn = document.getElementById('start-btn');
       btn.disabled = true;
-      btn.textContent = 'Setting up…';
+      btn.textContent = 'Setting up...';
       document.getElementById('setup-error').textContent = '';
       const qcount = document.querySelector('input[name="pqcount"]:checked').value;
       try {
@@ -254,13 +258,13 @@
       } catch (err) {
         document.getElementById('setup-error').textContent = err.message;
         btn.disabled = false;
-        btn.textContent = 'Start Practice Interview →';
+        btn.textContent = 'Start Practice Interview ->';
       }
     }
 
-    document.querySelectorAll('input[name="pqcount"]').forEach(input => {
+    document.querySelectorAll('input[name="pqcount"]').forEach((input) => {
       input.addEventListener('change', () => {
-        document.querySelectorAll('.qcount-opt').forEach(l => l.classList.remove('active'));
+        document.querySelectorAll('.qcount-opt').forEach((label) => label.classList.remove('active'));
         input.closest('.qcount-opt').classList.add('active');
       });
     });

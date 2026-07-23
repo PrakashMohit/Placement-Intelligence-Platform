@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interview Report - IIT Madras Placement Intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #f27405;
+      --text: #191919;
+      --muted: #666;
+      --line: #e9e9e9;
+      --soft: #fff7ef;
+      --page: #fafafa;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--page);
+    }
+    header {
+      height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(20px, 6vw, 86px);
+      background: white;
+      border-bottom: 1px solid var(--line);
+    }
+    .brand { display: flex; align-items: center; gap: 12px; }
+    .brand img { width: 44px; height: 44px; }
+    .brand strong { display: block; font-size: 1rem; }
+    .brand span { display: block; color: var(--muted); font-size: .82rem; }
+    .nav-actions { display: flex; gap: 10px; }
+    .btn {
+      border: 1.5px solid var(--line);
+      background: white;
+      color: var(--text);
+      border-radius: 12px;
+      padding: 11px 16px;
+      font-weight: 700;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    .btn.primary { background: var(--primary); border-color: var(--primary); color: white; }
+    main { width: min(980px, calc(100% - 32px)); margin: 42px auto 70px; }
+    .summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 180px;
+      gap: 24px;
+      align-items: center;
+      padding-bottom: 28px;
+      border-bottom: 1.5px solid var(--line);
+    }
+    .eyebrow {
+      color: var(--primary);
+      font-size: .78rem;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    h1 { margin: 0; font-size: clamp(2rem, 5vw, 3.8rem); line-height: 1; letter-spacing: -1px; }
+    .meta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; color: var(--muted); }
+    .pill { border: 1px solid var(--line); border-radius: 999px; padding: 8px 11px; background: white; font-size: .86rem; }
+    .score {
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: var(--soft);
+      border: 2px solid rgba(242,116,5,.25);
+      display: grid;
+      place-items: center;
+      text-align: center;
+    }
+    .score strong { display: block; color: var(--primary); font-size: 2.4rem; line-height: 1; }
+    .score span { color: var(--muted); font-size: .82rem; }
+    .state { margin-top: 28px; color: var(--muted); }
+    .answers { margin-top: 24px; display: grid; gap: 14px; }
+    article {
+      background: white;
+      border: 1.5px solid var(--line);
+      border-radius: 8px;
+      padding: 20px;
+    }
+    article h2 { margin: 0 0 14px; font-size: 1rem; line-height: 1.45; }
+    article p { margin: 9px 0 0; color: var(--muted); line-height: 1.55; }
+    .answer-top { display: flex; gap: 16px; justify-content: space-between; align-items: flex-start; }
+    .answer-score { color: var(--primary); font-weight: 800; white-space: nowrap; }
+    .chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+    .chip { background: var(--soft); color: #9a4500; border-radius: 999px; padding: 7px 10px; font-size: .78rem; font-weight: 700; }
+    .hidden { display: none; }
+    @media (max-width: 700px) {
+      header { height: auto; padding-top: 16px; padding-bottom: 16px; align-items: flex-start; gap: 14px; flex-direction: column; }
+      .summary { grid-template-columns: 1fr; }
+      .score { width: 150px; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <img src="/static/images/logo.ico" alt="IITM Logo">
+      <div>
+        <strong>IIT MADRAS</strong>
+        <span>Placement Intelligence</span>
+      </div>
+    </div>
+    <div class="nav-actions">
+      <a class="btn" href="/dashboard">Dashboard</a>
+      <a class="btn primary" href="/interview/new">New Interview</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="summary">
+      <div>
+        <div class="eyebrow">Interview Report</div>
+        <h1 id="report-title">Loading report...</h1>
+        <div id="report-meta" class="meta"></div>
+      </div>
+      <div class="score">
+        <div>
+          <strong id="average-score">--</strong>
+          <span>Average score</span>
+        </div>
+      </div>
+    </section>
+
+    <p id="state" class="state">Fetching your interview report.</p>
+    <section id="answers" class="answers hidden"></section>
+  </main>
+
+  <script>
+    const interviewId = {{ interview_id|tojson }};
+
+    function escapeHtml(text) {
+      const element = document.createElement('div');
+      element.textContent = text || '';
+      return element.innerHTML;
+    }
+
+    function renderChips(items, label) {
+      if (!Array.isArray(items) || !items.length) return '';
+      return `<div class="chips">${items.map((item) => `<span class="chip">${label}: ${escapeHtml(item)}</span>`).join('')}</div>`;
+    }
+
+    async function loadReport() {
+      const state = document.getElementById('state');
+      try {
+        const response = await fetch(`/api/interviews/${interviewId}/results`);
+        const data = await response.json();
+        if (!response.ok) throw new Error(data.error || 'Could not load report.');
+
+        const interview = data.interview || {};
+        document.getElementById('report-title').textContent = interview.role || 'AI Interview';
+        document.getElementById('average-score').textContent = `${data.average_score || 0}/10`;
+        document.getElementById('report-meta').innerHTML = [
+          interview.company || 'AI Generated',
+          interview.level,
+          interview.status,
+          interview.created_at ? interview.created_at.slice(0, 10) : '',
+        ].filter(Boolean).map((item) => `<span class="pill">${escapeHtml(item)}</span>`).join('');
+
+        const answers = data.answers || [];
+        const list = document.getElementById('answers');
+        if (!answers.length) {
+          state.textContent = 'No answer feedback is available for this interview yet.';
+          return;
+        }
+
+        state.classList.add('hidden');
+        list.classList.remove('hidden');
+        list.innerHTML = answers.map((answer) => `
+          <article>
+            <div class="answer-top">
+              <h2>${answer.question_number}. ${escapeHtml(answer.question)}</h2>
+              <span class="answer-score">${answer.score}/10</span>
+            </div>
+            <p><strong>Your answer:</strong> ${escapeHtml(answer.transcript)}</p>
+            <p><strong>Feedback:</strong> ${escapeHtml(answer.feedback)}</p>
+            ${renderChips(answer.strengths, 'Strength')}
+            ${renderChips(answer.improvements, 'Improve')}
+          </article>
+        `).join('');
+      } catch (err) {
+        document.getElementById('report-title').textContent = 'Report unavailable';
+        document.getElementById('average-score').textContent = '--';
+        state.textContent = err.message;
+      }
+    }
+
+    loadReport();
+  </script>
+</body>
+</html>

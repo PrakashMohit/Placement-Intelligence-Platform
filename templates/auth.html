@@ -58,6 +58,17 @@
     .input-group input:focus, .input-group select:focus {
       border-color: #f27405; box-shadow: 0 0 0 3px rgba(242,116,5,.08);
     }
+    .password-field { position: relative; }
+    .password-field input { padding-right: 76px; }
+    .toggle-password {
+      position: absolute; right: 8px; top: 50%; transform: translateY(-50%);
+      border: 0; background: #fff1e5; color: #f27405; border-radius: 10px;
+      padding: 8px 10px; font-weight: 700; font-size: .78rem; cursor: pointer;
+      font-family: 'Inter', sans-serif;
+    }
+    .toggle-password:focus {
+      outline: none; box-shadow: 0 0 0 3px rgba(242,116,5,.15);
+    }
     .input-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
     .input-row input, .input-row select {
       width: 100%; padding: 14px 18px; border-radius: 14px;
@@ -149,8 +160,9 @@
         <div class="input-group">
           <input type="email" id="login-email" placeholder="Email address" required autocomplete="email">
         </div>
-        <div class="input-group">
+        <div class="input-group password-field">
           <input type="password" id="login-password" placeholder="Password" required autocomplete="current-password">
+          <button type="button" class="toggle-password" data-target="login-password" aria-label="Show password">Show</button>
         </div>
         <div class="options">
           <label style="display:flex;align-items:center;gap:6px;cursor:pointer;"><input type="checkbox"> Remember me</label>
@@ -176,7 +188,16 @@
         </div>
         <div class="input-row">
           <input type="text" id="reg-roll" placeholder="Roll Number">
-          <input type="number" id="reg-year" placeholder="Grad Year" min="2024" max="2030">
+          <select id="reg-year">
+            <option value="">Grad Year</option>
+            <option value="2024">2024</option>
+            <option value="2025">2025</option>
+            <option value="2026">2026</option>
+            <option value="2027">2027</option>
+            <option value="2028">2028</option>
+            <option value="2029">2029</option>
+            <option value="2030">2030</option>
+          </select>
         </div>
         <div class="input-group">
           <select id="reg-department">
@@ -190,8 +211,9 @@
         <div class="input-group">
           <input type="email" id="reg-email" placeholder="Email address" required autocomplete="email">
         </div>
-        <div class="input-group">
+        <div class="input-group password-field">
           <input type="password" id="reg-password" placeholder="Password (min 6 chars)" required autocomplete="new-password">
+          <button type="button" class="toggle-password" data-target="reg-password" aria-label="Show password">Show</button>
         </div>
         <button class="signin-btn" type="submit" id="register-btn">Create Account →</button>
         <p class="error-msg" id="register-error"></p>

@@ -117,17 +117,17 @@
         </div>
 
         <label class="upload-box">
-          <input type="file" id="profilePhotoInput" name="profile_photo" accept="image/png,image/jpeg,image/webp">
+          <input type="file" id="profilePhotoInput" name="profile_photo" accept="image/jpeg,.jpg,.jpeg">
           <span class="upload-icon"><i data-lucide="camera"></i></span>
           <strong>Profile Photo</strong>
-          <small>JPG, PNG or WebP</small>
+          <small>JPEG only, up to 1 MB</small>
         </label>
 
         <label class="upload-box">
-          <input type="file" id="resumeInput" name="resume" accept=".pdf,.doc,.docx,application/pdf">
+          <input type="file" id="resumeInput" name="resume" accept=".pdf,application/pdf">
           <span class="upload-icon"><i data-lucide="file-text"></i></span>
           <strong id="resumeLabel">{{ user.resume_filename or "Resume" }}</strong>
-          <small>PDF, DOC or DOCX</small>
+          <small>PDF only, up to 1 MB</small>
         </label>
 
         {% if user.resume_url %}

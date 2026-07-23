@@ -9,6 +9,7 @@ from pathlib import Path
 
 from flask import (
     Flask,
+    has_request_context,
     jsonify,
     redirect,
     render_template,
@@ -41,15 +42,17 @@ app.config["MAX_CONTENT_LENGTH"] = 15 * 1024 * 1024
 # ── Clients ────────────────────────────────────────────────────────────────────
 
 SUPABASE_URL = os.getenv("SUPABASE_URL", "")
-# Support both SUPABASE_KEY (publishable) and SUPABASE_SERVICE_ROLE_KEY
+SUPABASE_SERVICE_ROLE_KEY = os.getenv("SUPABASE_SERVICE_ROLE_KEY", "")
+# Support both SUPABASE_KEY (publishable/anon) and SUPABASE_ANON_KEY
 SUPABASE_KEY = (
     os.getenv("SUPABASE_KEY")
-    or os.getenv("SUPABASE_SERVICE_ROLE_KEY")
     or os.getenv("SUPABASE_ANON_KEY")
+    or SUPABASE_SERVICE_ROLE_KEY
     or ""
 )
 
 supabase: Client = None
+supabase_admin: Client = None
 if SUPABASE_URL and SUPABASE_KEY:
     try:
         supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
@@ -58,6 +61,13 @@ if SUPABASE_URL and SUPABASE_KEY:
         print(f"[DB] Supabase init FAILED: {_sb_err}")
 else:
     print(f"[DB] Supabase NOT configured — URL={SUPABASE_URL!r}, KEY={'set' if SUPABASE_KEY else 'MISSING'}")
+
+if SUPABASE_URL and SUPABASE_SERVICE_ROLE_KEY:
+    try:
+        supabase_admin = create_client(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+        print("[DB] Supabase service-role client available for server-side writes")
+    except Exception as _sb_admin_err:
+        print(f"[DB] Supabase service-role init FAILED: {_sb_admin_err}")
 
 openai_client = OpenAI(timeout=45, max_retries=1) if os.getenv("OPENAI_API_KEY") else None
 
@@ -100,8 +110,12 @@ TARGET_ROLE_OPTIONS = [
     "Consultant",
 ]
 
-ALLOWED_PHOTO_EXTENSIONS = {"jpg", "jpeg", "png", "webp"}
-ALLOWED_RESUME_EXTENSIONS = {"pdf", "doc", "docx"}
+ALLOWED_PHOTO_EXTENSIONS = {"jpg", "jpeg"}
+ALLOWED_RESUME_EXTENSIONS = {"pdf"}
+MAX_PROFILE_ASSET_BYTES = 1 * 1024 * 1024
+SUPABASE_STORAGE_BUCKET = os.getenv("SUPABASE_STORAGE_BUCKET", "profile-assets")
+ALLOWED_PHOTO_MIMES = {"image/jpeg"}
+ALLOWED_RESUME_MIMES = {"application/pdf"}
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -253,19 +267,37 @@ def allowed_file(filename, allowed_extensions):
     return filename.rsplit(".", 1)[1].lower() in allowed_extensions
 
 
-def save_profile_upload(upload, directory, allowed_extensions, user_id):
+def save_profile_upload(upload, folder, allowed_extensions, allowed_mimes, user_id):
     if not upload or not upload.filename:
         return None, None
     filename = secure_filename(upload.filename)
     if not allowed_file(filename, allowed_extensions):
-        return None, None
+        raise ValueError("Unsupported file type.")
+    upload.seek(0, os.SEEK_END)
+    size = upload.tell()
+    upload.seek(0)
+    if size > MAX_PROFILE_ASSET_BYTES:
+        raise ValueError("File must be 1 MB or smaller.")
+    if allowed_mimes and upload.mimetype not in allowed_mimes:
+        raise ValueError("Unsupported file type.")
 
-    directory.mkdir(parents=True, exist_ok=True)
+    storage_client = supabase_admin or get_supabase_db_client()
+    if not storage_client:
+        raise RuntimeError("Storage is not configured.")
+
     ext = filename.rsplit(".", 1)[1].lower()
-    stored_name = f"{user_id}-{uuid.uuid4().hex}.{ext}"
-    upload.save(directory / stored_name)
-    static_path = f"/static/uploads/{directory.name}/{stored_name}"
-    return static_path, filename
+    stored_name = f"{folder}/{user_id}/{uuid.uuid4().hex}.{ext}"
+    file_options = {
+        "content-type": upload.mimetype,
+        "upsert": "true",
+    }
+    storage_client.storage.from_(SUPABASE_STORAGE_BUCKET).upload(
+        stored_name,
+        upload.read(),
+        file_options,
+    )
+    public_url = storage_client.storage.from_(SUPABASE_STORAGE_BUCKET).get_public_url(stored_name)
+    return public_url, filename
 
 
 def require_openai():
@@ -465,39 +497,99 @@ def supabase_required(f):
 # SUPABASE DB HELPERS
 # ══════════════════════════════════════════════════════════════════════════════
 
+def get_supabase_db_client():
+    if supabase_admin:
+        return supabase_admin
+
+    token = session.get("supabase_access_token") if has_request_context() else None
+    if not token:
+        return supabase
+
+    client = create_client(SUPABASE_URL, SUPABASE_KEY)
+    client.postgrest.auth(token)
+    return client
+
+
+def db_table(name):
+    return get_supabase_db_client().table(name)
+
+
+def get_auth_access_token(auth_response):
+    auth_session = getattr(auth_response, "session", None)
+    if not auth_session:
+        return None
+    if isinstance(auth_session, dict):
+        return auth_session.get("access_token")
+    return getattr(auth_session, "access_token", None)
+
+
+def has_db_write_authority():
+    if supabase_admin:
+        return True
+    return bool(session.get("supabase_access_token")) if has_request_context() else False
+
+
+def db_authority_error():
+    return jsonify({
+        "error": (
+            "Your login session needs to be refreshed before saving. "
+            "Please log out and sign in again, or configure SUPABASE_SERVICE_ROLE_KEY for server-side database writes."
+        )
+    }), 401
+
+
 def db_create_interview(data):
-    return supabase.table("interviews").insert(data).execute().data[0]
+    return db_table("interviews").insert(data).execute().data[0]
 
 
 def db_get_interview(interview_id):
-    r = supabase.table("interviews").select("*").eq("id", interview_id).execute()
+    r = db_table("interviews").select("*").eq("id", interview_id).execute()
     return r.data[0] if r.data else None
 
 
 def db_update_interview(interview_id, updates):
-    supabase.table("interviews").update(updates).eq("id", interview_id).execute()
+    db_table("interviews").update(updates).eq("id", interview_id).execute()
 
 
 def db_add_answer(data):
-    return supabase.table("answers").insert(data).execute().data[0]
+    return db_table("answers").insert(data).execute().data[0]
 
 
 def db_list_answers(interview_id):
-    return supabase.table("answers").select("*").eq("interview_id", interview_id).order("question_number").execute().data or []
+    return db_table("answers").select("*").eq("interview_id", interview_id).order("question_number").execute().data or []
 
 
 def db_list_user_interviews(user_id):
-    return supabase.table("interviews").select("*").eq("user_id", user_id).order("created_at", desc=True).limit(20).execute().data or []
+    return db_table("interviews").select("*").eq("user_id", user_id).order("created_at", desc=True).limit(20).execute().data or []
 
 
 def db_get_profile(user_id):
-    r = supabase.table("profiles").select("*").eq("id", user_id).execute()
+    r = db_table("profiles").select("*").eq("id", user_id).execute()
     return r.data[0] if r.data else None
 
 
 def db_upsert_profile(data):
-    r = supabase.table("profiles").upsert(data, on_conflict="id").execute()
+    r = db_table("profiles").upsert(data, on_conflict="id").execute()
     return r.data[0] if r.data else data
+
+
+def parse_graduation_year(value):
+    if value in (None, ""):
+        return None
+    try:
+        year = int(value)
+    except (TypeError, ValueError):
+        raise ValueError("Graduation year must be a valid year.")
+    if year < 2024 or year > 2030:
+        raise ValueError("Graduation year must be between 2024 and 2030.")
+    return year
+
+
+def optional_graduation_year(value):
+    try:
+        return parse_graduation_year(value)
+    except ValueError:
+        return None
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -539,7 +631,10 @@ def dashboard():
 @login_required
 def profile_page():
     user = get_current_user()
-    profile = db_get_profile(user["id"]) if supabase else {}
+    try:
+        profile = db_get_profile(user["id"]) if supabase and has_db_write_authority() else {}
+    except Exception:
+        profile = {}
     current_profile = profile_payload(profile, user)
     return render_template(
         "profile.html",
@@ -605,6 +700,10 @@ def api_register():
         return jsonify({"error": "Password must be at least 6 characters."}), 400
     if department and department not in DEPARTMENTS:
         return jsonify({"error": "Invalid department selected."}), 400
+    try:
+        graduation_year = parse_graduation_year(graduation_year)
+    except ValueError as exc:
+        return jsonify({"error": str(exc)}), 400
 
     try:
         profile_data = {
@@ -613,7 +712,7 @@ def api_register():
             "full_name": full_name,
             "roll_number": roll_number,
             "department": department,
-            "graduation_year": int(graduation_year) if graduation_year else None,
+            "graduation_year": graduation_year,
         }
         auth_response = supabase.auth.sign_up({
             "email": email,
@@ -631,6 +730,9 @@ def api_register():
             return jsonify({"error": "Registration failed. Please try again."}), 400
 
         user_id = auth_response.user.id
+        access_token = get_auth_access_token(auth_response)
+        if access_token:
+            session["supabase_access_token"] = access_token
         profile_data["id"] = user_id
         try:
             db_upsert_profile(profile_data)
@@ -640,13 +742,15 @@ def api_register():
         session["user"] = {
             "id": user_id, "email": email, "full_name": full_name,
             "roll_number": roll_number, "department": department,
-            "graduation_year": int(graduation_year) if graduation_year else None,
+            "graduation_year": graduation_year,
         }
         return jsonify({"message": "Registration successful.", "redirect": url_for("dashboard")}), 201
     except Exception as exc:
         msg = str(exc)
         if "already registered" in msg.lower() or "already exists" in msg.lower():
             return jsonify({"error": "An account with this email already exists."}), 409
+        if "rate limit" in msg.lower() or "too many requests" in msg.lower():
+            return jsonify({"error": "Signup rate limit reached. Please wait a few minutes and try again."}), 429
         app.logger.exception("Registration error")
         return jsonify({"error": "Registration failed. Please try again."}), 500
 
@@ -664,6 +768,9 @@ def api_login():
         if not auth_resp.user:
             return jsonify({"error": "Invalid email or password."}), 401
         user_id = auth_resp.user.id
+        access_token = get_auth_access_token(auth_resp)
+        if access_token:
+            session["supabase_access_token"] = access_token
         profile = db_get_profile(user_id)
         if not profile:
             metadata = getattr(auth_resp.user, "user_metadata", None) or {}
@@ -673,7 +780,7 @@ def api_login():
                 "full_name": clean_text(metadata.get("full_name") or email.split("@")[0], 100),
                 "roll_number": clean_text(metadata.get("roll_number"), 20),
                 "department": clean_text(metadata.get("department"), 80),
-                "graduation_year": int(metadata["graduation_year"]) if str(metadata.get("graduation_year", "")).isdigit() else None,
+                "graduation_year": optional_graduation_year(metadata.get("graduation_year")),
             }
             try:
                 profile = db_upsert_profile(fallback_profile)
@@ -730,6 +837,9 @@ def api_get_profile():
 @supabase_required
 def api_update_profile():
     user = get_current_user()
+    if not has_db_write_authority():
+        return db_authority_error()
+
     existing = db_get_profile(user["id"]) or {}
 
     try:
@@ -749,25 +859,29 @@ def api_update_profile():
         "target_roles": clean_list(target_roles, TARGET_ROLE_OPTIONS),
     }
 
-    photo_url, _photo_filename = save_profile_upload(
-        request.files.get("profile_photo"),
-        PROFILE_PHOTO_DIR,
-        ALLOWED_PHOTO_EXTENSIONS,
-        user["id"],
-    )
-    if request.files.get("profile_photo") and not photo_url:
-        return jsonify({"error": "Profile photo must be a JPG, PNG or WebP file."}), 400
+    try:
+        photo_url, _photo_filename = save_profile_upload(
+            request.files.get("profile_photo"),
+            "profile_photos",
+            ALLOWED_PHOTO_EXTENSIONS,
+            ALLOWED_PHOTO_MIMES,
+            user["id"],
+        )
+    except ValueError as exc:
+        return jsonify({"error": f"Profile photo: {exc} Use a JPEG file up to 1 MB."}), 400
     if photo_url:
         updates["profile_photo_url"] = photo_url
 
-    resume_url, resume_filename = save_profile_upload(
-        request.files.get("resume"),
-        RESUME_DIR,
-        ALLOWED_RESUME_EXTENSIONS,
-        user["id"],
-    )
-    if request.files.get("resume") and not resume_url:
-        return jsonify({"error": "Resume must be a PDF, DOC or DOCX file."}), 400
+    try:
+        resume_url, resume_filename = save_profile_upload(
+            request.files.get("resume"),
+            "resumes",
+            ALLOWED_RESUME_EXTENSIONS,
+            ALLOWED_RESUME_MIMES,
+            user["id"],
+        )
+    except ValueError as exc:
+        return jsonify({"error": f"Resume: {exc} Use a PDF file up to 1 MB."}), 400
     if resume_url:
         updates["resume_url"] = resume_url
         updates["resume_filename"] = resume_filename
@@ -819,6 +933,8 @@ def api_start_interview():
 
     if not role or not level:
         return jsonify({"error": "Role and level are required."}), 400
+    if supabase and not has_db_write_authority():
+        return db_authority_error()
 
     try:
         opening = generate_opening(role, level, focus, company)

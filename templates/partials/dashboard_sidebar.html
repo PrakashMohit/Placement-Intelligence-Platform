@@ -1,0 +1,56 @@
+<div class="overlay"></div>
+
+<aside class="sidebar">
+  <div class="sidebar-top">
+    <div class="sidebar-logo">
+      <img src="/static/images/logo.ico" width="42" alt="IITM Logo">
+      <div>
+        <strong>IIT MADRAS</strong>
+        <span>Placement Intelligence</span>
+      </div>
+    </div>
+  </div>
+
+  <nav class="sidebar-menu">
+    <a href="/dashboard" class="{{ 'active' if active_page == 'dashboard' else '' }}">
+      <i data-lucide="layout-dashboard"></i>
+      Dashboard
+    </a>
+    <a href="/interview/new" class="{{ 'active' if active_page == 'ai_interview' else '' }}">
+      <i data-lucide="mic"></i>
+      AI Interview
+    </a>
+    <a href="/interview/practice" class="{{ 'active' if active_page == 'company_practice' else '' }}">
+      <i data-lucide="building-2"></i>
+      Company Practice
+    </a>
+    <a href="/questions" class="{{ 'active' if active_page == 'questions' else '' }}">
+      <i data-lucide="book-open"></i>
+      Questions
+    </a>
+    <a href="#">
+      <i data-lucide="bar-chart-2"></i>
+      Insights
+    </a>
+    <a href="/profile" class="{{ 'active' if active_page == 'profile' else '' }}">
+      <i data-lucide="user"></i>
+      Profile
+    </a>
+    <a href="#" onclick="logout()">
+      <i data-lucide="log-out"></i>
+      Logout
+    </a>
+  </nav>
+
+  <div class="sidebar-bottom">
+    <div class="user-card">
+      <div class="avatar">
+        {{ user.full_name[0] if user and user.full_name else "P" }}
+      </div>
+      <div>
+        <strong>{{ user.full_name if user and user.full_name else "Student" }}</strong>
+        <span>{{ user.email if user and user.email else "" }}</span>
+      </div>
+    </div>
+  </div>
+</aside>
